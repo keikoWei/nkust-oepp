@@ -81,14 +81,18 @@ onUnmounted(() => {
 
 <style scoped>
 .carousel-container {
-  width: 100%;
+  width: 1280px;
+  max-width: 100%;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .carousel {
   width: 100%;
-  height: 400px;
+  height: 620px;
   position: relative;
 }
 
