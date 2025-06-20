@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue'
 
 const props = defineProps({
   images: {
@@ -14,15 +14,101 @@ const props = defineProps({
 
 const currentIndex = ref(0)
 const timer = ref(null)
+const isTransitioning = ref(false)
+const trackPosition = ref(1) // 實際的軌道位置
+
+// 創建無限循環的圖片陣列（前後各加一張）
+const extendedImages = computed(() => {
+  if (props.images.length === 0) return []
+  const lastImage = props.images[props.images.length - 1]
+  const firstImage = props.images[0]
+  return [lastImage, ...props.images, firstImage]
+})
 
 const next = () => {
+  if (isTransitioning.value) return
+  
+  isTransitioning.value = true
+  
+  // 移動到下一個位置
+  trackPosition.value++
+  
+  // 如果移動到了複製的第一張圖片位置（最後位置）
+  if (trackPosition.value === extendedImages.value.length - 1) {
+    setTimeout(async () => {
+      // 關閉動畫效果
+      const track = document.querySelector('.carousel-track')
+      if (track) {
+        track.style.transition = 'none'
+        // 瞬間跳到實際的第一張位置
+        trackPosition.value = 1
+        
+        await nextTick()
+        setTimeout(() => {
+          // 重新開啟動畫
+          track.style.transition = 'transform 0.6s ease-in-out'
+          isTransitioning.value = false
+        }, 10)
+      }
+    }, 600)
+  } else {
+    setTimeout(() => {
+      isTransitioning.value = false
+    }, 600)
+  }
+  
+  // 更新邏輯索引
   currentIndex.value = (currentIndex.value + 1) % props.images.length
 }
 
 const prev = () => {
+  if (isTransitioning.value) return
+  
+  isTransitioning.value = true
+  
+  // 移動到上一個位置
+  trackPosition.value--
+  
+  // 如果移動到了複製的最後一張圖片位置（第一個位置）
+  if (trackPosition.value === 0) {
+    setTimeout(async () => {
+      // 關閉動畫效果
+      const track = document.querySelector('.carousel-track')
+      if (track) {
+        track.style.transition = 'none'
+        // 瞬間跳到實際的最後一張位置
+        trackPosition.value = props.images.length
+        
+        await nextTick()
+        setTimeout(() => {
+          // 重新開啟動畫
+          track.style.transition = 'transform 0.6s ease-in-out'
+          isTransitioning.value = false
+        }, 10)
+      }
+    }, 600)
+  } else {
+    setTimeout(() => {
+      isTransitioning.value = false
+    }, 600)
+  }
+  
+  // 更新邏輯索引
   currentIndex.value = currentIndex.value === 0 
     ? props.images.length - 1 
     : currentIndex.value - 1
+}
+
+const goToSlide = (index) => {
+  if (isTransitioning.value) return
+  
+  isTransitioning.value = true
+  currentIndex.value = index
+  trackPosition.value = index + 1 // 考慮前面加的一張圖片
+  
+  setTimeout(() => {
+    isTransitioning.value = false
+  }, 600)
 }
 
 const startTimer = () => {
@@ -39,6 +125,8 @@ const stopTimer = () => {
 }
 
 onMounted(() => {
+  // 初始位置設為第一張實際圖片（索引1）
+  trackPosition.value = 1
   startTimer()
 })
 
@@ -52,14 +140,14 @@ onUnmounted(() => {
        @mouseenter="stopTimer" 
        @mouseleave="startTimer">
     <div class="carousel">
-      <transition-group name="fade">
-        <img v-for="(image, index) in images" 
+      <div class="carousel-track" 
+           :style="{ transform: `translateX(-${trackPosition * 100}%)` }">
+        <img v-for="(image, index) in extendedImages" 
              :key="index"
              :src="image.url"
              :alt="image.alt"
-             v-show="currentIndex === index"
              class="carousel-image">
-      </transition-group>
+      </div>
       
       <button class="carousel-button prev" @click="prev">
         &#10094;
@@ -72,7 +160,7 @@ onUnmounted(() => {
         <span v-for="(_, index) in images" 
               :key="index"
               :class="['dot', { active: currentIndex === index }]"
-              @click="currentIndex = index">
+              @click="goToSlide(index)">
         </span>
       </div>
     </div>
@@ -94,15 +182,21 @@ onUnmounted(() => {
   width: 100%;
   height: 620px;
   position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+  flex-shrink: 0;
 }
 
 .carousel-button {
@@ -146,13 +240,5 @@ onUnmounted(() => {
   background: white;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style> 
