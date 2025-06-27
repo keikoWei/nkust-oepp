@@ -4,7 +4,7 @@
     <div class="wave-decoration">
       <svg width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
         <path d="M0,35 C90,35 90,85 180,85 C270,85 270,35 360,35 C450,35 450,85 540,85 C630,85 630,35 720,35 C810,35 810,85 900,85 C990,85 990,35 1080,35 C1140,35 1140,85 1200,85 L1200,0 L0,0 Z" 
-              fill="#fff" 
+              :fill="waveColor" 
               stroke="none"/>
       </svg>
     </div>
@@ -63,7 +63,13 @@
 </template>
 
 <script setup>
-// 無需額外邏輯
+// 定義props，允許自定義波浪顏色
+const props = defineProps({
+  waveColor: {
+    type: String,
+    default: '#fff' // 默認白色，保持首頁原有效果
+  }
+})
 </script>
 
 <style scoped>
@@ -71,7 +77,7 @@
   width: 100%;
   background-color: #4d4d4d;
   color: white;
-  margin-top: 4rem;
+  margin-top: 0;
   position: relative;
 }
 
@@ -80,6 +86,7 @@
   height: 100px;
   background: transparent;
   margin-bottom: -5px;
+  margin-top: -35px;
 }
 
 .footer-content {

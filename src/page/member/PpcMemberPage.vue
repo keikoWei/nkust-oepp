@@ -1,4 +1,11 @@
 <template>
+  <!-- 頂部圖片區域 -->
+  <section class="member-banner">
+    <div class="banner-image">
+      <img src="/image/members/member_top.jpg" alt="成員介紹頂部圖片" class="banner-img">
+    </div>
+  </section>
+  
   <div class="member-page">
     <DepartmentHeader activeTab="ppc" />
     
@@ -18,12 +25,16 @@
       />
     </div>
   </div>
+  
+  <!-- Footer -->
+  <MainFooterComponent waveColor="#d9d9d9" />
 </template>
 
 <script setup>
 import DepartmentHeader from '@/components/member/DepartmentHeader.vue'
 import DirectorCard from '@/components/member/DirectorCard.vue'
 import MemberCard from '@/components/member/MemberCard.vue'
+import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
 // 中心主任資訊
 const directorInfo = {
@@ -69,14 +80,36 @@ const membersInfo = [
 </script>
 
 <style scoped>
+/* 頂部圖片區域 */
+.member-banner {
+  width: calc(70vw);
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 630px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .member-page {
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 100px 1rem;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   background-color: #d9d9d9;
-  min-height: 100vh;
 }
 
 /* 中心成員標題 */

@@ -1,10 +1,5 @@
 <template>
   <div>
-    <!-- 頂部圖片 -->
-    <div class="header-image">
-      <img src="/image/members/member_top.jpg" alt="成員介紹頂部圖片" class="top-image">
-    </div>
-    
     <!-- 業務職掌標題 -->
     <div class="page-header">
       <h1>業務職掌</h1>
@@ -89,18 +84,5 @@ defineProps({
   font-weight: normal;
 }
 
-/* 頂部圖片 */
-.header-image {
-  margin-bottom: 2rem;
-  width: 100%;
-  text-align: center;
-}
-
-.top-image {
-  width: 100vw;
-  height: 420px;
-  max-width: 100%;
-  object-fit: cover;
-  margin: -2rem calc(-15vw) 2rem calc(-15vw);
-}
+/* 移除頂部圖片樣式，圖片現在獨立在頁面中 */
 </style> 
