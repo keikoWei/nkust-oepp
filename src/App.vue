@@ -32,7 +32,7 @@ import { RouterLink, RouterView } from 'vue-router'
                       <q-item-section>中心簡介</q-item-section>
                     </q-item>
                   </RouterLink>
-                  <RouterLink to="/about/members" custom v-slot="{ navigate }">
+                  <RouterLink to="/about/members/oepp" custom v-slot="{ navigate }">
                     <q-item clickable @click="navigate">
                       <q-item-section>人事介紹</q-item-section>
                     </q-item>
@@ -148,14 +148,14 @@ body {
 
 /* 容器樣式 */
 .content-wrapper {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
   margin: 0 auto;
 }
 
 /* 導航欄內的 content-wrapper */
 .nav-container .content-wrapper {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
   margin: 0;
 }
@@ -197,13 +197,14 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 120px;
 }
 
 /* 學校首頁按鈕樣式 */
 .school-home-btn {
-  font-size: 20pt !important;
-  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif !important;
+  font-size: 26pt !important;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif !important;
+  font-weight: normal !important;
 }
 
 /* 導航欄樣式 */
@@ -211,21 +212,26 @@ body {
   background-color: #3f5963 !important;
   border: none !important;
   box-shadow: none !important;
-  margin: 0 !important;
-  width: 1280px !important;
+  margin: 0 auto !important;
+  width: 100vw !important;
   max-width: 100% !important;
 }
 
 .navigation-group {
-  width: 100%;
+  width: 70vw;
+  margin: 0 auto;
   justify-content: space-between;
+  padding: 0 2rem;
 }
 
 .navigation-group .q-btn {
   color: #fff;
-  font-size: 1.1rem;
-  padding: 15px 20px;
+  font-size: 26pt;
+  padding: 23px 10px;
+  margin: 0 5px;
   transition: background-color 0.3s;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif !important;
+  font-weight: normal !important;
 }
 
 .navigation-group .q-btn:hover,
@@ -240,6 +246,8 @@ body {
 
 .custom-dropdown-list .q-item {
   color: #fff;
+  font-size: 24pt;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
 }
 
 .custom-dropdown-list .q-item:hover {

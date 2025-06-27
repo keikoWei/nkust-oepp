@@ -168,7 +168,7 @@ const toggleExpand = () => {
   background-color: #3f5963;
   color: white;
   padding: 10px 12px;
-  font-size: 14px;
+  font-size: 14pt;
   font-weight: bold;
   min-width: 90px;
   text-align: center;
@@ -183,7 +183,7 @@ const toggleExpand = () => {
 }
 
 .news-text {
-  font-size: 16px;
+  font-size: 16pt;
   color: #333;
   line-height: 1.5;
   flex: 1;
@@ -249,7 +249,7 @@ const toggleExpand = () => {
   }
   
   .news-text {
-    font-size: 14px;
+    font-size: 14pt;
   }
   
   .expand-btn {
@@ -273,7 +273,7 @@ const toggleExpand = () => {
   }
   
   .news-text {
-    font-size: 12px;
+    font-size: 12pt;
   }
 }
 </style> 

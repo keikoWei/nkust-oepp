@@ -91,7 +91,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem 0 4rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,9 +101,9 @@
 .footer-title {
   text-align: left;
   margin-bottom: 3rem;
-  padding-left: 2rem;
+  padding-left: 0;
   width: 100%;
-  max-width: 1280px;
+  max-width: 70vw;
 }
 
 .footer-title h2 {
@@ -118,38 +118,38 @@
 .contact-grid {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
-  max-width: 1280px;
+  max-width: 70vw;
 }
 
 .contact-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  justify-items: center;
+  gap: 4rem;
+  justify-items: flex-start;
 }
 
 .contact-item {
   text-align: left;
-  padding: 1rem;
+  padding: 0;
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
 }
 
 .contact-item h3 {
-  font-size: 23px;
+  font-size: 23pt;
   font-weight: bold;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.8rem 0;
   color: white;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
 .contact-item p {
-  font-size: 22px;
-  margin: 0.5rem 0;
+  font-size: 23pt;
+  margin: 0.3rem 0;
   color: white;
-  line-height: 1.4;
+  line-height: 1.3;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 

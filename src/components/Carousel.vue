@@ -149,6 +149,14 @@ onUnmounted(() => {
              class="carousel-image">
       </div>
       
+      <!-- 浮水印文字 -->
+      <div class="watermark-overlay">
+        <div class="watermark-text">
+          <h1 class="watermark-title">教育事業暨產品推廣處</h1>
+          <p class="watermark-subtitle">Office of Educational and Product Promotion</p>
+        </div>
+      </div>
+      
       <button class="carousel-button prev" @click="prev">
         &#10094;
       </button>
@@ -169,7 +177,7 @@ onUnmounted(() => {
 
 <style scoped>
 .carousel-container {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
@@ -180,7 +188,7 @@ onUnmounted(() => {
 
 .carousel {
   width: 100%;
-  height: 620px;
+  height: 750px;
   position: relative;
   overflow: hidden;
 }
@@ -238,6 +246,86 @@ onUnmounted(() => {
 
 .dot.active {
   background: white;
+}
+
+/* 浮水印樣式 */
+.watermark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+  padding-left: 5%;
+  padding-top: 8%;
+}
+
+.watermark-text {
+  text-align: left;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.watermark-title {
+  font-size: 55pt;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  letter-spacing: 2px;
+}
+
+.watermark-subtitle {
+  font-size: 18pt;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  line-height: 1.3;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .watermark-title {
+    font-size: 48pt;
+  }
+  
+  .watermark-subtitle {
+    font-size: 16pt;
+  }
+  
+  .watermark-overlay {
+    padding-left: 3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .watermark-title {
+    font-size: 36pt;
+  }
+  
+  .watermark-subtitle {
+    font-size: 14pt;
+  }
+  
+  .watermark-overlay {
+    padding-left: 2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .watermark-title {
+    font-size: 28pt;
+  }
+  
+  .watermark-subtitle {
+    font-size: 12pt;
+  }
 }
 
 

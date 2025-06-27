@@ -85,7 +85,7 @@ const handleMoreInfo = () => {
 
 .title-text {
   color: #333;
-  font-size: 45px;
+  font-size: 45pt;
   font-weight: bold;
   margin: 20px 0;
   letter-spacing: 1px;
@@ -95,21 +95,22 @@ const handleMoreInfo = () => {
 .events-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 30px;
-  max-width: 1050px;
+  gap: 50px;
+  margin-bottom: 40px;
+  max-width: 1575px;
   margin-left: auto;
   margin-right: auto;
   justify-items: center;
+  padding: 20px 0;
 }
 
 .event-card {
   background: #f5f5f5;
-  border-radius: 15px;
-  padding: 12px;
+  border-radius: 25px;
+  padding: 18px;
   transition: transform 0.3s ease;
-  width: 510px;
-  height: 335px;
+  width: 765px;
+  height: 502px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +124,7 @@ const handleMoreInfo = () => {
 .image-container {
   width: 100%;
   height: 85%;
-  border-radius: 8px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -165,7 +166,7 @@ const handleMoreInfo = () => {
   background-color: #3f5963 !important;
   color: white !important;
   padding: 8px 30px;
-  font-size: 16px;
+  font-size: 16pt;
   font-weight: bold;
   min-width: 120px;
   border: none;
@@ -179,27 +180,32 @@ const handleMoreInfo = () => {
 /* 響應式設計 */
 @media (max-width: 1100px) {
   .events-grid {
-    max-width: 600px;
+    max-width: 900px;
+    gap: 40px;
+    padding: 15px 0;
   }
   
   .event-card {
-    width: 400px;
-    height: 260px;
-    padding: 10px;
+    width: 600px;
+    height: 390px;
+    padding: 15px;
+    border-radius: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .events-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-    max-width: 400px;
+    gap: 35px;
+    max-width: 600px;
+    padding: 15px 0;
   }
   
   .event-card {
-    width: 400px;
-    height: 260px;
-    padding: 10px;
+    width: 600px;
+    height: 390px;
+    padding: 15px;
+    border-radius: 18px;
   }
   
   .image-container {
@@ -208,7 +214,7 @@ const handleMoreInfo = () => {
   }
   
   .title-text {
-    font-size: 16px;
+    font-size: 16pt;
   }
   
   .events-wrapper {
@@ -228,13 +234,16 @@ const handleMoreInfo = () => {
 
 @media (max-width: 480px) {
   .events-grid {
-    max-width: 320px;
+    max-width: 480px;
+    gap: 30px;
+    padding: 10px 0;
   }
   
   .event-card {
-    width: 300px;
-    height: 200px;
-    padding: 8px;
+    width: 450px;
+    height: 300px;
+    padding: 12px;
+    border-radius: 15px;
   }
   
   .image-container {
@@ -244,7 +253,7 @@ const handleMoreInfo = () => {
   
   .more-btn {
     padding: 6px 25px;
-    font-size: 14px;
+    font-size: 14pt;
     min-width: 100px;
   }
   

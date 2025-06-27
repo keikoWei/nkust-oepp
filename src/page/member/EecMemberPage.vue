@@ -1,0 +1,100 @@
+<template>
+  <div class="member-page">
+    <DepartmentHeader activeTab="eec" />
+    
+    <DirectorCard :director="directorInfo" />
+
+    <!-- 中心成員標題 -->
+    <div class="members-header">
+      <h2>中心成員</h2>
+    </div>
+
+    <!-- 中心成員區域 -->
+    <div class="members-section">
+      <MemberCard 
+        v-for="member in membersInfo" 
+        :key="member.name" 
+        :member="member" 
+      />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import DepartmentHeader from '@/components/member/DepartmentHeader.vue'
+import DirectorCard from '@/components/member/DirectorCard.vue'
+import MemberCard from '@/components/member/MemberCard.vue'
+
+// 中心主任資訊
+const directorInfo = {
+  title: '中心主任',
+  name: '待聘',
+  photo: '/image/members/default_woman_02.png',
+  extension: '-',
+  email: '-',
+  responsibility: '教育推廣中心業務綜理'
+}
+
+// 中心成員資訊
+const membersInfo = [
+  {
+    title: '專案助理',
+    name: '待聘',
+    photo: '/image/members/default_woman_01.png',
+    contacts: [
+      { label: '分機', value: '-' },
+      { label: '信箱', value: '-' }
+    ],
+    responsibilities: [
+      '教育推廣業務執行',
+      '計畫規劃與管理',
+      '對外聯繫協調'
+    ]
+  },
+  {
+    title: '專案助理',
+    name: '待聘',
+    photo: '/image/members/default_man_02.png',
+    contacts: [
+      { label: '分機', value: '-' },
+      { label: '信箱', value: '-' }
+    ],
+    responsibilities: [
+      '教育訓練課程規劃',
+      '學員服務與管理',
+      '行政業務處理'
+    ]
+  }
+]
+</script>
+
+<style scoped>
+.member-page {
+  width: 70vw;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  background-color: #d9d9d9;
+  min-height: 100vh;
+}
+
+/* 中心成員標題 */
+.members-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.members-header h2 {
+  font-size: 24pt;
+  color: #333;
+  margin: 0;
+  font-weight: normal;
+}
+
+/* 中心成員區域 */
+.members-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+</style>

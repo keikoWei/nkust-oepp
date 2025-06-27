@@ -65,9 +65,9 @@ const carouselImages = [
 }
 
 .banner {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 6rem auto;
   margin-top: 0;
   padding-top: 0;
 }
@@ -79,7 +79,7 @@ const carouselImages = [
 }
 
 .oepp-events {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
   margin: 0 auto 2rem auto;
 }
@@ -116,7 +116,7 @@ const carouselImages = [
 .video-section,
 .achievement-section,
 .activities-section {
-  width: 1280px;
+  width: 70vw;
   max-width: 100%;
   margin: 0 auto 3rem auto;
 }

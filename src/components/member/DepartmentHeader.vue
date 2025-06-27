@@ -1,0 +1,106 @@
+<template>
+  <div>
+    <!-- 頂部圖片 -->
+    <div class="header-image">
+      <img src="/image/members/member_top.jpg" alt="成員介紹頂部圖片" class="top-image">
+    </div>
+    
+    <!-- 業務職掌標題 -->
+    <div class="page-header">
+      <h1>業務職掌</h1>
+      <div class="department-nav">
+        <router-link to="/about/members/oepp" :class="['nav-item', { active: activeTab === 'oepp' }]">
+          處本部
+        </router-link>
+        <span class="nav-separator">|</span>
+        <router-link to="/about/members/eec" :class="['nav-item', { active: activeTab === 'eec' }]">
+          教育推廣中心
+        </router-link>
+        <span class="nav-separator">|</span>
+        <router-link to="/about/members/ppc" :class="['nav-item', { active: activeTab === 'ppc' }]">
+          產品推廣中心
+        </router-link>
+        <span class="nav-separator">|</span>
+        <router-link to="/about/members/epc" :class="['nav-item', { active: activeTab === 'epc' }]">
+          會展及出版中心
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+defineProps({
+  activeTab: {
+    type: String,
+    required: true,
+    validator: (value) => ['oepp', 'eec', 'ppc', 'epc'].includes(value)
+  }
+})
+</script>
+
+<style scoped>
+/* 頁面標題區域 */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 36pt;
+  color: #333;
+  margin: 0 0 2rem 0;
+  font-weight: normal;
+}
+
+.department-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: #d9d9d9;
+  padding: 0.5rem;
+}
+
+.nav-item {
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: #666;
+  font-size: 20pt;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  font-weight: normal;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active {
+  color: #333;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.nav-item:not(.active):hover {
+  color: #3f5963;
+}
+
+.nav-separator {
+  color: #666;
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+/* 頂部圖片 */
+.header-image {
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.top-image {
+  width: 100vw;
+  height: 420px;
+  max-width: 100%;
+  object-fit: cover;
+  margin: -2rem calc(-15vw) 2rem calc(-15vw);
+}
+</style> 

@@ -117,8 +117,8 @@ const goToVideo = (index) => {
 
 /* 影片播放區域 */
 .video-player-wrapper {
-  width: 1280px;
-  height: 730px;
+  width: 1536px;
+  height: 876px;
   max-width: 100%;
   margin: 0 auto;
   background: #e5e5e5;
@@ -133,8 +133,8 @@ const goToVideo = (index) => {
 
 /* 影片框架 */
 .video-frame {
-  width: 1024px;
-  height: 576px;
+  width: 1296px;
+  height: 729px;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
@@ -209,15 +209,15 @@ const goToVideo = (index) => {
 }
 
 /* 響應式設計 */
-@media (max-width: 1320px) {
+@media (max-width: 1600px) {
   .video-player-wrapper {
     width: 95%;
     height: auto;
-    aspect-ratio: 1280 / 730;
+    aspect-ratio: 1536 / 876;
   }
   
   .video-frame {
-    width: 90%;
+    width: 95%;
     aspect-ratio: 16 / 9;
     height: auto;
   }

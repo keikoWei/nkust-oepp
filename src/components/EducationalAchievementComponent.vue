@@ -210,7 +210,7 @@ onUnmounted(() => {
 
 /* 成就網格 */
 .achievement-grid {
-  max-width: 1280px;
+  max-width: 70vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -265,14 +265,14 @@ onUnmounted(() => {
 }
 
 .percentage-number {
-  font-size: 48px;
+  font-size: 48pt;
   font-weight: bold;
   color: #333;
   line-height: 1;
 }
 
 .percentage-symbol {
-  font-size: 28px;
+  font-size: 28pt;
   font-weight: bold;
   color: #333;
 }
@@ -305,11 +305,11 @@ onUnmounted(() => {
   }
   
   .percentage-number {
-    font-size: 40px;
+    font-size: 40pt;
   }
   
   .percentage-symbol {
-    font-size: 24px;
+    font-size: 24pt;
   }
 }
 
@@ -338,11 +338,11 @@ onUnmounted(() => {
   }
   
   .percentage-number {
-    font-size: 36px;
+    font-size: 36pt;
   }
   
   .percentage-symbol {
-    font-size: 20px;
+    font-size: 20pt;
   }
 }
 
@@ -370,11 +370,11 @@ onUnmounted(() => {
   }
   
   .percentage-number {
-    font-size: 32px;
+    font-size: 32pt;
   }
   
   .percentage-symbol {
-    font-size: 18px;
+    font-size: 18pt;
   }
 }
 </style> 
