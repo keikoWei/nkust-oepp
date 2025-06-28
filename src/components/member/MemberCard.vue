@@ -4,8 +4,10 @@
       <img :src="member.photo" :alt="`${member.title}照片`" class="photo">
     </div>
     <div class="member-info">
-      <h3 class="member-title">{{ member.title }}</h3>
-      <h4 class="member-name">{{ member.name }}</h4>
+      <div class="title-name-row">
+        <h3 class="member-title">{{ member.title }}</h3>
+        <h4 class="member-name">{{ member.name }}</h4>
+      </div>
       <p v-if="member.subtitle" class="member-subtitle">{{ member.subtitle }}</p>
       <div class="contact-info">
         <p v-for="contact in member.contacts" :key="contact.label">
@@ -68,18 +70,31 @@ defineProps({
   padding-top: 1rem;
 }
 
+.title-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 .member-title {
-  font-size: 20pt;
+  font-size: 32pt;
   color: #3f5963;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   font-weight: normal;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .member-name {
   font-size: 24pt;
   color: #333;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   font-weight: bold;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .member-subtitle {
@@ -95,12 +110,12 @@ defineProps({
 
 .contact-info p {
   margin: 0.3rem 0;
-  font-size: 13pt;
+  font-size: 20pt;
   color: #333;
 }
 
 .description {
-  font-size: 13pt;
+  font-size: 20pt;
   color: #333;
 }
 

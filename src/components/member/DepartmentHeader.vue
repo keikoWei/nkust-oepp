@@ -42,7 +42,7 @@ defineProps({
 }
 
 .page-header h1 {
-  font-size: 36pt;
+  font-size: 45pt;
   color: #333;
   margin: 0 0 2rem 0;
   font-weight: normal;
@@ -61,7 +61,7 @@ defineProps({
   padding: 0.8rem 1rem;
   text-decoration: none;
   color: #666;
-  font-size: 20pt;
+  font-size: 32pt;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
   transition: all 0.3s ease;

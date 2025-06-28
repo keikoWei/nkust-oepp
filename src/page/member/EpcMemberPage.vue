@@ -120,7 +120,7 @@ const membersInfo = [
 }
 
 .members-header h2 {
-  font-size: 24pt;
+  font-size: 45pt;
   color: #333;
   margin: 0;
   font-weight: normal;

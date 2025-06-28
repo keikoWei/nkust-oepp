@@ -5,8 +5,10 @@
         <img :src="director.photo" :alt="`${director.title}照片`" class="photo">
       </div>
       <div class="director-info">
-        <h2 class="title">{{ director.title }}</h2>
-        <h3 class="name">{{ director.name }}</h3>
+        <div class="title-name-row">
+          <h2 class="title">{{ director.title }}</h2>
+          <h3 class="name">{{ director.name }}</h3>
+        </div>
         <div class="contact-info">
           <p><span class="label">分機：</span>{{ director.extension }}</p>
           <p><span class="label">信箱：</span>{{ director.email }}</p>
@@ -68,18 +70,31 @@ defineProps({
   flex: 1;
 }
 
+.title-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 .director-info .title {
-  font-size: 24pt;
+  font-size: 40pt;
   color: #3f5963;
-  margin: 0 0 1rem 0;
+  margin: 0;
   font-weight: normal;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .director-info .name {
-  font-size: 30pt;
+  font-size: 55pt;
   color: #333;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   font-weight: bold;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .contact-info {
@@ -88,12 +103,12 @@ defineProps({
 
 .contact-info p {
   margin: 0.5rem 0;
-  font-size: 14pt;
+  font-size: 23pt;
   color: #333;
 }
 
 .description {
-  font-size: 14pt;
+  font-size: 23pt;
   color: #333;
 }
 
