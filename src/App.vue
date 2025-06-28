@@ -61,14 +61,14 @@ import { RouterLink, RouterView } from 'vue-router'
                        label="會展及出版中心" />
               </RouterLink>
               
-              <RouterLink to="/regulations" custom v-slot="{ navigate, isActive }">
+              <RouterLink to="/regulations/oepp" custom v-slot="{ navigate, isActive }">
                 <q-btn flat no-caps 
                        :class="isActive ? 'router-link-active' : ''" 
                        @click="navigate" 
                        label="法規彙編" />
               </RouterLink>
               
-              <RouterLink to="/download" custom v-slot="{ navigate, isActive }">
+              <RouterLink to="/download/oepp" custom v-slot="{ navigate, isActive }">
                 <q-btn flat no-caps 
                        :class="isActive ? 'router-link-active' : ''" 
                        @click="navigate" 

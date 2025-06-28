@@ -27,6 +27,46 @@ const router = createRouter({
       path: '/about/members/epc',
       name: 'epc-members',
       component: () => import('../page/member/EpcMemberPage.vue')
+    },
+    {
+      path: '/regulations/oepp',
+      name: 'oepp-regulations',
+      component: () => import('../page/regulation/OeppRegulationPage.vue')
+    },
+    {
+      path: '/regulations/eec',
+      name: 'eec-regulations',
+      component: () => import('../page/regulation/EecRegulationPage.vue')
+    },
+    {
+      path: '/regulations/ppc',
+      name: 'ppc-regulations',
+      component: () => import('../page/regulation/PpcRegulationPage.vue')
+    },
+    {
+      path: '/regulations/epc',
+      name: 'epc-regulations',
+      component: () => import('../page/regulation/EpcRegulationPage.vue')
+    },
+    {
+      path: '/download/oepp',
+      name: 'oepp-download',
+      component: () => import('../page/download/OeppDownloadPage.vue')
+    },
+    {
+      path: '/download/eec',
+      name: 'eec-download',
+      component: () => import('../page/download/EecDownloadPage.vue')
+    },
+    {
+      path: '/download/ppc',
+      name: 'ppc-download',
+      component: () => import('../page/download/PpcDownloadPage.vue')
+    },
+    {
+      path: '/download/epc',
+      name: 'epc-download',
+      component: () => import('../page/download/EpcDownloadPage.vue')
     }
   ]
 })
