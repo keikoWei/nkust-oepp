@@ -1,4 +1,6 @@
 <template>
+  <AppHeader />
+  
   <!-- 頂部圖片區域 -->
   <section class="regulation-banner">
     <div class="banner-image">
@@ -21,6 +23,7 @@
 </template>
 
 <script setup>
+import AppHeader from '@/components/AppHeader.vue'
 import RegulationHeader from '@/components/regulation/RegulationHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 </script>

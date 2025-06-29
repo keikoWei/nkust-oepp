@@ -74,7 +74,9 @@ const props = defineProps({
 
 <style scoped>
 .main-footer {
-  width: 100%;
+  width: 70vw;
+  max-width: 100%;
+  margin: 0 auto;
   background-color: #4d4d4d;
   color: white;
   margin-top: 0;
@@ -96,9 +98,9 @@ const props = defineProps({
 }
 
 .container {
-  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem 0 14rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +112,6 @@ const props = defineProps({
   margin-bottom: 3rem;
   padding-left: 0;
   width: 100%;
-  max-width: 70vw;
 }
 
 .footer-title h2 {
@@ -127,7 +128,6 @@ const props = defineProps({
   flex-direction: column;
   gap: 3rem;
   width: 100%;
-  max-width: 70vw;
 }
 
 .contact-row {
@@ -175,7 +175,7 @@ const props = defineProps({
   }
   
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1rem 0 9rem;
   }
 }
 
@@ -225,7 +225,7 @@ const props = defineProps({
   }
   
   .container {
-    padding: 0 1rem;
+    padding: 0 0.5rem 0 4.5rem;
   }
   
   .contact-item {

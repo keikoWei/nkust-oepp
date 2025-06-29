@@ -1,4 +1,6 @@
 <template>
+  <AppHeader />
+  
   <!-- 頂部圖片區域 -->
   <section class="member-banner">
     <div class="banner-image">
@@ -31,6 +33,7 @@
 </template>
 
 <script setup>
+import AppHeader from '@/components/AppHeader.vue'
 import DepartmentHeader from '@/components/member/DepartmentHeader.vue'
 import DirectorCard from '@/components/member/DirectorCard.vue'
 import MemberCard from '@/components/member/MemberCard.vue'
