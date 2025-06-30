@@ -63,11 +63,15 @@
 </template>
 
 <script setup>
-// 定義props，允許自定義波浪顏色
+// 定義props，允許自定義波浪顏色和背景色
 const props = defineProps({
   waveColor: {
     type: String,
     default: '#fff' // 默認白色，保持首頁原有效果
+  },
+  backgroundColor: {
+    type: String,
+    default: '#4d4d4d' // 默認深灰色
   }
 })
 </script>
@@ -77,7 +81,7 @@ const props = defineProps({
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
-  background-color: #4d4d4d;
+  background-color: v-bind(backgroundColor);
   color: white;
   margin-top: 0;
   position: relative;

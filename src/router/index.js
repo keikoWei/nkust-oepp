@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('../layout/OeppMainLayout.vue')
     },
     {
+      path: '/productCenter',
+      name: 'product-center',
+      component: () => import('../layout/PpcLayout.vue')
+    },
+    {
       path: '/about/members/oepp',
       name: 'oepp-members',
       component: () => import('../page/member/OeppMemberPage.vue')

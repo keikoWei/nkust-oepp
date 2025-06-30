@@ -9,6 +9,10 @@ const props = defineProps({
   interval: {
     type: Number,
     default: 5000
+  },
+  showWatermark: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -150,7 +154,7 @@ onUnmounted(() => {
       </div>
       
       <!-- 浮水印文字 -->
-      <div class="watermark-overlay">
+      <div v-if="showWatermark" class="watermark-overlay">
         <div class="watermark-text">
           <h1 class="watermark-title">教育事業暨產品推廣處</h1>
           <p class="watermark-subtitle">Office of Educational and Product Promotion</p>
@@ -188,7 +192,7 @@ onUnmounted(() => {
 
 .carousel {
   width: 100%;
-  height: 750px;
+  height: 950px;
   position: relative;
   overflow: hidden;
 }

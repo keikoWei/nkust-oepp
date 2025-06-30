@@ -39,7 +39,7 @@
                 教育推廣中心
               </RouterLink>
               
-              <RouterLink to="/products" class="nav-btn">
+              <RouterLink to="/productCenter" class="nav-btn">
                 產品推廣中心
               </RouterLink>
               
