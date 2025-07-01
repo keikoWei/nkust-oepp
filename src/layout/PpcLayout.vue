@@ -1,65 +1,6 @@
 <template>
   <div class="ppc-layout">
-    <!-- Header區域 -->
-    <header class="custom-header">
-      <div class="header-top">
-        <div class="content-wrapper">
-          <div class="logo">
-            <RouterLink to="/" custom v-slot="{ navigate }">
-              <img src="/image/oepp.png" alt="高科大教推處" @click="navigate" style="cursor: pointer;" />
-            </RouterLink>
-          </div>
-          <div class="right-section">
-            <button class="school-home-btn" @click="openSchoolHome">
-              學校首頁
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="nav-container">
-        <div class="content-wrapper">
-          <nav class="custom-nav-bg">
-            <div class="navigation-group">
-              <div class="nav-dropdown" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
-                <button class="nav-btn dropdown-btn">
-                  產品推廣中心
-                  <span class="dropdown-arrow">▼</span>
-                </button>
-                <div class="dropdown-menu" v-show="showDropdown">
-                  <RouterLink to="/about/members/ppc" @click="closeDropdown">
-                    <div class="dropdown-item">人事介紹</div>
-                  </RouterLink>
-                </div>
-              </div>
-              
-              <a href="https://dkshop2020.cyberbiz.co/" target="_blank" class="nav-btn">
-                DK/SHOP 高科精品
-              </a>
-              
-              <RouterLink to="/products/news" class="nav-btn">
-                最新消息
-              </RouterLink>
-              
-              <RouterLink to="/products/activities" class="nav-btn">
-                活動資訊
-              </RouterLink>
-              
-              <RouterLink to="/download/ppc" class="nav-btn">
-                下載專區
-              </RouterLink>
-              
-              <RouterLink to="/regulations/ppc" class="nav-btn">
-                法規
-              </RouterLink>
-              
-              <RouterLink to="/products/system" class="nav-btn">
-                請領系統
-              </RouterLink>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <PpcHeader />
 
     <!-- 產品推廣中心內容 -->
     <div class="ppc-home">
@@ -67,26 +8,48 @@
         <Carousel :images="carouselImages" :interval="10000" :showWatermark="false" />
       </section>
 
-      <MainFooterComponent waveColor="#fff" backgroundColor="#e3d496" />
+      <!-- 最新消息區域 -->
+      <section class="news-section">
+        <PpcNewsComponents />
+      </section>
+
+      <!-- 影片輪播區域 -->
+      <section class="video-banner">
+        <div class="video-section-title">
+          <h2>高科大 - 品牌商店</h2>
+        </div>
+        <VideoCarousel 
+          :videos="videoList" 
+          :autoplay="false"
+        />
+      </section>
+
+      <!-- DK SHOP 宣傳圖片區域 -->
+      <section class="dkshop-banner">
+        <div class="dkshop-container">
+          <img 
+            src="/image/dkshop/DKSHOP_GONOW.png" 
+            alt="DK SHOP 高科精品" 
+            class="dkshop-image"
+            @click="openDkShop"
+          />
+        </div>
+      </section>
+
+      <MainFooterComponent waveColor="#fff" backgroundColor="#e3d496" textColor="#534741" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
 import Carousel from '@/components/Carousel.vue'
+import VideoCarousel from '@/components/VideoCarousel.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import PpcHeader from '@/components/PpcHeader.vue'
+import PpcNewsComponents from '@/components/PpcNewsComponents.vue'
 
-// 下拉選單狀態
-const showDropdown = ref(false)
-
-const closeDropdown = () => {
-  showDropdown.value = false
-}
-
-const openSchoolHome = () => {
-  window.open('https://www.nkust.edu.tw/', '_blank')
+const openDkShop = () => {
+  window.open('https://dkshop2020.cyberbiz.co/', '_blank')
 }
 
 // PPC專用的輪播圖片
@@ -100,6 +63,14 @@ const carouselImages = [
     alt: '產品推廣中心 2'
   }
 ]
+
+// PPC專用的影片輪播
+const videoList = [
+  {
+    url: '/video/Dkshop_Product_video.mp4',
+    title: 'DK SHOP產品介紹影片'
+  }
+]
 </script>
 
 <style scoped>
@@ -110,146 +81,6 @@ const carouselImages = [
   background-color: #ffffff;
 }
 
-/* Header 樣式 */
-.custom-header {
-  background-color: transparent;
-  position: relative;
-  z-index: 2000;
-  margin-bottom: 0;
-  padding: 0;
-}
-
-/* 頂部樣式 */
-.header-top {
-  background-color: #fff;
-  padding: 10px 0;
-  margin-bottom: 0;
-}
-
-.header-top .content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  height: 120px;
-}
-
-/* 學校首頁按鈕樣式 */
-.school-home-btn {
-  font-size: 26pt;
-  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
-  font-weight: normal;
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* 導航欄容器 */
-.nav-container {
-  background-color: #ffffff;
-  margin-bottom: 0;
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-/* PPC專用導航欄樣式 - 基礎顏色：#f2eacc */
-.custom-nav-bg {
-  background-color: #f2eacc;
-  width: 100vw;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.navigation-group {
-  width: 70vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-
-.nav-btn {
-  color: #333;
-  font-size: 26pt;
-  padding: 23px 10px;
-  margin: 0 5px;
-  text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
-  font-weight: normal;
-  display: flex;
-  align-items: center;
-}
-
-/* PPC導航欄hover效果 - hover顏色：#e3d496 */
-.nav-btn:hover,
-.nav-btn.router-link-active {
-  background-color: #e3d496;
-}
-
-/* 下拉選單樣式 */
-.nav-dropdown {
-  position: relative;
-}
-
-.dropdown-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.dropdown-arrow {
-  font-size: 14pt;
-  transition: transform 0.3s;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #e3d496;
-  min-width: 200px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 3000;
-}
-
-.dropdown-menu a {
-  text-decoration: none !important;
-}
-
-.dropdown-item {
-  color: #333;
-  font-size: 24pt;
-  padding: 15px 20px;
-  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none !important;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.dropdown-item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* 下拉選單hover效果 */
-.nav-dropdown:hover .nav-btn,
-.nav-dropdown:hover .dropdown-menu {
-  background-color: #e3d496;
-}
-
 /* 容器樣式 */
 .content-wrapper {
   width: 70vw;
@@ -257,10 +88,109 @@ const carouselImages = [
   margin: 0 auto;
 }
 
-.nav-container .content-wrapper {
+/* 影片輪播樣式 */
+.video-banner {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+
+.video-section-title {
   width: 70vw;
   max-width: 100%;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.video-section-title h2 {
+  font-size: 45pt;
+  font-weight: bold;
+  color: #534741;
   margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+}
+
+/* DK SHOP 宣傳圖片樣式 */
+.dkshop-banner {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+
+.dkshop-container {
+  width: 70vw;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dkshop-image {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dkshop-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* 最新消息區域樣式 */
+.news-section {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+
+/* 響應式設計 */
+@media (max-width: 1400px) {
+  .dkshop-image {
+    width: 100%;
+    height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-banner {
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  .video-section-title {
+    width: 90vw;
+    margin: 0 auto 1.5rem auto;
+  }
+  
+  .video-section-title h2 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .dkshop-banner {
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  .dkshop-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 4px;
+  }
+  
+  .news-section {
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
 }
 
 /* PPC首頁內容樣式 */

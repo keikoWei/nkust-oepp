@@ -71,7 +71,7 @@
       </section>
 
       <section class="news-section">
-        <NewsComponents />
+        <OeppNewsComponent />
       </section>
 
       <section class="achievement-section">
@@ -92,7 +92,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import Carousel from '@/components/Carousel.vue'
 import OeppEventsInformation from '@/components/OeppEventsInformation.vue'
-import NewsComponents from '@/components/NewsComponents.vue'
+import OeppNewsComponent from '@/components/OeppNewsComponent.vue'
 import VideoPlayComponents from '@/components/VideoPlayComponents.vue'
 import EducationalAchievementComponent from '@/components/EducationalAchievementComponent.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'

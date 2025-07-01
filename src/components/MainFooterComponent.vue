@@ -63,7 +63,7 @@
 </template>
 
 <script setup>
-// 定義props，允許自定義波浪顏色和背景色
+// 定義props，允許自定義波浪顏色、背景色和文字顏色
 const props = defineProps({
   waveColor: {
     type: String,
@@ -72,6 +72,10 @@ const props = defineProps({
   backgroundColor: {
     type: String,
     default: '#4d4d4d' // 默認深灰色
+  },
+  textColor: {
+    type: String,
+    default: 'white' // 默認白色文字
   }
 })
 </script>
@@ -82,7 +86,7 @@ const props = defineProps({
   max-width: 100%;
   margin: 0 auto;
   background-color: v-bind(backgroundColor);
-  color: white;
+  color: v-bind(textColor);
   margin-top: 0;
   position: relative;
 }
@@ -123,6 +127,7 @@ const props = defineProps({
   font-weight: bold;
   margin: 0;
   letter-spacing: 2px;
+  color: v-bind(textColor);
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
@@ -152,14 +157,14 @@ const props = defineProps({
   font-size: 23pt;
   font-weight: bold;
   margin: 0 0 0.8rem 0;
-  color: white;
+  color: v-bind(textColor);
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
 .contact-item p {
   font-size: 23pt;
   margin: 0.3rem 0;
-  color: white;
+  color: v-bind(textColor);
   line-height: 1.3;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
