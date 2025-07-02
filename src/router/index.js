@@ -14,6 +14,16 @@ const router = createRouter({
       component: () => import('../layout/PpcLayout.vue')
     },
     {
+      path: '/productCenter/activity',
+      name: 'ppc-activity',
+      component: () => import('../page/ppc/PpcActivityPage.vue')
+    },
+    {
+      path: '/productCenter/news',
+      name: 'ppc-news',
+      component: () => import('../page/ppc/PpcNewsPage.vue')
+    },
+    {
       path: '/about/members/oepp',
       name: 'oepp-members',
       component: () => import('../page/member/OeppMemberPage.vue')

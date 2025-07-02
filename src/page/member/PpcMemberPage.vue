@@ -42,8 +42,8 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊
 const directorInfo = {
   title: '中心主任',
-  name: '待聘',
-  photo: '/image/members/default_man_01.png',
+  name: '黃志雄',
+  photo: '/image/members/ppc_黃志雄主任.jpg',
   extension: '-',
   email: '-',
   responsibility: '產品推廣中心業務綜理'
@@ -53,8 +53,8 @@ const directorInfo = {
 const membersInfo = [
   {
     title: '專案助理',
-    name: '待聘',
-    photo: '/image/members/default_woman_02.png',
+    name: '郁萱',
+    photo: '/image/members/ppc_郁萱.jpg',
     contacts: [
       { label: '分機', value: '-' },
       { label: '信箱', value: '-' }
@@ -67,8 +67,8 @@ const membersInfo = [
   },
   {
     title: '專案助理',
-    name: '待聘',
-    photo: '/image/members/default_man_02.png',
+    name: '宛汝',
+    photo: '/image/members/ppc_宛汝.jpg',
     contacts: [
       { label: '分機', value: '-' },
       { label: '信箱', value: '-' }

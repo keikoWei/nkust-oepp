@@ -24,6 +24,11 @@
         />
       </section>
 
+      <!-- 產品輪播區域 -->
+      <section class="product-carousel-section">
+        <ProductCarouselComponents />
+      </section>
+
       <!-- DK SHOP 宣傳圖片區域 -->
       <section class="dkshop-banner">
         <div class="dkshop-container">
@@ -47,6 +52,7 @@ import VideoCarousel from '@/components/VideoCarousel.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 import PpcHeader from '@/components/PpcHeader.vue'
 import PpcNewsComponents from '@/components/PpcNewsComponents.vue'
+import ProductCarouselComponents from '@/components/ProductCarouselComponents.vue'
 
 const openDkShop = () => {
   window.open('https://dkshop2020.cyberbiz.co/', '_blank')
@@ -152,6 +158,14 @@ const videoList = [
   background-color: #ffffff;
 }
 
+/* 產品輪播區域樣式 */
+.product-carousel-section {
+  width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+
 /* 響應式設計 */
 @media (max-width: 1400px) {
   .dkshop-image {
@@ -188,6 +202,11 @@ const videoList = [
   }
   
   .news-section {
+    margin: 2rem 0;
+    padding: 1rem 0;
+  }
+  
+  .product-carousel-section {
     margin: 2rem 0;
     padding: 1rem 0;
   }

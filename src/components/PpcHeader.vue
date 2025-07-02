@@ -20,7 +20,7 @@
         <nav class="custom-nav-bg">
           <div class="navigation-group">
             <div class="nav-dropdown" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
-              <button class="nav-btn dropdown-btn">
+              <button class="nav-btn dropdown-btn" @click="goToProductCenter">
                 產品推廣中心
                 <span class="dropdown-arrow">▼</span>
               </button>
@@ -35,11 +35,11 @@
               DK/SHOP 高科精品
             </a>
             
-            <RouterLink to="/products/news" class="nav-btn">
+            <RouterLink to="/productCenter/news" class="nav-btn">
               最新消息
             </RouterLink>
             
-            <RouterLink to="/products/activities" class="nav-btn">
+            <RouterLink to="/productCenter/activity" class="nav-btn">
               活動資訊
             </RouterLink>
             
@@ -51,9 +51,10 @@
               法規
             </RouterLink>
             
-            <RouterLink to="/products/system" class="nav-btn">
+            <a href="https://souvenir.nkust.edu.tw/" target="_blank" class="nav-btn">
               請領系統
-            </RouterLink>
+            </a>
+        
           </div>
         </nav>
       </div>
@@ -63,13 +64,18 @@
 
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
 // 下拉選單狀態
 const showDropdown = ref(false)
+const router = useRouter()
 
 const closeDropdown = () => {
   showDropdown.value = false
+}
+
+const goToProductCenter = () => {
+  router.push('/productCenter')
 }
 
 const openSchoolHome = () => {
