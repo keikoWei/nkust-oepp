@@ -35,7 +35,7 @@
                 </div>
               </div>
               
-              <RouterLink to="/education" class="nav-btn">
+              <RouterLink to="/educationCenter" class="nav-btn">
                 教育推廣中心
               </RouterLink>
               

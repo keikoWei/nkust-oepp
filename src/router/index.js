@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('../layout/PpcLayout.vue')
     },
     {
+      path: '/educationCenter',
+      name: 'education-center',
+      component: () => import('../layout/EecLayout.vue')
+    },
+    {
       path: '/productCenter/activity',
       name: 'ppc-activity',
       component: () => import('../page/ppc/PpcActivityPage.vue')
