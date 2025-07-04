@@ -93,14 +93,14 @@ const props = defineProps({
 
 .wave-decoration {
   width: 100%;
-  height: 100px;
+  height: 67px;
   background: transparent;
-  margin-bottom: -5px;
-  margin-top: -35px;
+  margin-bottom: -3px;
+  margin-top: -23px;
 }
 
 .footer-content {
-  padding: 3rem 0 4rem 0;
+  padding: 2rem 0 2.7rem 0;
   background-color: transparent;
   position: relative;
 }
@@ -108,7 +108,7 @@ const props = defineProps({
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem 0 14rem;
+  padding: 0 0.7rem 0 9.4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,16 +117,16 @@ const props = defineProps({
 /* 標題樣式 */
 .footer-title {
   text-align: left;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding-left: 0;
   width: 100%;
 }
 
 .footer-title h2 {
-  font-size: 28pt;
+  font-size: 19pt;
   font-weight: bold;
   margin: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1.3px;
   color: v-bind(textColor);
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
@@ -135,14 +135,14 @@ const props = defineProps({
 .contact-grid {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   width: 100%;
 }
 
 .contact-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
+  gap: 2.7rem;
   justify-items: flex-start;
 }
 
@@ -150,20 +150,20 @@ const props = defineProps({
   text-align: left;
   padding: 0;
   width: 100%;
-  max-width: 400px;
+  max-width: 268px;
 }
 
 .contact-item h3 {
-  font-size: 23pt;
+  font-size: 15.5pt;
   font-weight: bold;
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.5rem 0;
   color: v-bind(textColor);
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
 .contact-item p {
-  font-size: 23pt;
-  margin: 0.3rem 0;
+  font-size: 15.5pt;
+  margin: 0.2rem 0;
   color: v-bind(textColor);
   line-height: 1.3;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
@@ -172,77 +172,77 @@ const props = defineProps({
 /* 響應式設計 */
 @media (max-width: 1024px) {
   .footer-title h2 {
-    font-size: 24pt;
+    font-size: 16pt;
   }
   
   .contact-item h3 {
-    font-size: 20pt;
+    font-size: 13.5pt;
   }
   
   .contact-item p {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .container {
-    padding: 0 1rem 0 9rem;
+    padding: 0 0.7rem 0 6rem;
   }
 }
 
 @media (max-width: 768px) {
   .contact-row {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .footer-title h2 {
-    font-size: 22pt;
+    font-size: 15pt;
   }
   
   .contact-item h3 {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .contact-item p {
-    font-size: 16pt;
+    font-size: 11pt;
   }
   
   .footer-content {
-    padding: 2rem 0 3rem 0;
+    padding: 1.3rem 0 2rem 0;
   }
   
   .contact-grid {
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .wave-decoration {
-    height: 60px;
+    height: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-title h2 {
-    font-size: 20pt;
-    letter-spacing: 1px;
+    font-size: 13.5pt;
+    letter-spacing: 0.7px;
   }
   
   .contact-item h3 {
-    font-size: 16pt;
+    font-size: 11pt;
   }
   
   .contact-item p {
-    font-size: 14pt;
+    font-size: 9.5pt;
   }
   
   .container {
-    padding: 0 0.5rem 0 4.5rem;
+    padding: 0 0.3rem 0 3rem;
   }
   
   .contact-item {
-    padding: 0.5rem;
+    padding: 0.3rem;
   }
   
   .wave-decoration {
-    height: 40px;
+    height: 27px;
   }
 }
 </style> 

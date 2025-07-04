@@ -107,12 +107,12 @@ const openSchoolHome = () => {
 }
 
 .logo img {
-  height: 120px;
+  height: 80px;
 }
 
 /* 學校首頁按鈕樣式 */
 .school-home-btn {
-  font-size: 26pt;
+  font-size: 17.5pt;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
   background: none;
@@ -151,9 +151,9 @@ const openSchoolHome = () => {
 
 .nav-btn {
   color: #333;
-  font-size: 26pt;
-  padding: 23px 10px;
-  margin: 0 5px;
+  font-size: 17.5pt;
+  padding: 15px 7px;
+  margin: 0 3px;
   text-decoration: none;
   background: none;
   border: none;
@@ -183,7 +183,7 @@ const openSchoolHome = () => {
 }
 
 .dropdown-arrow {
-  font-size: 14pt;
+  font-size: 9.5pt;
   transition: transform 0.3s;
 }
 
@@ -193,8 +193,8 @@ const openSchoolHome = () => {
   left: 50%;
   transform: translateX(-50%);
   background-color: #e3d496;
-  min-width: 200px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 134px;
+  box-shadow: 0 1.5px 5.5px rgba(0,0,0,0.2);
   z-index: 3000;
 }
 
@@ -204,8 +204,8 @@ const openSchoolHome = () => {
 
 .dropdown-item {
   color: #333;
-  font-size: 24pt;
-  padding: 15px 20px;
+  font-size: 16pt;
+  padding: 10px 13.5px;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
   cursor: pointer;
   transition: background-color 0.3s;

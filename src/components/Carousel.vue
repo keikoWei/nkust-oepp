@@ -192,7 +192,7 @@ onUnmounted(() => {
 
 .carousel {
   width: 100%;
-  height: 950px;
+  height: 637px;  /* 原本 950px * 0.67 ≈ 637px */
   position: relative;
   overflow: hidden;
 }
@@ -217,32 +217,33 @@ onUnmounted(() => {
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 16px;
+  padding: 11px;  /* 原本 16px * 0.67 ≈ 11px */
   border: none;
   cursor: pointer;
   z-index: 2;
+  font-size: 14px;  /* 新增字體大小控制 */
 }
 
 .prev {
-  left: 10px;
+  left: 7px;  /* 原本 10px * 0.67 ≈ 7px */
 }
 
 .next {
-  right: 10px;
+  right: 7px;  /* 原本 10px * 0.67 ≈ 7px */
 }
 
 .carousel-dots {
   position: absolute;
-  bottom: 20px;
+  bottom: 13px;  /* 原本 20px * 0.67 ≈ 13px */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  gap: 5px;  /* 原本 8px * 0.67 ≈ 5px */
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 8px;  /* 原本 12px * 0.67 ≈ 8px */
+  height: 8px;  /* 原本 12px * 0.67 ≈ 8px */
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
@@ -259,72 +260,57 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent 50%);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  background: transparent;
+  padding: 159px 0 0 54px;  /* 637px * 1/4 ≈ 159px */
+  color: white;
   z-index: 1;
-  pointer-events: none;
-  padding-left: 5%;
-  padding-top: 8%;
 }
 
 .watermark-text {
   text-align: left;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .watermark-title {
-  font-size: 55pt;
-  font-weight: 500;
+  font-size: 37pt;
   margin: 0;
+  font-weight: normal;
   line-height: 1.2;
-  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
-  letter-spacing: 2px;
 }
 
 .watermark-subtitle {
-  font-size: 18pt;
-  font-weight: 400;
-  margin: 10px 0 0 0;
-  line-height: 1.3;
-  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
-  letter-spacing: 1px;
+  font-size: 20pt;
+  margin: 7px 0 0;
+  font-weight: normal;
 }
 
-/* 響應式設計 */
 @media (max-width: 1024px) {
+  .watermark-overlay {
+    padding: 118px 0 0 40px;  /* 470px * 1/4 ≈ 118px */
+  }
+  
   .watermark-title {
-    font-size: 48pt;
+    font-size: 30pt;
   }
   
   .watermark-subtitle {
-    font-size: 16pt;
-  }
-  
-  .watermark-overlay {
-    padding-left: 3%;
+    font-size: 17pt;
   }
 }
 
 @media (max-width: 768px) {
-  .watermark-title {
-    font-size: 36pt;
-  }
-  
-  .watermark-subtitle {
-    font-size: 14pt;
+  .carousel {
+    height: 470px;
   }
   
   .watermark-overlay {
-    padding-left: 2%;
+    padding: 118px 0 0 27px;  /* 470px * 1/4 ≈ 118px */
   }
-}
-
-@media (max-width: 480px) {
+  
   .watermark-title {
-    font-size: 28pt;
+    font-size: 23pt;
   }
   
   .watermark-subtitle {

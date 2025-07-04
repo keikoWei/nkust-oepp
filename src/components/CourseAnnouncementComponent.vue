@@ -65,38 +65,38 @@ const toggleExpand = () => {
 <style scoped>
 .announcement-container {
   width: 100%;
-  margin: 2rem 0;
+  margin: 1.3rem 0;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
 /* 標題樣式 */
 .announcement-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;
 }
 
 .announcement-title h2 {
-  font-size: 45pt;
+  font-size: 30pt;
   font-weight: normal;
   color: #534741;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
 }
 
 /* 公告內容區域 - 整體大框 */
 .announcement-content {
-  width: 1070px;
-  height: 950px;
+  width: 717px;
+  height: 637px;
   max-width: 100%;
   margin: 0 auto;
   background: #e3d9cd;
-  border-radius: 30px;
+  border-radius: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 35px;
+  padding: 23px;
   box-sizing: border-box;
 }
 
@@ -104,14 +104,14 @@ const toggleExpand = () => {
 .announcement-content::before {
   content: '';
   position: absolute;
-  top: 35px;
-  left: 35px;
-  right: 35px;
-  bottom: 35px;
-  width: 1000px;
-  height: 898px;
+  top: 23px;
+  left: 23px;
+  right: 23px;
+  bottom: 23px;
+  width: 670px;
+  height: 602px;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 13px;
   z-index: 1;
 }
 
@@ -133,10 +133,10 @@ const toggleExpand = () => {
   align-items: center;
   gap: 0px;
   width: 100%;
-  max-width: 900px;
-  padding: 15px 50px 25px 50px;
-  min-height: 80px;
-  margin-bottom: 15px;
+  max-width: 603px;
+  padding: 10px 34px 17px 34px;
+  min-height: 54px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -144,20 +144,20 @@ const toggleExpand = () => {
 .announcement-item::after {
   content: '';
   position: absolute;
-  bottom: 25px;
-  left: 50px;
-  right: 50px;
+  bottom: 17px;
+  left: 34px;
+  right: 34px;
   height: 1px;
   background-color: #f2ede8;
 }
 
 .announcement-item:first-child {
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 .announcement-item:last-child {
   margin-bottom: 0;
-  min-height: 100px;
+  min-height: 67px;
 }
 
 .announcement-item:last-child::after {
@@ -167,23 +167,23 @@ const toggleExpand = () => {
 .announcement-date {
   background-color: #e3d9cd;
   color: #534741;
-  padding: 10px 12px;
-  font-size: 14pt;
+  padding: 7px 8px;
+  font-size: 9.5pt;
   font-weight: bold;
-  min-width: 90px;
+  min-width: 60px;
   text-align: center;
   flex-shrink: 0;
   position: relative;
-  margin-right: 20px;
-  height: 40px;
+  margin-right: 13px;
+  height: 27px;
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 100%, 0 100%);
 }
 
 .announcement-text {
-  font-size: 16pt;
+  font-size: 11pt;
   color: #534741;
   line-height: 1.5;
   flex: 1;
@@ -194,13 +194,13 @@ const toggleExpand = () => {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding-bottom: 40px;
+  padding-bottom: 27px;
 }
 
 .expand-btn {
-  width: 96px;
-  height: 96px;
-  border: 2px solid #e3d9cd;
+  width: 64px;
+  height: 64px;
+  border: 1.3px solid #e3d9cd;
   border-radius: 50%;
   background: #fff;
   cursor: pointer;
@@ -215,32 +215,37 @@ const toggleExpand = () => {
   transform: translateY(-2px);
 }
 
+.expand-btn svg {
+  width: 27px;
+  height: 17px;
+}
+
 /* 響應式設計 */
 @media (max-width: 1200px) {
   .announcement-content {
     width: 90%;
-    padding: 60px 40px;
+    padding: 40px 27px;
   }
   
   .announcement-title h2 {
-    font-size: 36pt;
+    font-size: 24pt;
   }
 }
 
 @media (max-width: 768px) {
   .announcement-content {
     width: 95%;
-    padding: 40px 20px;
-    border-radius: 20px;
+    padding: 27px 13px;
+    border-radius: 13px;
   }
   
   .announcement-title h2 {
-    font-size: 28pt;
+    font-size: 19pt;
   }
   
   .announcement-item {
     flex-direction: column;
-    gap: 8px;
+    gap: 5px;
   }
   
   .announcement-date {
@@ -249,31 +254,31 @@ const toggleExpand = () => {
   }
   
   .announcement-text {
-    font-size: 14pt;
+    font-size: 9.5pt;
   }
   
   .expand-btn {
-    width: 70px;
-    height: 70px;
+    width: 47px;
+    height: 47px;
   }
   
   .expand-btn svg {
-    width: 30px;
-    height: 18px;
+    width: 20px;
+    height: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .announcement-title h2 {
-    font-size: 24pt;
+    font-size: 16pt;
   }
   
   .announcement-content {
-    padding: 30px 15px;
+    padding: 20px 10px;
   }
   
   .announcement-text {
-    font-size: 12pt;
+    font-size: 8pt;
   }
 }
 </style> 

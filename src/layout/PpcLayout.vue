@@ -121,8 +121,8 @@ const videoList = [
 /* DK SHOP 宣傳圖片樣式 */
 .dkshop-banner {
   width: 100%;
-  margin: 3rem 0;
-  padding: 2rem 0;
+  margin: 2rem 0;
+  padding: 1.3rem 0;
   background-color: #ffffff;
 }
 
@@ -137,17 +137,17 @@ const videoList = [
 
 .dkshop-image {
   width: 100%;
-  height: 520px;
+  height: 348px;
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 5.4px;
+  box-shadow: 0 2.7px 5.4px rgba(0,0,0,0.1);
 }
 
 .dkshop-image:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 5.4px 10.7px rgba(0,0,0,0.2);
 }
 
 /* 最新消息區域樣式 */
@@ -170,7 +170,7 @@ const videoList = [
 @media (max-width: 1400px) {
   .dkshop-image {
     width: 100%;
-    height: 520px;
+    height: 348px;
   }
 }
 
@@ -191,14 +191,14 @@ const videoList = [
   }
   
   .dkshop-banner {
-    margin: 2rem 0;
-    padding: 1rem 0;
+    margin: 1.3rem 0;
+    padding: 0.7rem 0;
   }
   
   .dkshop-image {
     width: 100%;
-    height: 300px;
-    border-radius: 4px;
+    height: 201px;
+    border-radius: 2.7px;
   }
   
   .news-section {

@@ -97,46 +97,46 @@ const goToVideo = (index) => {
 <style scoped>
 .video-container {
   width: 100%;
-  margin: 2rem 0;
+  margin: 1.3rem 0;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
 /* 標題樣式 */
 .video-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;
 }
 
 .video-title h2 {
-  font-size: 45pt;
+  font-size: 30pt;
   font-weight: normal;
   color: #333;
   margin: 0;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
 }
 
 /* 影片播放區域 */
 .video-player-wrapper {
-  width: 1536px;
-  height: 876px;
+  width: 1029px;
+  height: 587px;
   max-width: 100%;
   margin: 0 auto;
   background: #e5e5e5;
-  border-radius: 20px;
+  border-radius: 13px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 13px;
   box-sizing: border-box;
 }
 
 /* 影片框架 */
 .video-frame {
-  width: 1296px;
-  height: 729px;
+  width: 868px;
+  height: 488px;
   background: #000;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
 }
@@ -146,8 +146,8 @@ const goToVideo = (index) => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: 34px;
+  height: 34px;
   background: rgba(0, 0, 0, 0.6);
   border: none;
   border-radius: 50%;
@@ -175,24 +175,24 @@ const goToVideo = (index) => {
 }
 
 .prev-btn {
-  left: 30px;
+  left: 20px;
 }
 
 .next-btn {
-  right: 30px;
+  right: 20px;
 }
 
 /* 影片指示點 */
 .video-dots {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 13px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(63, 89, 99, 0.3);
   cursor: pointer;
@@ -225,68 +225,68 @@ const goToVideo = (index) => {
 
 @media (max-width: 768px) {
   .video-title h2 {
-    font-size: 32pt;
+    font-size: 21.5pt;
   }
   
   .video-player-wrapper {
-    padding: 15px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 10px;
   }
   
   .video-frame {
     width: 95%;
-    border-radius: 8px;
+    border-radius: 5px;
   }
   
   .nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
   }
   
   .prev-btn {
-    left: 20px;
+    left: 13px;
   }
   
   .next-btn {
-    right: 20px;
+    right: 13px;
   }
   
   .nav-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 13px;
+    height: 13px;
   }
 }
 
 @media (max-width: 480px) {
   .video-title h2 {
-    font-size: 28pt;
+    font-size: 19pt;
   }
   
   .video-player-wrapper {
-    padding: 10px;
+    padding: 7px;
   }
   
   .nav-btn {
-    width: 35px;
-    height: 35px;
+    width: 23px;
+    height: 23px;
   }
   
   .prev-btn {
-    left: 15px;
+    left: 10px;
   }
   
   .next-btn {
-    right: 15px;
+    right: 10px;
   }
   
   .nav-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
   }
   
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
   }
 }
 </style> 

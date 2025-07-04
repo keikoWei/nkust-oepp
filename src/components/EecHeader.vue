@@ -161,12 +161,12 @@ const openSchoolHome = () => {
 }
 
 .logo img {
-  height: 120px;
+  height: 80px;
 }
 
 /* 學校首頁按鈕樣式 */
 .school-home-btn {
-  font-size: 26pt;
+  font-size: 17.5pt;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
   background: none;
@@ -205,9 +205,9 @@ const openSchoolHome = () => {
 
 .nav-btn {
   color: #534741;
-  font-size: 26pt;
-  padding: 23px 10px;
-  margin: 0 5px;
+  font-size: 17.5pt;
+  padding: 15px 7px;
+  margin: 0 3px;
   text-decoration: none;
   background: none;
   border: none;
@@ -237,7 +237,7 @@ const openSchoolHome = () => {
 }
 
 .dropdown-arrow {
-  font-size: 14pt;
+  font-size: 9.5pt;
   transition: transform 0.3s;
   color: #534741;
 }
@@ -248,8 +248,8 @@ const openSchoolHome = () => {
   left: 50%;
   transform: translateX(-50%);
   background-color: #e3d9cd;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 134px;
+  box-shadow: 0 2.5px 8px rgba(0,0,0,0.15);
   z-index: 3000;
   overflow: hidden;
   border: 1px solid #d4c7bb;
@@ -260,9 +260,9 @@ const openSchoolHome = () => {
 }
 
 .dropdown-item {
-  padding: 12px 20px;
+  padding: 8px 13px;
   color: #534741;
-  font-size: 16pt;
+  font-size: 11pt;
   cursor: pointer;
   transition: background-color 0.3s;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -282,21 +282,21 @@ const openSchoolHome = () => {
 
 /* 台企銀代收繳費網特殊樣式 - 縮小字體以單排顯示 */
 .dropdown-item.bank-payment {
-  font-size: 14pt;
-  letter-spacing: -0.5px;
+  font-size: 9.5pt;
+  letter-spacing: -0.3px;
 }
 
 /* 響應式設計 */
 @media (max-width: 1200px) {
   .navigation-group {
     width: 90vw;
-    padding: 0 1rem;
+    padding: 0 0.7rem;
   }
   
   .nav-btn {
-    font-size: 20pt;
-    padding: 20px 8px;
-    margin: 0 2px;
+    font-size: 13.5pt;
+    padding: 13px 5px;
+    margin: 0 1px;
   }
 }
 
@@ -306,23 +306,23 @@ const openSchoolHome = () => {
   }
   
   .logo img {
-    height: 80px;
+    height: 54px;
   }
   
   .school-home-btn {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .navigation-group {
     flex-direction: column;
-    gap: 8px;
-    padding: 1rem;
+    gap: 5px;
+    padding: 0.7rem;
     width: 100%;
   }
   
   .nav-btn {
-    font-size: 16pt;
-    padding: 12px 16px;
+    font-size: 11pt;
+    padding: 8px 11px;
     width: 100%;
     text-align: center;
     justify-content: center;
@@ -341,17 +341,17 @@ const openSchoolHome = () => {
     position: static;
     transform: none;
     width: 100%;
-    margin-top: 8px;
+    margin-top: 5px;
   }
   
   .dropdown-item {
-    font-size: 14pt;
-    padding: 10px 16px;
+    font-size: 9.5pt;
+    padding: 7px 11px;
   }
   
   .dropdown-item.bank-payment {
-    font-size: 12pt;
-    letter-spacing: -0.3px;
+    font-size: 8pt;
+    letter-spacing: -0.2px;
   }
 }
 </style> 

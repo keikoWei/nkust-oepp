@@ -87,6 +87,16 @@ const router = createRouter({
       path: '/download/epc',
       name: 'epc-download',
       component: () => import('../page/download/EpcDownloadPage.vue')
+    },
+    {
+      path: '/educationCenter/payment/process',
+      name: 'eec-payment-process',
+      component: () => import('../page/eec/PayPage.vue')
+    },
+    {
+      path: '/educationCenter/payment/refund',
+      name: 'eec-payment-refund',
+      component: () => import('../page/eec/RefundPage.vue')
     }
   ]
 })

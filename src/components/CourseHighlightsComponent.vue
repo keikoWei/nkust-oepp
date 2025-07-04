@@ -147,8 +147,8 @@ const handleMoreInfo = () => {
 <style scoped>
 .course-highlights-container {
   width: 100%;
-  margin: 3rem 0;
-  padding: 2rem 0;
+  margin: 2rem 0;
+  padding: 1.3rem 0;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
   background-color: #ffffff;
 }
@@ -156,31 +156,31 @@ const handleMoreInfo = () => {
 /* 標題樣式 */
 .highlights-title {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .highlights-title h2 {
-  font-size: 45pt;
+  font-size: 30pt;
   font-weight: bold;
   color: #534741;
   margin: 0;
-  letter-spacing: 2px;
+  letter-spacing: 1.3px;
 }
 
 /* 九格佈局 */
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1200px;
+  gap: 13px;
+  max-width: 804px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.3rem;
 }
 
 .highlight-card {
-  height: 200px;
-  border-radius: 20px;
-  padding: 20px;
+  height: 134px;
+  border-radius: 13px;
+  padding: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,8 +190,8 @@ const handleMoreInfo = () => {
 }
 
 .highlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 17px rgba(0,0,0,0.15);
 }
 
 .card-content {
@@ -244,103 +244,103 @@ const handleMoreInfo = () => {
 
 /* 卡片文字樣式 */
 .card-text h3 {
-  font-size: 18pt;
+  font-size: 12pt;
   font-weight: bold;
   color: white;
-  margin: 0 0 8px 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  margin: 0 0 5px 0;
+  text-shadow: 0.7px 0.7px 1.3px rgba(0,0,0,0.3);
 }
 
 .card-text p {
-  font-size: 14pt;
+  font-size: 9.5pt;
   color: white;
-  margin: 4px 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  margin: 3px 0;
+  text-shadow: 0.7px 0.7px 1.3px rgba(0,0,0,0.3);
 }
 
 .year-text {
-  font-size: 12pt !important;
+  font-size: 8pt !important;
   opacity: 0.9;
 }
 
 .date-text {
-  font-size: 11pt !important;
+  font-size: 7.5pt !important;
   opacity: 0.8;
 }
 
 .subtitle {
-  font-size: 12pt !important;
+  font-size: 8pt !important;
   opacity: 0.9;
 }
 
 .main-text {
-  font-size: 16pt !important;
+  font-size: 11pt !important;
   font-weight: bold;
 }
 
 /* 特殊元素樣式 */
 .card-badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   background: rgba(255,255,255,0.9);
   color: #333;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 12pt;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 8pt;
   font-weight: bold;
 }
 
 .card-icons {
   position: absolute;
-  bottom: 15px;
-  left: 15px;
+  bottom: 10px;
+  left: 10px;
 }
 
 .icon {
-  font-size: 20pt;
-  margin-right: 8px;
+  font-size: 13.5pt;
+  margin-right: 5px;
 }
 
 .card-stars {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 18pt;
+  top: 10px;
+  right: 10px;
+  font-size: 12pt;
 }
 
 .alert-badge {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
   background: rgba(255,255,255,0.9);
   color: #FF5722;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16pt;
+  font-size: 11pt;
   font-weight: bold;
 }
 
 .card-balloons {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
-  font-size: 16pt;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11pt;
 }
 
 .card-badge-special {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   background: rgba(255,255,255,0.9);
   color: #E91E63;
-  padding: 6px 10px;
-  border-radius: 15px;
-  font-size: 10pt;
+  padding: 4px 7px;
+  border-radius: 10px;
+  font-size: 7pt;
   font-weight: bold;
   text-align: center;
 }
@@ -351,15 +351,15 @@ const handleMoreInfo = () => {
 }
 
 .course-tags {
-  margin: 10px 0;
+  margin: 7px 0;
 }
 
 .tag {
   background: rgba(255,255,255,0.2);
-  padding: 3px 8px;
-  border-radius: 10px;
-  font-size: 10pt;
-  margin: 0 2px;
+  padding: 2px 5px;
+  border-radius: 7px;
+  font-size: 7pt;
+  margin: 0 1px;
   display: inline-block;
 }
 
@@ -367,53 +367,53 @@ const handleMoreInfo = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 5px;
+  margin-top: 7px;
 }
 
 .arrow {
-  font-size: 12pt;
+  font-size: 8pt;
   color: white;
 }
 
 .course-text {
-  font-size: 10pt;
+  font-size: 7pt;
   color: white;
 }
 
 /* 了解更多按鈕區域 */
 .more-info-section {
   text-align: center;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .button-with-lines {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  max-width: 800px;
+  gap: 13px;
+  max-width: 536px;
   margin: 0 auto;
 }
 
 .line {
   flex: 1;
-  height: 3px;
+  height: 2px;
   background-color: #e3d9cd;
 }
 
 .left-line,
 .right-line {
-  min-width: 100px;
+  min-width: 67px;
 }
 
 .more-btn {
   background-color: #e3d9cd !important;
   color: #534741 !important;
-  padding: 8px 30px;
-  font-size: 16pt;
+  padding: 5px 20px;
+  font-size: 11pt;
   font-weight: bold;
-  min-width: 120px;
+  min-width: 80px;
   border: none;
   flex-shrink: 0;
   cursor: pointer;
@@ -427,68 +427,7 @@ const handleMoreInfo = () => {
 /* 響應式設計 */
 @media (max-width: 1024px) {
   .highlights-grid {
-    max-width: 800px;
-    gap: 15px;
-  }
-  
-  .highlights-title h2 {
-    font-size: 36pt;
-  }
-  
-  .card-text h3 {
-    font-size: 16pt;
-  }
-  
-  .card-text p {
-    font-size: 12pt;
-  }
-}
-
-@media (max-width: 768px) {
-  .highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 600px;
-    gap: 12px;
-    padding: 0 1rem;
-  }
-  
-  .highlights-title h2 {
-    font-size: 28pt;
-  }
-  
-  .highlight-card {
-    padding: 15px;
-    height: 180px;
-  }
-  
-  .card-text h3 {
-    font-size: 14pt;
-  }
-  
-  .card-text p {
-    font-size: 11pt;
-  }
-  
-  .more-btn {
-    font-size: 16pt;
-    padding: 10px 30px;
-  }
-  
-  .button-with-lines {
-    gap: 15px;
-    max-width: 400px;
-  }
-  
-  .line {
-    min-width: 50px;
-    height: 2px;
-  }
-}
-
-@media (max-width: 480px) {
-  .highlights-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 536px;
     gap: 10px;
   }
   
@@ -496,33 +435,69 @@ const handleMoreInfo = () => {
     font-size: 24pt;
   }
   
-  .highlight-card {
-    padding: 12px;
-    height: 160px;
-  }
-  
   .card-text h3 {
-    font-size: 12pt;
+    font-size: 11pt;
   }
   
   .card-text p {
-    font-size: 10pt;
+    font-size: 8pt;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 402px;
+    gap: 8px;
+    padding: 0 0.7rem;
+  }
+  
+  .highlights-title h2 {
+    font-size: 19pt;
+  }
+  
+  .highlight-card {
+    padding: 10px;
+    height: 121px;
+  }
+  
+  .card-text h3 {
+    font-size: 9.5pt;
+  }
+  
+  .card-text p {
+    font-size: 7.5pt;
   }
   
   .more-btn {
-    font-size: 14pt;
-    padding: 8px 25px;
-    min-width: 100px;
+    font-size: 11pt;
+    padding: 7px 20px;
   }
   
   .button-with-lines {
     gap: 10px;
-    max-width: 300px;
+    max-width: 268px;
   }
   
   .line {
-    min-width: 30px;
-    height: 2px;
+    min-width: 34px;
+    height: 1.3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    max-width: 268px;
+    gap: 7px;
+  }
+  
+  .highlights-title h2 {
+    font-size: 16pt;
+  }
+  
+  .highlight-card {
+    padding: 8px;
   }
 }
 </style> 
