@@ -95,7 +95,7 @@ const membersInfo = [
 
 .banner-image {
   width: 100%;
-  height: 630px;
+  height: 422px;  /* 原本 630px * 0.67 */
   position: relative;
   overflow: hidden;
 }
@@ -111,7 +111,7 @@ const membersInfo = [
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem 100px 1rem;
+  padding: 1.3rem 0.7rem 67px 0.7rem;  /* 原本 2rem 1rem 100px 1rem * 0.67 */
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   background-color: #d9d9d9;
 }
@@ -119,11 +119,11 @@ const membersInfo = [
 /* 中心成員標題 */
 .members-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
 }
 
 .members-header h2 {
-  font-size: 45pt;
+  font-size: 30pt;  /* 原本 45pt * 0.67 */
   color: #333;
   margin: 0;
   font-weight: normal;
@@ -131,7 +131,7 @@ const membersInfo = [
 
 /* 中心成員區域 */
 .members-section {
-  max-width: 1000px;
+  max-width: 670px;  /* 原本 1000px * 0.67 */
   margin: 0 auto;
 }
 </style>

@@ -38,13 +38,13 @@ defineProps({
 /* 頁面標題區域 */
 .page-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .page-header h1 {
-  font-size: 45pt;
+  font-size: 30pt;
   color: #333;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.3rem 0;
   font-weight: normal;
 }
 
@@ -52,16 +52,16 @@ defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
   background: #d9d9d9;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 
 .nav-item {
-  padding: 0.8rem 1rem;
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
   color: #666;
-  font-size: 32pt;
+  font-size: 21.5pt;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
   transition: all 0.3s ease;
@@ -71,7 +71,7 @@ defineProps({
   color: #333;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   font-weight: 900;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .nav-item:not(.active):hover {
@@ -80,7 +80,7 @@ defineProps({
 
 .nav-separator {
   color: #666;
-  font-size: 16pt;
+  font-size: 11pt;
   font-weight: normal;
 }
 

@@ -44,13 +44,13 @@ defineProps({
 <style scoped>
 .member-card {
   background: #d9d9d9;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.3rem;
+  margin-bottom: 1.3rem;
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+  gap: 1.3rem;
+  max-width: 536px;
+  margin: 0 auto 1.3rem auto;
 }
 
 .member-photo {
@@ -58,29 +58,29 @@ defineProps({
 }
 
 .member-photo .photo {
-  width: 315px;
-  height: 315px;
+  width: 211px;
+  height: 211px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #86a8ab;
+  border: 3px solid #86a8ab;
 }
 
 .member-info {
   flex: 1;
-  padding-top: 1rem;
+  padding-top: 0.7rem;
 }
 
 .title-name-row {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.7rem;
+  margin-bottom: 0.3rem;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 
 .member-title {
-  font-size: 32pt;
+  font-size: 21.5pt;
   color: #3f5963;
   margin: 0;
   font-weight: normal;
@@ -89,7 +89,7 @@ defineProps({
 }
 
 .member-name {
-  font-size: 24pt;
+  font-size: 16pt;
   color: #333;
   margin: 0;
   font-weight: bold;
@@ -98,29 +98,29 @@ defineProps({
 }
 
 .member-subtitle {
-  font-size: 14pt;
+  font-size: 9.5pt;
   color: #666;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.7rem 0;
   font-style: italic;
 }
 
 .contact-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact-info p {
-  margin: 0.3rem 0;
-  font-size: 20pt;
+  margin: 0.2rem 0;
+  font-size: 13.5pt;
   color: #333;
 }
 
 .description {
-  font-size: 20pt;
+  font-size: 13.5pt;
   color: #333;
 }
 
 .description p {
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
   line-height: 1.5;
 }
 
@@ -134,40 +134,40 @@ defineProps({
   .member-card {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .member-photo .photo {
-    width: 250px;
-    height: 250px;
+    width: 168px;
+    height: 168px;
   }
   
   .member-title {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .member-name {
-    font-size: 20pt;
+    font-size: 13.5pt;
   }
 }
 
 @media (max-width: 480px) {
   .member-photo .photo {
-    width: 200px;
-    height: 200px;
+    width: 134px;
+    height: 134px;
   }
   
   .member-title {
-    font-size: 16pt;
+    font-size: 11pt;
   }
   
   .member-name {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .contact-info p,
   .description p {
-    font-size: 12pt;
+    font-size: 8pt;
   }
 }
 </style> 

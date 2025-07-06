@@ -83,7 +83,7 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
 .banner-image {
   width: 100%;
-  height: 630px;
+  height: 422px;  /* 原本 630px * 0.67 */
   position: relative;
   overflow: hidden;
 }
@@ -105,17 +105,17 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   align-items: flex-start;
   justify-content: flex-start;
   z-index: 2;
-  padding: 50px 0 0 80px;
+  padding: 34px 0 0 54px;  /* 原本 50px 0 0 80px * 0.67 */
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .banner-watermark h1 {
   color: white;
-  font-size: 55pt;
+  font-size: 37pt;  /* 原本 55pt * 0.67 */
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin: 0;
-  letter-spacing: 3px;
+  letter-spacing: 2px;  /* 原本 3px * 0.67 */
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
 }
 
@@ -236,11 +236,11 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
   
   .banner-watermark {
-    padding: 40px 0 0 60px;
+    padding: 27px 0 0 40px;  /* 原本 40px 0 0 60px * 0.67 */
   }
   
   .banner-watermark h1 {
-    font-size: 45pt;
+    font-size: 30pt;  /* 原本 45pt * 0.67 */
   }
 }
 
@@ -276,11 +276,11 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
   
   .banner-watermark {
-    padding: 30px 0 0 40px;
+    padding: 20px 0 0 27px;  /* 原本 30px 0 0 40px * 0.67 */
   }
   
   .banner-watermark h1 {
-    font-size: 35pt;
+    font-size: 23pt;  /* 原本 35pt * 0.67 */
   }
 }
 

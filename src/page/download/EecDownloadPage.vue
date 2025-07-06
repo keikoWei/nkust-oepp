@@ -40,7 +40,7 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
 .banner-image {
   width: 100%;
-  height: 630px;
+  height: 422px;  /* 原本 630px * 0.67 */
   position: relative;
   overflow: hidden;
 }
@@ -56,27 +56,27 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem 100px 1rem;
+  padding: 1.3rem 0.7rem 67px 0.7rem;  /* 原本 2rem 1rem 100px 1rem * 0.67 */
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   background-color: #d9d9d9;
   min-height: 60vh;
 }
 
 .download-content {
-  margin-top: 2rem;
-  padding: 2rem 0;
+  margin-top: 1.3rem;  /* 原本 2rem * 0.67 */
+  padding: 1.3rem 0;  /* 原本 2rem * 0.67 */
 }
 
 .download-content h2 {
-  font-size: 36pt;
+  font-size: 24pt;  /* 原本 36pt * 0.67 */
   color: #333;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
   font-weight: normal;
 }
 
 .download-content p {
-  font-size: 18pt;
+  font-size: 12pt;  /* 原本 18pt * 0.67 */
   color: #666;
   line-height: 1.6;
   text-align: center;

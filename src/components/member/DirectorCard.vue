@@ -41,16 +41,16 @@ defineProps({
 <style scoped>
 /* 處室長區域 */
 .director-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .director-card {
   background: #d9d9d9;
-  padding: 2rem;
+  padding: 1.3rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
-  max-width: 800px;
+  gap: 1.3rem;
+  max-width: 536px;
   margin: 0 auto;
 }
 
@@ -59,11 +59,11 @@ defineProps({
 }
 
 .director-photo .photo {
-  width: 375px;
-  height: 375px;
+  width: 251px;
+  height: 251px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #86a8ab;
+  border: 3px solid #86a8ab;
 }
 
 .director-info {
@@ -73,14 +73,14 @@ defineProps({
 .title-name-row {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 
 .director-info .title {
-  font-size: 40pt;
+  font-size: 27pt;
   color: #3f5963;
   margin: 0;
   font-weight: normal;
@@ -89,7 +89,7 @@ defineProps({
 }
 
 .director-info .name {
-  font-size: 55pt;
+  font-size: 37pt;
   color: #333;
   margin: 0;
   font-weight: bold;
@@ -98,22 +98,22 @@ defineProps({
 }
 
 .contact-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .contact-info p {
-  margin: 0.5rem 0;
-  font-size: 23pt;
+  margin: 0.3rem 0;
+  font-size: 15.5pt;
   color: #333;
 }
 
 .description {
-  font-size: 23pt;
+  font-size: 15.5pt;
   color: #333;
 }
 
 .description p {
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
   line-height: 1.6;
 }
 
@@ -127,35 +127,35 @@ defineProps({
   .director-card {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .director-photo .photo {
-    width: 250px;
-    height: 250px;
+    width: 168px;
+    height: 168px;
   }
   
   .director-info .title {
-    font-size: 20pt;
+    font-size: 13.5pt;
   }
   
   .director-info .name {
-    font-size: 24pt;
+    font-size: 16pt;
   }
 }
 
 @media (max-width: 480px) {
   .director-photo .photo {
-    width: 200px;
-    height: 200px;
+    width: 134px;
+    height: 134px;
   }
   
   .director-info .title {
-    font-size: 18pt;
+    font-size: 12pt;
   }
   
   .director-info .name {
-    font-size: 20pt;
+    font-size: 13.5pt;
   }
 }
 </style> 
