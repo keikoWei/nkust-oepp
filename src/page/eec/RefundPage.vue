@@ -17,7 +17,7 @@
 
     <div class="content-container">
       <div class="title-container">
-        <div class="title">退費規定</div>
+        <div class="title">『退費規定』</div>
       </div>
       
       <div class="content">
@@ -327,29 +327,32 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 .title {
-  font-size: 40pt;
+  font-size: 26pt;
   padding: 10px 40px;
   border: 3px solid #534741;
   border-radius: 15px;
   color: #534741;
   background-color: #e3d9cd;
-  width: 240px;
+  width: 280px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
 }
 
 .content {
-  font-size: 30pt;
+  font-size: 20pt;
   color: #534741;
   line-height: 1.6;
+  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
 }
 
 h3 {
-  font-size: 30pt;
+  font-size: 20pt;
   color: #534741;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .note {
@@ -374,31 +377,49 @@ h3 {
 
 @media (max-width: 1024px) {
   .title {
-    font-size: 35pt;
+    font-size: 22pt;
+    width: 245px;
+    height: 70px;
   }
   
   .content {
-    font-size: 25pt;
+    font-size: 17pt;
   }
   
   h3 {
-    font-size: 25pt;
+    font-size: 17pt;
   }
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 30pt;
-    width: 200px;
-    height: 70px;
+    font-size: 18pt;
+    width: 210px;
+    height: 60px;
   }
   
   .content {
-    font-size: 20pt;
+    font-size: 14pt;
   }
   
   h3 {
-    font-size: 20pt;
+    font-size: 14pt;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 16pt;
+    width: 175px;
+    height: 50px;
+  }
+  
+  .content {
+    font-size: 12pt;
+  }
+  
+  h3 {
+    font-size: 12pt;
   }
 }
 </style>

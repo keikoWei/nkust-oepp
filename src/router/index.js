@@ -97,6 +97,31 @@ const router = createRouter({
       path: '/educationCenter/payment/refund',
       name: 'eec-payment-refund',
       component: () => import('../page/eec/RefundPage.vue')
+    },
+    {
+      path: '/educationCenter/faq/educationRelated',
+      name: 'eec-education-related',
+      component: () => import('../page/eec/EducationRelatedPage.vue')
+    },
+    {
+      path: '/educationCenter/introduction',
+      name: 'eec-center-introduction',
+      component: () => import('../page/eec/EecCenterIntroductionPage.vue')
+    },
+    {
+      path: '/educationCenter/courseAnnouncement',
+      name: 'eec-course-announcement',
+      component: () => import('../page/eec/EecCourseAnnouncementPage.vue')
+    },
+    {
+      path: '/educationCenter/seniorCitizensUniversity',
+      name: 'eec-senior-citizens-university',
+      component: () => import('../page/eec/SeniorCitizensUniversityPage.vue')
+    },
+    {
+      path: '/educationCenter/faq/training',
+      name: 'eec-training-program',
+      component: () => import('../page/eec/TrainingProgramPage.vue')
     }
   ]
 })

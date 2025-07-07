@@ -25,7 +25,7 @@
                 <span class="dropdown-arrow">▼</span>
               </button>
               <div class="dropdown-menu" v-show="showDropdown">
-                <RouterLink to="/educationCenter" @click="closeDropdown">
+                <RouterLink to="/educationCenter/introduction" @click="closeDropdown">
                   <div class="dropdown-item">中心簡介</div>
                 </RouterLink>
                 <RouterLink to="/about/members/eec" @click="closeDropdown">
@@ -41,7 +41,7 @@
               線上報名
             </a>
             
-            <RouterLink to="/educationCenter/courses" class="nav-btn">
+            <RouterLink to="/educationCenter/courseAnnouncement" class="nav-btn">
               課程公告
             </RouterLink>
             
@@ -63,7 +63,7 @@
               </div>
             </div>
             
-            <RouterLink to="/educationCenter/university" class="nav-btn">
+            <RouterLink to="/educationCenter/seniorCitizensUniversity" class="nav-btn">
               樂齡大學
             </RouterLink>
             
@@ -91,7 +91,7 @@
                 <RouterLink to="/educationCenter/faq/training" @click="closeDropdown">
                   <div class="dropdown-item">委訓計畫</div>
                 </RouterLink>
-                <RouterLink to="/educationCenter/faq/education" @click="closeDropdown">
+                <RouterLink to="/educationCenter/faq/educationRelated" @click="closeDropdown">
                   <div class="dropdown-item">教育相關</div>
                 </RouterLink>
               </div>
@@ -123,7 +123,7 @@ const closeDropdown = () => {
 }
 
 const goToEducationCenter = () => {
-  router.push('/educationCenter')
+  router.push('/educationCenter/introduction')
 }
 
 const openSchoolHome = () => {
