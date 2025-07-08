@@ -16,14 +16,8 @@
 
     <!-- 頁面內容 -->
     <div class="content-container">
-      <div class="title-container">
-        <div class="title">課程公告</div>
-      </div>
       
-      <div class="content">
-        <h3>最新課程公告</h3>
-        <p>此頁面將提供最新的課程公告資訊。</p>
-      </div>
+      <CourseAnnouncementComponent />
     </div>
 
     <!-- Footer -->
@@ -34,6 +28,7 @@
 <script setup>
 import EecHeader from '@/components/EecHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import CourseAnnouncementComponent from '@/components/CourseAnnouncementComponent.vue'
 </script>
 
 <style scoped>

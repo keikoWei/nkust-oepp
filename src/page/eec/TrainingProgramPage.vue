@@ -17,12 +17,48 @@
     <!-- 頁面內容 -->
     <div class="content-container">
       <div class="title-container">
-        <div class="title">委訓計畫</div>
+        <div class="title">委訓計畫相關連結</div>
       </div>
       
-      <div class="content">
-        <h3>委訓計畫常見問題</h3>
-        <p>此頁面將提供委訓計畫的常見問題與解答。</p>
+      <!-- 外部連結區塊 -->
+      <div class="external-links-section">
+        <div class="links-container">
+          <a 
+            href="https://www.epa.gov.tw/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="link-button"
+          >
+            環境健康與生物科技研究中心
+          </a>
+          
+          <a 
+            href="https://www.epa.gov.tw/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="link-button"
+          >
+            南區毒災應變諮詢中心
+          </a>
+          
+          <a 
+            href="https://www.taiwanjobs.gov.tw/home/new_index.aspx" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="link-button"
+          >
+            台灣就業通-產業人才投資計畫
+          </a>
+          
+          <a 
+            href="https://ojt.wda.gov.tw/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="link-button"
+          >
+            在職訓連網
+          </a>
+        </div>
       </div>
     </div>
 
@@ -41,6 +77,8 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #fff;
+  min-height: 100vh;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
 }
 
@@ -96,41 +134,68 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
+  background-color: #fff;
 }
 
 .title-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
 .title {
-  font-size: 26pt;
-  padding: 10px 40px;
-  border: 3px solid #534741;
-  border-radius: 15px;
+  font-size: 45pt;
   color: #534741;
-  background-color: #e3d9cd;
-  width: 280px;
-  height: 80px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
+}
+
+/* 外部連結區塊樣式 */
+.external-links-section {
+  width: 100%;
+  background-color: #fff;
+}
+
+.links-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.link-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 830px;
+  height: 170px;
+  background-color: #fff;
+  color: #534741;
+  text-decoration: none;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 30pt;
+  font-weight: 500;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
   font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
+  box-sizing: border-box;
 }
 
-.content {
-  font-size: 20pt;
-  color: #534741;
-  line-height: 1.6;
-  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
+.link-button:hover {
+  background-color: #e3d9cd;
+  border-color: #534741;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-h3 {
-  font-size: 20pt;
-  color: #534741;
-  margin-bottom: 20px;
-  font-weight: bold;
+.link-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 響應式設計 */
@@ -144,17 +209,13 @@ h3 {
   }
 
   .title {
-    font-size: 22pt;
-    width: 245px;
-    height: 70px;
+    font-size: 35pt;
   }
   
-  .content {
-    font-size: 17pt;
-  }
-  
-  h3 {
-    font-size: 17pt;
+  .link-button {
+    width: 700px;
+    height: 140px;
+    font-size: 26pt;
   }
 }
 
@@ -168,33 +229,37 @@ h3 {
   }
 
   .title {
-    font-size: 18pt;
-    width: 210px;
-    height: 60px;
+    font-size: 28pt;
   }
   
-  .content {
-    font-size: 14pt;
+  .links-container {
+    max-width: 95%;
   }
   
-  h3 {
-    font-size: 14pt;
+  .link-button {
+    width: 100%;
+    max-width: 600px;
+    height: 120px;
+    font-size: 22pt;
   }
 }
 
 @media (max-width: 480px) {
   .title {
-    font-size: 16pt;
-    width: 175px;
-    height: 50px;
+    font-size: 22pt;
   }
   
-  .content {
-    font-size: 12pt;
+  .links-container {
+    max-width: 95%;
+    gap: 20px;
   }
   
-  h3 {
-    font-size: 12pt;
+  .link-button {
+    width: 100%;
+    max-width: 400px;
+    height: 100px;
+    font-size: 18pt;
+    border-radius: 15px;
   }
 }
 </style>
