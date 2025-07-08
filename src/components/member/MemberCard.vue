@@ -16,7 +16,7 @@
       </div>
       <div v-if="member.responsibilities" class="description">
         <p><span class="label">職掌：</span></p>
-        <p v-for="responsibility in member.responsibilities" :key="responsibility">
+        <p v-for="responsibility in member.responsibilities" :key="responsibility" class="responsibility-item">
           {{ responsibility }}
         </p>
       </div>
@@ -122,6 +122,13 @@ defineProps({
 .description p {
   margin: 0.2rem 0;
   line-height: 1.5;
+}
+
+.responsibility-item {
+  margin: 0.2rem 0 !important;
+  line-height: 1.5 !important;
+  text-indent: -1em;
+  padding-left: 1em;
 }
 
 .label {

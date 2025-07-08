@@ -14,7 +14,17 @@
           <p><span class="label">信箱：</span>{{ director.email }}</p>
         </div>
         <div class="description">
-          <p><span class="label">職掌：</span>{{ director.responsibility }}</p>
+          <!-- 支援舊格式的 responsibility -->
+          <p v-if="director.responsibility && !director.responsibilities"><span class="label">職掌：</span>{{ director.responsibility }}</p>
+          
+          <!-- 支援新格式的 responsibilities 數組 -->
+          <div v-if="director.responsibilities">
+            <p><span class="label">職掌：</span></p>
+            <p v-for="responsibility in director.responsibilities" :key="responsibility" class="responsibility-item">
+              {{ responsibility }}
+            </p>
+          </div>
+          
           <div v-if="director.additionalInfo">
             <p v-for="info in director.additionalInfo" :key="info">{{ info }}</p>
           </div>
@@ -32,7 +42,7 @@ defineProps({
     validator: (value) => {
       return value.title && value.name && value.photo && 
              value.extension !== undefined && value.email !== undefined && 
-             value.responsibility !== undefined
+             (value.responsibility !== undefined || value.responsibilities !== undefined)
     }
   }
 })
@@ -115,6 +125,13 @@ defineProps({
 .description p {
   margin: 0.3rem 0;
   line-height: 1.6;
+}
+
+.responsibility-item {
+  margin: 0.2rem 0 !important;
+  line-height: 1.6 !important;
+  text-indent: -1em;
+  padding-left: 1em;
 }
 
 .label {
