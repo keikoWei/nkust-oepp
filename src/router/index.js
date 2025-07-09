@@ -19,6 +19,11 @@ const router = createRouter({
       component: () => import('../layout/EecLayout.vue')
     },
     {
+      path: '/publication',
+      name: 'publication-center',
+      component: () => import('../layout/EpcLayout.vue')
+    },
+    {
       path: '/productCenter/activity',
       name: 'ppc-activity',
       component: () => import('../page/ppc/PpcActivityPage.vue')
@@ -122,6 +127,31 @@ const router = createRouter({
       path: '/educationCenter/faq/training',
       name: 'eec-training-program',
       component: () => import('../page/eec/TrainingProgramPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/introduction',
+      name: 'epc-center-introduction',
+      component: () => import('../page/epc/EpcCenterIntroductionPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar',
+      name: 'epc-seminar',
+      component: () => import('../page/epc/SeminarPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/activity',
+      name: 'epc-commissioned-activities',
+      component: () => import('../page/epc/CommissionedActivitiesPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement',
+      name: 'epc-achievements',
+      component: () => import('../page/epc/EpcAchievementsPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/publications',
+      name: 'epc-publications',
+      component: () => import('../page/epc/PublicationPage.vue')
     }
   ]
 })
