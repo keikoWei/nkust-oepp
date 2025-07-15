@@ -19,7 +19,7 @@
           <div class="file-item" v-for="file in downloadFiles" :key="file.name">
             <div class="category-box">
               <div class="category-text">
-                <div>推廣教育</div>
+                <div>產品推廣</div>
                 <div>相關法規</div>
               </div>
             </div>
@@ -52,55 +52,55 @@ const downloadFiles = [
     name: '國立高雄科技大學校名、校徽授權使用申請表.docx',
     title: '國立高雄科技大學校名、校徽授權使用申請表',
     path: '/file/downloads/ppc/國立高雄科技大學校名、校徽授權使用申請表.docx',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件一-授權商品製作及銷售申請辦理單位流程.pdf',
     title: '附件一-授權商品製作及銷售申請辦理單位流程',
     path: '/file/downloads/ppc/附件一-授權商品製作及銷售申請辦理單位流程.pdf',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件二至四-申請表.docx',
     title: '附件二至四-申請表',
     path: '/file/downloads/ppc/附件二至四-申請表.docx',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件五-教師研發商品上架簡介.docx',
     title: '附件五-教師研發商品上架簡介',
     path: '/file/downloads/ppc/附件五-教師研發商品上架簡介.docx',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件六-切結書.doc',
     title: '附件六-切結書',
     path: '/file/downloads/ppc/附件六-切結書.doc',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件七-授權商品製作及銷售管理要點.pdf',
     title: '附件七-授權商品製作及銷售管理要點',
     path: '/file/downloads/ppc/附件七-授權商品製作及銷售管理要點.pdf',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件八-校名校徽暨商標使用管理辦法.pdf',
     title: '附件八-校名校徽暨商標使用管理辦法',
     path: '/file/downloads/ppc/附件八-校名校徽暨商標使用管理辦法.pdf',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件九-本校商品上架銷售申請及審核要點.pdf',
     title: '附件九-本校商品上架銷售申請及審核要點',
     path: '/file/downloads/ppc/附件九-本校商品上架銷售申請及審核要點.pdf',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   },
   {
     name: '附件十-商品標示法及相關標示基準解說.pdf',
     title: '附件十-商品標示法及相關標示基準解說',
     path: '/file/downloads/ppc/附件十-商品標示法及相關標示基準解說.pdf',
-    category: '推廣教育相關法規'
+    category: '產品推廣相關法規'
   }
 ]
 </script>
