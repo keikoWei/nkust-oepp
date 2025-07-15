@@ -13,8 +13,39 @@
     
     <!-- 法規內容區域 -->
     <div class="regulation-content">
-      <h2>法規內容</h2>
-      <p>此處將顯示產品推廣中心相關法規內容...</p>
+      
+      <!-- 法規分類列表 -->
+      <div class="regulation-categories">
+        <!-- 推廣教育相關法規 -->
+        <div class="category-section">
+          <div class="category-header">
+            <span class="category-title">推廣教育相關法規</span>
+          </div>
+          <div class="file-list">
+            <div class="file-item" v-for="file in educationRegulations" :key="file.name">
+              <span class="file-bullet">📄</span>
+              <a :href="file.path" :download="file.name" class="file-link">
+                {{ file.title }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 推廣教育訓練品質管理 -->
+        <div class="category-section">
+          <div class="category-header">
+            <span class="category-title">推廣教育訓練品質管理</span>
+          </div>
+          <div class="file-list">
+            <div class="file-item" v-for="file in qualityManagement" :key="file.name">
+              <span class="file-bullet">📄</span>
+              <a :href="file.path" :download="file.name" class="file-link">
+                {{ file.title }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -26,6 +57,34 @@
 import AppHeader from '@/components/AppHeader.vue'
 import RegulationHeader from '@/components/regulation/RegulationHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+
+// 推廣教育相關法規
+const educationRegulations = [
+  {
+    name: '國立高雄科技大學校名校徽暨商標使用管理辦法1140115.pdf',
+    title: '國立高雄科技大學校名校徽暨商標使用管理辦法',
+    path: '/file/regulations/ppc/國立高雄科技大學校名校徽暨商標使用管理辦法1140115.pdf'
+  },
+  {
+    name: '品牌管理小組運作機制作業要點1121018.pdf',
+    title: '品牌管理小組運作機制作業要點',
+    path: '/file/regulations/ppc/品牌管理小組運作機制作業要點1121018.pdf'
+  }
+]
+
+// 推廣教育訓練品質管理
+const qualityManagement = [
+  {
+    name: '授權商品製作及銷售管理要點.pdf',
+    title: '授權商品製作及銷售管理要點',
+    path: '/file/regulations/ppc/授權商品製作及銷售管理要點.pdf'
+  },
+  {
+    name: '商品上架銷售申請及審核要點.pdf',
+    title: '商品上架銷售申請及審核要點',
+    path: '/file/regulations/ppc/商品上架銷售申請及審核要點.pdf'
+  }
+]
 </script>
 
 <style scoped>
@@ -75,10 +134,112 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   font-weight: normal;
 }
 
-.regulation-content p {
-  font-size: 12pt;  /* 原本 18pt * 0.67 */
+/* 法規分類樣式 */
+.regulation-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.category-header {
+  height: 52px;
+  background-color: #3C1810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  width: fit-content;
+  min-width: 300px;
+}
+
+.category-title {
+  font-size: 21pt;  /* 32pt * 0.67 */
+  color: white;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-bullet {
+  font-size: 17pt;  /* 26pt * 0.67 */
   color: #666;
-  line-height: 1.6;
-  text-align: center;
+  min-width: 20px;
+}
+
+.file-link {
+  font-size: 17pt;  /* 26pt * 0.67 */
+  color: #333;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.file-link:hover {
+  color: #3C1810;
+  text-decoration: underline;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 16pt;  /* 24pt * 0.67 */
+  }
+  
+  .category-header {
+    height: 45px;
+    min-width: 250px;
+  }
+  
+  .file-link {
+    font-size: 13pt;  /* 20pt * 0.67 */
+  }
+  
+  .file-bullet {
+    font-size: 13pt;  /* 20pt * 0.67 */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-title {
+    font-size: 12pt;  /* 18pt * 0.67 */
+  }
+  
+  .category-header {
+    height: 40px;
+    min-width: 200px;
+    padding: 0 15px;
+  }
+  
+  .file-link {
+    font-size: 11pt;  /* 16pt * 0.67 */
+  }
+  
+  .file-bullet {
+    font-size: 11pt;  /* 16pt * 0.67 */
+  }
+  
+  .file-list {
+    padding-left: 15px;
+  }
 }
 </style> 
