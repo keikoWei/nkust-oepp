@@ -2,7 +2,7 @@
   <div class="epc-layout">
     <EpcHeader />
 
-    <!-- 主要內容區域 -->
+    <!-- 會展中心主要內容區域 -->
     <div class="epc-main">
       <!-- 輪播圖區域 -->
       <section class="banner no-gap">
@@ -28,24 +28,20 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
 const carouselImages = [
   {
-    url: '/image/carousels/oepp_1_carousel.jpg',
-    alt: '高科大校園 1'
+    url: '/image/carousels/epc_1_carousel.jpg',
+    alt: '會展中心活動 1'
   },
   {
-    url: '/image/carousels/oepp_2_carousel.jpg',
-    alt: '高科大校園 2'
+    url: '/image/carousels/epc_2_carousel.jpg',
+    alt: '會展中心活動 2'
   },
   {
-    url: '/image/carousels/oepp_3_carousel.jpg',
-    alt: '高科大校園 3'
+    url: '/image/carousels/epc_3_carousel.jpg',
+    alt: '會展中心活動 3'
   },
   {
-    url: '/image/carousels/oepp_4_carousel.jpg',
-    alt: '高科大校園 4'
-  },
-  {
-    url: '/image/carousels/oepp_5_carousel.jpg',
-    alt: '高科大校園 5'
+    url: '/image/carousels/epc_4_carousel.jpg',
+    alt: '會展中心活動 4'
   }
 ]
 </script>
