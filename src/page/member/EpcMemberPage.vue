@@ -4,7 +4,7 @@
   <!-- 頂部圖片區域 -->
   <section class="member-banner">
     <div class="banner-image">
-      <img src="/image/members/member_top.jpg" alt="成員介紹頂部圖片" class="banner-img">
+      <img src="/image/members/epc_member_page_top.jpg" alt="會展及出版中心成員介紹頂部圖片" class="banner-img">
     </div>
   </section>
   

@@ -6,7 +6,7 @@
     <!-- 頂部圖片區域 -->
     <section class="page-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="辦理研討會協助頂部圖片" class="banner-img">
+        <img src="/image/epc/seminar_top.jpg" alt="辦理研討會協助頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>辦理研討會協助</h1>
         </div>

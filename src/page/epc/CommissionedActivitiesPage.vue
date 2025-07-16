@@ -6,7 +6,7 @@
     <!-- 頂部圖片區域 -->
     <section class="page-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="委辦活動申請頂部圖片" class="banner-img">
+        <img src="/image/epc/commissioned_activities_top.jpg" alt="委辦活動申請頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>委辦活動申請</h1>
         </div>

@@ -6,7 +6,7 @@
     <!-- 頂部圖片區域 -->
     <section class="page-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="相關出版品頂部圖片" class="banner-img">
+        <img src="/image/epc/publication_top.jpg" alt="相關出版品頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>相關出版品</h1>
         </div>
