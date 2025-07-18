@@ -123,7 +123,7 @@ const closeDropdown = () => {
 }
 
 const goToEducationCenter = () => {
-  router.push('/educationCenter/introduction')
+  router.push('/educationCenter')
 }
 
 const openSchoolHome = () => {

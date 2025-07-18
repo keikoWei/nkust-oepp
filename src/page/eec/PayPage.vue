@@ -7,7 +7,7 @@
     <!-- 頂部圖片區域 -->
     <section class="pay-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="繳費流程頂部圖片" class="banner-img">
+        <img src="/image/eec/eec_top.png" alt="教育推廣中心繳費流程頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>繳費流程</h1>
         </div>

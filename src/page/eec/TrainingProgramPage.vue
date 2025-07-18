@@ -7,7 +7,7 @@
     <!-- 頂部圖片區域 -->
     <section class="training-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="委訓計畫頂部圖片" class="banner-img">
+        <img src="/image/eec/eec_top.png" alt="教育推廣中心委訓計畫頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>委訓計畫</h1>
         </div>

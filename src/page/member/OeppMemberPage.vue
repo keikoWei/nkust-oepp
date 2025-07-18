@@ -39,14 +39,14 @@ import DirectorCard from '@/components/member/DirectorCard.vue'
 import MemberCard from '@/components/member/MemberCard.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
-// 處室長資訊
+// 處長資訊
 const directorInfo = {
-  title: '處室長',
+  title: '處長',
   name: '高瑞鍾',
   photo: '/image/members/default_man_01.png',
   extension: '12860',
   email: 'jckao@nkust.edu.tw',
-  responsibility: '綜理教育事業暨產品推廣處業務'
+  responsibility: '綜理教育推廣中心業務與管理'
 }
 
 // 處室成員資訊
@@ -54,29 +54,36 @@ const membersInfo = [
   {
     title: '副處長',
     name: '鄭兆宏',
-    subtitle: '(會展及出版中心主任)',
     photo: '/image/members/default_man_02.png',
     contacts: [
       { label: '分機', value: '12850' },
-      { label: '信箱', value: 'zhchen@nkust.edu.tw' }
+      { label: '信箱', value: 'zhcheng@nkust.edu.tw' }
     ],
     responsibilities: [
-      '協助推廣教育自辦計畫規劃業務',
-      '教推中心、產品中心、會展中心業務',
-      '綜理各項業務'
+      '協助教推處處長綜理教推處事務',
+      '教推中心、產品中心、會展中心業務督導及協調'
     ]
   },
   {
-    title: '約用組員',
-    name: '黃昱瑱(代理)',
+    title: '助理員',
+    name: '江芷汝',
     photo: '/image/members/default_woman_01.png',
     contacts: [
-      { label: '分機', value: '12861' },
-      { label: '電子信箱', value: 'jcoffice01@nkust.edu.tw' },
-      { label: '信箱', value: 'chuil3302@nkust.edu.tw' }
+      { label: '處辦信箱', value: 'ieoffice01@nkust.edu.tw' },
+      { label: '信箱', value: 'z779c632@nkust.edu.tw' }
     ],
-    additionalInfo: [
-      { label: '職掌代理人', value: '林雅筑(#12852)' }
+    responsibilities: [
+      '教育事業暨產品推廣處相關法規修訂',
+      '處務會議召開、紀錄與管考追蹤',
+      '各項會議工作報告、提案及資料提送與追蹤管考',
+      '公文核稿、分發、稽催及公務信箱窗口',
+      '主管行程安排登錄',
+      '主辦教推處專案人員甄選及進用作業',
+      '業務績效報告資料彙整與提報',
+      '處內經費分配與控管',
+      '技專資料庫填報業務窗口',
+      '教育事業暨產品推廣處綜合業務及公文處理',
+      '其他臨時交辦事項'
     ]
   }
 ]
@@ -248,7 +255,7 @@ const membersInfo = [
   color: #3f5963;
 }
 
-/* 處室成員標題 */
+/* 處成員標題 */
 .members-header {
   text-align: center;
   margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
@@ -261,7 +268,7 @@ const membersInfo = [
   font-weight: normal;
 }
 
-/* 處室成員區域 */
+/* 處成員區域 */
 .members-section {
   max-width: 670px;  /* 原本 1000px * 0.67 */
   margin: 0 auto;

@@ -7,7 +7,7 @@
     <!-- 頂部圖片區域 -->
     <section class="center-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="中心簡介頂部圖片" class="banner-img">
+        <img src="/image/eec/eec_top.png" alt="教育推廣中心簡介頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>中心簡介</h1>
         </div>

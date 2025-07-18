@@ -7,7 +7,7 @@
     <!-- 頂部圖片區域 -->
     <section class="senior-citizens-banner">
       <div class="banner-image">
-        <img src="/image/members/member_top.jpg" alt="樂齡大學頂部圖片" class="banner-img">
+        <img src="/image/eec/eec_top.png" alt="教育推廣中心樂齡大學頂部圖片" class="banner-img">
         <div class="banner-watermark">
           <h1>樂齡大學</h1>
         </div>

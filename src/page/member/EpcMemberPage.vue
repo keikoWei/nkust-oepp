@@ -45,39 +45,60 @@ const directorInfo = {
   name: '鄭兆宏',
   photo: '/image/members/epc_主任.jpg',
   extension: '12850',
-  email: 'zhchen@nkust.edu.tw',
-  responsibility: '會展及出版中心業務綜理',
-  additionalInfo: ['(副處長兼任)']
+  email: 'zhcheng@nkust.edu.tw',
+  responsibility: '綜理會展及出版中心業務與管理'
 }
 
 // 中心成員資訊
 const membersInfo = [
   {
-    title: '專案助理',
-    name: '昱瑄',
+    title: '約用組員',
+    name: '黃昱瑄',
     photo: '/image/members/epc_昱瑄.jpg',
     contacts: [
-      { label: '分機', value: '-' },
-      { label: '信箱', value: '-' }
+      { label: '分機', value: '12851' },
+      { label: '信箱', value: 'chuh0302@nkust.edu.tw' }
     ],
     responsibilities: [
-      '會展活動規劃與執行',
-      '展覽場地管理',
-      '參展商服務'
+      '中心公文收發管理',
+      '中心請購核銷相關業務',
+      '承攬校內單位委辦之活動業務',
+      '協助規劃及辦理畢業典禮、校慶等校級活動',
+      '其他臨時交辦事項'
     ]
   },
   {
-    title: '專案助理',
-    name: '讌宣',
+    title: '專任助理',
+    name: '林讌宣',
     photo: '/image/members/epc_讌宣.jpg',
+    contacts: [
+      { label: '分機', value: '12852' },
+      { label: '信箱', value: 'yenhsuan613@nkust.edu.tw' }
+    ],
+    responsibilities: [
+      '教師出版品之內容規劃、排版及印刷',
+      '青藝獎出版業務及協助活動辦理',
+      '活動周邊商品規劃及開發',
+      '活動主題視覺規劃設計',
+      '中心網頁管理與維護',
+      '研討會生成系統管理與維護'
+    ]
+  },
+  {
+    title: '待聘',
+    name: '',
+    photo: '/image/members/default_man_01.png',
     contacts: [
       { label: '分機', value: '-' },
       { label: '信箱', value: '-' }
     ],
     responsibilities: [
-      '出版品企劃與編輯',
-      '版權管理',
-      '發行與推廣'
+      '承攬校外公、私部門及企業委辦之活動業務',
+      '高等教育深耕計畫執行',
+      '校內特殊專案規劃與執行',
+      '研討會生成系統管理與維護',
+      '中心法規修訂',
+      '其他臨時交辦事項'
     ]
   }
 ]
