@@ -17,13 +17,32 @@
     <div class="content-container">  
       <div class="content">
         <div class="page-content">
-          <h2>委辦活動申請服務</h2>
-          <p>會展及出版中心提供專業的委辦活動申請服務，協助各界舉辦各類型活動。</p>
-          
-          <!-- 待補充內容 -->
-          <div class="placeholder-content">
-            <p>此頁面內容將於後續開發中完善...</p>
+          <!-- 主標題 -->
+          <div class="main-title">
+            會展 - 委辦活動申請
           </div>
+          
+          <!-- 流程圖區域 -->
+          <div class="flowchart-section">
+            <div class="flowchart-image">
+              <img src="/file/exhibitionCenter/接受委託辦理活動作業流程圖.jpg" alt="委託辦理活動作業流程圖" class="flowchart-img">
+            </div>
+          </div>
+          
+                     <!-- 下載檔案區域 -->
+           <div class="download-section">
+             <div class="download-files">
+               <a href="/file/exhibitionCenter/接受委託辦理活動作業流程圖.pdf" download class="download-file-link">
+                 接受委託辦理活動作業流程圖
+               </a>
+               <a href="/file/exhibitionCenter/會展及出版中心接受委託辦理活動作業申請表.pdf" download class="download-file-link">
+                 會展及出版中心接受委託辦理活動作業申請表.pdf
+               </a>
+               <a href="/file/exhibitionCenter/會展及出版中心接受委託辦理活動作業申請表.docx" download class="download-file-link">
+                 會展及出版中心接受委託辦理活動作業申請表.docx
+               </a>
+             </div>
+           </div>
         </div>
       </div>
     </div>
@@ -102,40 +121,82 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 .content {
-  background: #fff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.page-content h2 {
-  color: #839e8d;
-  font-size: 28pt;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid #839e8d;
-  padding-bottom: 0.5rem;
-}
-
-.page-content p {
-  font-size: 16pt;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.placeholder-content {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
+/* 主標題樣式 */
+.main-title {
+  font-size: 35pt;
+  color: #3e3b3a;
   text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
+}
+
+/* 流程圖區域樣式 */
+.flowchart-section {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.flowchart-title {
+  font-size: 26pt;
+  color: #3e3b3a;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
+}
+
+.flowchart-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.flowchart-img {
+  width: 1080px;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 下載區域樣式 */
+.download-section {
   margin-top: 2rem;
 }
 
-.placeholder-content p {
-  color: #6c757d;
-  font-style: italic;
+.download-files {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-left: 0;
+}
+
+.download-file-link {
+  font-size: 16pt;
+  color: #3e3b3a;
+  text-decoration: none;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.download-file-link:hover {
+  color: #839e8d;
+  text-decoration: none;
 }
 
 /* 響應式設計 */
+@media (max-width: 1200px) {
+  .flowchart-img {
+    width: 90vw;
+  }
+}
+
 @media (max-width: 768px) {
   .page-banner {
     width: 95vw;
@@ -153,12 +214,30 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
     padding: 2rem 1rem;
   }
   
-  .page-content h2 {
+  .main-title {
+    font-size: 32pt;
+  }
+  
+  .flowchart-title {
     font-size: 20pt;
   }
   
-  .page-content p {
+  .download-file-link {
     font-size: 14pt;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 24pt;
+  }
+  
+  .flowchart-title {
+    font-size: 16pt;
+  }
+  
+  .download-file-link {
+    font-size: 12pt;
   }
 }
 </style>
