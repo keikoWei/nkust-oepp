@@ -46,37 +46,66 @@ const directorInfo = {
   photo: '/image/members/ppc_黃志雄主任.jpg',
   extension: '-',
   email: '-',
-  responsibility: '產品推廣中心業務綜理'
+  responsibility: '產品推廣中心業務綜理',
+  responsibilities: [
+    '組織管理',
+    '商品策略',
+    '行銷策略',
+    '商品佈局',
+    '品牌形象'
+  ]
 }
 
 // 中心成員資訊
 const membersInfo = [
   {
-    title: '專案助理',
-    name: '郁萱',
-    photo: '/image/members/ppc_郁萱.jpg',
+    title: '約用組員',
+    name: '蔡宛汝',
+    photo: '/image/members/ppc_宛汝.jpg',
     contacts: [
-      { label: '分機', value: '-' },
-      { label: '信箱', value: '-' }
+      { label: '分機', value: '12858' },
+      { label: '信箱', value: 'ru66@nkust.edu.tw' }
     ],
     responsibilities: [
-      '產品推廣業務執行',
-      '市場開發與行銷',
-      '客戶關係維護'
+      '各類銷售帳務作業、月結手續費收支作帳',
+      '逐月營收經費分配',
+      '每月營業銷售統計表及銷售分析表',
+      '營業稅申報、預借及繳納',
+      '經費授權及結轉業務',
+      '經費核銷申報及設備採購',
+      '進貨管理與促銷方案商談',
+      '宣傳品請領及自籌管道及相關訂單處理',
+      '線上/線下通路訂單準備及禮品包裝',
+      '品牌商店商品銷售諮詢服務',
+      '檔期行銷企劃',
+      '官方帳號推播及管理',
+      '官網後台上下架商品及檔期作業等維護管理'
     ]
   },
   {
-    title: '專案助理',
-    name: '宛汝',
-    photo: '/image/members/ppc_宛汝.jpg',
+    title: '專任助理',
+    name: '許郁萱',
+    photo: '/image/members/ppc_郁萱.jpg',
     contacts: [
-      { label: '分機', value: '-' },
-      { label: '信箱', value: '-' }
+      { label: '分機', value: '12859' },
+      { label: '信箱', value: 'yuxuan@nkust.edu.tw' }
     ],
     responsibilities: [
-      '產品設計與開發',
-      '技術支援服務',
-      '品質控制管理'
+      '校徽商品規劃與開發、商品投保、售價訂定',
+      '商品文宣設計與製作',
+      '活動規劃/推廣活動企劃與執行',
+      '吉祥物經營規劃與管理',
+      '吉祥物活動策劃與執行',
+      '校內主管蛋糕致贈事宜',
+      '宣傳品請領系統',
+      '工讀生聘僱及管理事宜',
+      '校名校徽暨商標使用管理相關事宜',
+      '辦理本校校園紀念商品之商標授權相關申請及防偽標籤管理',
+      'DK/SHOP校園實習商店商品上架審查',
+      '審查本校形象識別系統設計及管理',
+      '官網後台上下架商品及檔期作業等維護管理',
+      '品牌商店商品銷售諮詢服務',
+      '其他臨時交辦事項'
     ]
   }
 ]
