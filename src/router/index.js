@@ -139,6 +139,41 @@ const router = createRouter({
       component: () => import('../page/epc/SeminarPage.vue')
     },
     {
+      path: '/exhibitionCenter/seminar/option',
+      name: 'epc-seminar-option',
+      component: () => import('../page/epc/SeminarOptionPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/preparation',
+      name: 'epc-seminar-preparation',
+      component: () => import('../page/epc/seminarOptions/seminarPreparation.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/marketing',
+      name: 'epc-seminar-marketing',
+      component: () => import('../page/epc/seminarOptions/seminarMarketing.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/service',
+      name: 'epc-seminar-service',
+      component: () => import('../page/epc/seminarOptions/seminarService.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/venue',
+      name: 'epc-seminar-venue',
+      component: () => import('../page/epc/seminarOptions/seminarVenue.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/foodandstay',
+      name: 'epc-seminar-food-and-stay',
+      component: () => import('../page/epc/seminarOptions/seminarFoodAndStay.vue')
+    },
+    {
+      path: '/exhibitionCenter/seminar/option/model',
+      name: 'epc-seminar-model',
+      component: () => import('../page/epc/seminarOptions/seminarModel.vue')
+    },
+    {
       path: '/exhibitionCenter/activity',
       name: 'epc-commissioned-activities',
       component: () => import('../page/epc/CommissionedActivitiesPage.vue')
