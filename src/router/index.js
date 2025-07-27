@@ -146,32 +146,32 @@ const router = createRouter({
     {
       path: '/exhibitionCenter/seminar/option/preparation',
       name: 'epc-seminar-preparation',
-      component: () => import('../page/epc/seminarOptions/seminarPreparation.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarPreparation.vue')
     },
     {
       path: '/exhibitionCenter/seminar/option/marketing',
       name: 'epc-seminar-marketing',
-      component: () => import('../page/epc/seminarOptions/seminarMarketing.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarMarketing.vue')
     },
     {
       path: '/exhibitionCenter/seminar/option/service',
       name: 'epc-seminar-service',
-      component: () => import('../page/epc/seminarOptions/seminarService.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarService.vue')
     },
     {
       path: '/exhibitionCenter/seminar/option/venue',
       name: 'epc-seminar-venue',
-      component: () => import('../page/epc/seminarOptions/seminarVenue.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarVenue.vue')
     },
     {
       path: '/exhibitionCenter/seminar/option/foodandstay',
       name: 'epc-seminar-food-and-stay',
-      component: () => import('../page/epc/seminarOptions/seminarFoodAndStay.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarFoodAndStay.vue')
     },
     {
       path: '/exhibitionCenter/seminar/option/model',
       name: 'epc-seminar-model',
-      component: () => import('../page/epc/seminarOptions/seminarModel.vue')
+      component: () => import('../page/epc/seminarOptions/SeminarModel.vue')
     },
     {
       path: '/exhibitionCenter/activity',
@@ -182,6 +182,31 @@ const router = createRouter({
       path: '/exhibitionCenter/achievement',
       name: 'epc-achievements',
       component: () => import('../page/epc/EpcAchievementsPage.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement/launch',
+      name: 'epc-achievement-launch',
+      component: () => import('../page/epc/achievements/AchievementLaunch.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement/livestream',
+      name: 'epc-achievement-livestream',
+      component: () => import('../page/epc/achievements/AchievementLiveStream.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement/other',
+      name: 'epc-achievement-other',
+      component: () => import('../page/epc/achievements/AchievementOther.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement/seminar',
+      name: 'epc-achievement-seminar',
+      component: () => import('../page/epc/achievements/AchievementSeminar.vue')
+    },
+    {
+      path: '/exhibitionCenter/achievement/university-ceremony',
+      name: 'epc-achievement-university-ceremony',
+      component: () => import('../page/epc/achievements/AchievementUniversityCeremony.vue')
     },
     {
       path: '/exhibitionCenter/publications',

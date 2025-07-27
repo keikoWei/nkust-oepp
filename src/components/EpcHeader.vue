@@ -42,7 +42,7 @@
               委辦活動申請
             </RouterLink>
             
-            <RouterLink to="/exhibitionCenter/achievement" class="nav-btn">
+            <RouterLink to="/exhibitionCenter/achievement/university-ceremony" class="nav-btn">
               成果實績
             </RouterLink>
             
