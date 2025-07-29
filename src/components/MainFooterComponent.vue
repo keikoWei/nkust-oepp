@@ -3,7 +3,7 @@
     <!-- 波浪形頂部裝飾 -->
     <div class="wave-decoration">
       <svg width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
-        <path d="M0,35 C90,35 90,85 180,85 C270,85 270,35 360,35 C450,35 450,85 540,85 C630,85 630,35 720,35 C810,35 810,85 900,85 C990,85 990,35 1080,35 C1140,35 1140,85 1200,85 L1200,0 L0,0 Z" 
+        <path d="M0,40 C90,40 90,80 180,80 C270,80 270,40 360,40 C450,40 450,80 540,80 C630,80 630,40 720,40 C810,40 810,80 900,80 C990,80 990,40 1080,40 C1140,40 1140,80 1200,80 L1200,0 L0,0 Z" 
               :fill="waveColor" 
               stroke="none"/>
       </svg>
@@ -100,7 +100,7 @@ const props = defineProps({
 }
 
 .footer-content {
-  padding: 2rem 0 2.7rem 0;
+  padding: 4rem 0 2.7rem 0;
   background-color: transparent;
   position: relative;
 }
