@@ -170,6 +170,7 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .image-carousel-wrapper {
@@ -206,17 +207,24 @@ onUnmounted(() => {
 
 /* 右側文字區域 */
 .product-info-section {
-  flex: 1;
+  width: 500px;
+  height: 900px;
   padding: 60px 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 600px;
   background: #ffffff;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
 }
 
 .product-info-content {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .product-name {
@@ -245,7 +253,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   position: relative;
-  padding-left: 140px;
+  padding-left: 200px;
 }
 
 .buy-now-btn::before {
@@ -254,14 +262,14 @@ onUnmounted(() => {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 120px;
+  width: 180px;
   height: 1px;
   background-color: #534741;
   transition: all 0.3s ease;
 }
 
 .buy-now-btn:hover::before {
-  width: 140px;
+  width: 200px;
   height: 2px;
 }
 
@@ -316,6 +324,11 @@ onUnmounted(() => {
     height: 750px;
   }
   
+  .product-info-section {
+    width: 450px;
+    height: 750px;
+  }
+  
   .product-name {
     font-size: 32pt;
   }
@@ -327,15 +340,15 @@ onUnmounted(() => {
   .buy-now-btn {
     font-size: 14pt;
     padding: 8px 0;
-    padding-left: 120px;
+    padding-left: 180px;
   }
   
   .buy-now-btn::before {
-    width: 100px;
+    width: 160px;
   }
   
   .buy-now-btn:hover::before {
-    width: 120px;
+    width: 180px;
   }
 }
 
@@ -354,8 +367,14 @@ onUnmounted(() => {
   }
   
   .product-info-section {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
     padding: 40px 30px;
-    min-height: auto;
+  }
+  
+  .product-info-content {
+    height: auto;
   }
   
   .product-name {
@@ -370,15 +389,15 @@ onUnmounted(() => {
   .buy-now-btn {
     font-size: 14pt;
     padding: 6px 0;
-    padding-left: 100px;
+    padding-left: 160px;
   }
   
   .buy-now-btn::before {
-    width: 80px;
+    width: 140px;
   }
   
   .buy-now-btn:hover::before {
-    width: 100px;
+    width: 160px;
   }
 }
 
@@ -394,6 +413,7 @@ onUnmounted(() => {
   }
   
   .product-info-section {
+    min-height: 350px;
     padding: 30px 20px;
   }
   
@@ -409,15 +429,15 @@ onUnmounted(() => {
   .buy-now-btn {
     font-size: 12pt;
     padding: 6px 0;
-    padding-left: 80px;
+    padding-left: 140px;
   }
   
   .buy-now-btn::before {
-    width: 60px;
+    width: 120px;
   }
   
   .buy-now-btn:hover::before {
-    width: 80px;
+    width: 140px;
   }
 }
 </style> 
