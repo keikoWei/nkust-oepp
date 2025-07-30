@@ -109,7 +109,7 @@ const goToVideo = (index) => {
 
 .video-title h2 {
   font-size: 30pt;
-  font-weight: normal;
+  font-weight: bold;
   color: #333;
   margin: 0;
   letter-spacing: 0.7px;

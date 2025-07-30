@@ -10,7 +10,7 @@
       <!-- 新聞項目 -->
       <div class="news-item" v-for="(news, index) in newsList" :key="index">
         <div class="news-date">{{ news.date }}</div>
-        <div class="news-text">{{ news.title }}</div>
+        <div class="news-text" :class="{ 'two-line': news.title.length > 35 }">{{ news.title }}</div>
       </div>
       
       <!-- 展開更多按鈕 -->
@@ -72,12 +72,12 @@ const toggleExpand = () => {
 /* 標題樣式 */
 .news-title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.7rem;
 }
 
 .news-title h2 {
-  font-size: 45pt;
-  font-weight: normal;
+  font-size: 30pt;
+  font-weight: bold;
   color: #333;
   margin: 0;
   letter-spacing: 1px;
@@ -85,18 +85,18 @@ const toggleExpand = () => {
 
 /* 新聞內容區域 - 整體大框 */
 .news-content {
-  width: 1070px;
-  height: 950px;
+  width: 910px;
+  height: 808px;
   max-width: 100%;
   margin: 0 auto;
   background: #3f5963;
-  border-radius: 30px;
+  border-radius: 26px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 35px;
+  padding: 30px;
   box-sizing: border-box;
 }
 
@@ -104,14 +104,14 @@ const toggleExpand = () => {
 .news-content::before {
   content: '';
   position: absolute;
-  top: 35px;
-  left: 35px;
-  right: 35px;
-  bottom: 35px;
-  width: 1000px;
-  height: 898px;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  width: 850px;
+  height: 763px;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 17px;
   z-index: 1;
 }
 
@@ -133,10 +133,10 @@ const toggleExpand = () => {
   align-items: center;
   gap: 0px;
   width: 100%;
-  max-width: 900px;
-  padding: 15px 50px 25px 50px;
-  min-height: 80px;
-  margin-bottom: 15px;
+  max-width: 765px;
+  padding: 13px 43px 21px 43px;
+  min-height: 68px;
+  margin-bottom: 13px;
   position: relative;
 }
 
@@ -144,20 +144,20 @@ const toggleExpand = () => {
 .news-item::after {
   content: '';
   position: absolute;
-  bottom: 25px;
-  left: 50px;
-  right: 50px;
+  bottom: 21px;
+  left: 43px;
+  right: 43px;
   height: 1px;
   background-color: #86a8ab;
 }
 
 .news-item:first-child {
-  margin-top: 90px;
+  margin-top: 77px;
 }
 
 .news-item:last-child {
   margin-bottom: 0;
-  min-height: 100px;
+  min-height: 85px;
 }
 
 .news-item:last-child::after {
@@ -167,26 +167,36 @@ const toggleExpand = () => {
 .news-date {
   background-color: #3f5963;
   color: white;
-  padding: 10px 12px;
-  font-size: 14pt;
+  padding: 9px 10px;
+  font-size: 12pt;
   font-weight: bold;
-  min-width: 90px;
+  min-width: 77px;
   text-align: center;
   flex-shrink: 0;
   position: relative;
-  margin-right: 20px;
-  height: 40px;
+  margin-right: 17px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 100%, 0 100%);
 }
 
 .news-text {
-  font-size: 16pt;
+  font-size: 14pt;
   color: #333;
-  line-height: 1.5;
+  line-height: 1.2;
   flex: 1;
+}
+
+/* 字數超過30時的兩行文字樣式 */
+.news-text.two-line {
+  transform: translateY(-5pt);
+}
+
+/* 超過兩行時的底線樣式 */
+.news-item:has(.news-text.two-line)::after {
+  transform: translateY(-3pt);
 }
 
 /* 展開更多按鈕 */
@@ -194,12 +204,12 @@ const toggleExpand = () => {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding-bottom: 40px;
+  padding-bottom: 34px;
 }
 
 .expand-btn {
-  width: 96px;
-  height: 96px;
+  width: 82px;
+  height: 82px;
   border: 2px solid #86a8ab;
   border-radius: 50%;
   background: #fff;
@@ -219,28 +229,28 @@ const toggleExpand = () => {
 @media (max-width: 1200px) {
   .news-content {
     width: 90%;
-    padding: 60px 40px;
+    padding: 51px 34px;
   }
   
   .news-title h2 {
-    font-size: 36pt;
+    font-size: 31pt;
   }
 }
 
 @media (max-width: 768px) {
   .news-content {
     width: 95%;
-    padding: 40px 20px;
-    border-radius: 20px;
+    padding: 34px 17px;
+    border-radius: 17px;
   }
   
   .news-title h2 {
-    font-size: 28pt;
+    font-size: 24pt;
   }
   
   .news-item {
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
   }
   
   .news-date {
@@ -249,31 +259,31 @@ const toggleExpand = () => {
   }
   
   .news-text {
-    font-size: 14pt;
+    font-size: 12pt;
   }
   
   .expand-btn {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
   
   .expand-btn svg {
-    width: 30px;
-    height: 18px;
+    width: 26px;
+    height: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .news-title h2 {
-    font-size: 24pt;
+    font-size: 20pt;
   }
   
   .news-content {
-    padding: 30px 15px;
+    padding: 26px 13px;
   }
   
   .news-text {
-    font-size: 12pt;
+    font-size: 10pt;
   }
 }
 </style> 

@@ -201,8 +201,8 @@ onUnmounted(() => {
 }
 
 .achievement-title h2 {
-  font-size: 45pt;
-  font-weight: normal;
+  font-size: 30pt;
+  font-weight: bold;
   color: #333;
   margin: 0;
   letter-spacing: 1px;
