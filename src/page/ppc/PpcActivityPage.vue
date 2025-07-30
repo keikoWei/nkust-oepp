@@ -3,17 +3,51 @@
     <!-- Header -->
     <PpcHeader />
     
+    <!-- 頂部圖片區域 -->
+    <section class="member-banner">
+      <div class="banner-image">
+        <img src="/image/dkshop/DKSHOP_LOGO.png" alt="DK SHOP Logo" class="banner-img">
+        <div class="watermark">活動資訊</div>
+      </div>
+    </section>
+    
     <!-- 活動內容區域 -->
     <div class="activity-content">
       <div class="content-wrapper">
-        <div class="page-header">
-          <h1>活動資訊</h1>
-        </div>
-        
-        <div class="activity-section">
-          <div class="activity-placeholder">
-            <h2>產品推廣中心活動資訊</h2>
-            <p>活動內容將在此處顯示...</p>
+        <!-- 活動內容區塊 -->
+        <div class="activity-content-section">
+          <!-- 七周年校慶活動 -->
+          <div class="activity-item">
+            <div class="activity-card">
+              <div class="card-image">
+                <img src="/image/ppc/activitys/activity_七周年校慶.jpg" alt="七周年校慶活動" class="activity-img">
+              </div>
+            </div>
+            <div class="card-text">
+              <h3 class="activity-title">七周年校慶活動</h3>
+              <div class="activity-date">113.12.8</div>
+              <div class="bottom-section">
+                <div class="title-line"></div>
+                <a href="#" class="view-more">點我看更多</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 校友健走活動 -->
+          <div class="activity-item">
+            <div class="activity-card">
+              <div class="card-image">
+                <img src="/image/ppc/activitys/activity_校友健走活動.jpg" alt="校友健走活動" class="activity-img">
+              </div>
+            </div>
+            <div class="card-text">
+              <h3 class="activity-title">校友健走活動</h3>
+              <div class="activity-date">113.9.28</div>
+              <div class="bottom-section">
+                <div class="title-line"></div>
+                <a href="#" class="view-more">點我看更多</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -38,6 +72,49 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
+/* 頂部圖片區域 */
+.member-banner {
+  width: calc(70vw);
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 422px;  
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 2;
+  padding: 34px 0 0 54px;
+  color: white;
+  font-size: 37pt;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 2px;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+}
+
 .activity-content {
   width: 100%;
   min-height: 600px;
@@ -46,74 +123,158 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 .content-wrapper {
-  width: 70vw;
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.page-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.page-header h1 {
-  font-size: 45pt;
-  color: #534741;
-  margin: 0;
-  font-weight: normal;
-}
-
-.activity-section {
-  background-color: #f9f9f9;
-  border-radius: 8px;
   padding: 3rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.activity-placeholder {
-  text-align: center;
+/* 活動內容樣式 */
+.activity-content-section {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
 }
 
-.activity-placeholder h2 {
-  font-size: 32pt;
-  color: #534741;
-  margin: 0 0 2rem 0;
-  font-weight: normal;
+.activity-item {
+  position: relative;
+  height: 360px;
+  width: 100%;
 }
 
-.activity-placeholder p {
-  font-size: 18pt;
-  color: #666;
+.activity-card {
+  width: 432pt;
+  height: 360px;
+  border: 1pt solid #3e3b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2eacc;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-image {
+  width: 396pt;
+  height: 324px;
+  overflow: hidden;
+  border: 1pt solid #3e3b3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 500px;
+  position: absolute;
+  left: 452pt;
+  top: 0;
+  height: 360px;
+  justify-content: space-between;
+}
+
+.activity-title {
+  font-size: 20pt;
+  color: #3e3b3a;
   margin: 0;
-  line-height: 1.6;
+  font-weight: 500;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
+
+.activity-date {
+  font-size: 16pt;
+  color: #6c757d;
+  margin: 5px 0;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+}
+
+.title-line {
+  width: 65%;
+  height: 1pt;
+  background-color: #d3d3d3;
+  margin: 10px 0;
+}
+
+.bottom-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.view-more {
+  font-size: 14pt;
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+}
+
+.view-more:hover {
+  color: #ff8c00;
+}
+
+
 
 /* 響應式設計 */
 @media (max-width: 768px) {
   .content-wrapper {
-    width: 90vw;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
   }
   
   .activity-content {
     padding: 2rem 0;
   }
   
-  .page-header h1 {
-    font-size: 2.5rem;
+  .activity-card {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+    padding: 15px;
   }
   
-  .activity-placeholder h2 {
-    font-size: 1.8rem;
+  .card-image {
+    width: 100%;
+    height: 200px;
   }
   
-  .activity-placeholder p {
-    font-size: 1rem;
+  .activity-title {
+    font-size: 18pt;
   }
   
-  .activity-section {
-    padding: 2rem 1rem;
+  .activity-date {
+    font-size: 14pt;
+  }
+  
+  .view-more {
+    font-size: 16pt;
+  }
+  
+
+  
+  .member-banner {
+    width: 90vw;
+  }
+  
+  .banner-image {
+    height: 300px;
+  }
+  
+  .watermark {
+    padding: 20px 0 0 30px;
+    font-size: 24pt;
   }
 }
 </style>

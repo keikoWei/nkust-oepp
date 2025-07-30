@@ -3,19 +3,18 @@
     <!-- Header -->
     <PpcHeader />
     
+    <!-- 頂部圖片區域 -->
+    <section class="member-banner">
+      <div class="banner-image">
+        <img src="/image/dkshop/DKSHOP_LOGO.png" alt="DK SHOP Logo" class="banner-img">
+        <div class="watermark">最新消息</div>
+      </div>
+    </section>
+    
     <!-- 最新消息內容區域 -->
     <div class="news-content">
       <div class="content-wrapper">
-        <div class="page-header">
-          <h1>最新消息</h1>
-        </div>
-        
-        <div class="news-section">
-          <div class="news-placeholder">
-            <h2>產品推廣中心最新消息</h2>
-            <p>最新消息內容將在此處顯示...</p>
-          </div>
-        </div>
+        <PpcNewsComponents />
       </div>
     </div>
     
@@ -27,6 +26,7 @@
 <script setup>
 import PpcHeader from '@/components/PpcHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import PpcNewsComponents from '@/components/PpcNewsComponents.vue'
 </script>
 
 <style scoped>
@@ -35,6 +35,49 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+}
+
+/* 頂部圖片區域 */
+.member-banner {
+  width: calc(70vw);
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 422px;  /* 原本 630px * 0.67 */
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.watermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 2;
+  padding: 34px 0 0 54px;
+  color: white;
+  font-size: 37pt;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 2px;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
 }
 
@@ -52,42 +95,7 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   padding: 0 2rem;
 }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
 
-.page-header h1 {
-  font-size: 45pt;
-  color: #534741;
-  margin: 0;
-  font-weight: normal;
-}
-
-.news-section {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 3rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.news-placeholder {
-  text-align: center;
-}
-
-.news-placeholder h2 {
-  font-size: 32pt;
-  color: #534741;
-  margin: 0 0 2rem 0;
-  font-weight: normal;
-}
-
-.news-placeholder p {
-  font-size: 18pt;
-  color: #666;
-  margin: 0;
-  line-height: 1.6;
-}
 
 /* 響應式設計 */
 @media (max-width: 768px) {
@@ -100,20 +108,19 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
     padding: 2rem 0;
   }
   
-  .page-header h1 {
-    font-size: 2.5rem;
+
+  
+  .member-banner {
+    width: 90vw;
   }
   
-  .news-placeholder h2 {
-    font-size: 1.8rem;
+  .banner-image {
+    height: 300px;
   }
   
-  .news-placeholder p {
-    font-size: 1rem;
-  }
-  
-  .news-section {
-    padding: 2rem 1rem;
+  .watermark {
+    padding: 20px 0 0 30px;
+    font-size: 24pt;
   }
 }
 </style>
