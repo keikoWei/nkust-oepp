@@ -16,9 +16,20 @@
       </div>
       <div v-if="member.responsibilities" class="description">
         <p><span class="label">職掌：</span></p>
-        <p v-for="responsibility in member.responsibilities" :key="responsibility" class="responsibility-item">
-          {{ responsibility }}
-        </p>
+        <div class="responsibilities-container" :class="{ 'collapsed': !isExpanded }">
+          <p v-for="(responsibility, index) in member.responsibilities" 
+             :key="responsibility" 
+             class="responsibility-item"
+             :class="{ 'hidden': !isExpanded && index >= 3 }">
+            {{ responsibility }}
+          </p>
+        </div>
+        <div v-if="needsExpand" class="expand-section">
+          <div class="divider-line"></div>
+          <button class="expand-btn" @click="toggleExpand">
+            {{ isExpanded ? '收起' : '查看更多' }}
+          </button>
+        </div>
       </div>
       <div v-if="member.additionalInfo" class="description">
         <p v-for="info in member.additionalInfo" :key="info">
@@ -30,7 +41,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { ref, computed } from 'vue'
+
+const props = defineProps({
   member: {
     type: Object,
     required: true,
@@ -38,6 +51,17 @@ defineProps({
       return value.title && value.name && value.photo && value.contacts
     }
   }
+})
+
+const isExpanded = ref(false)
+
+const toggleExpand = () => {
+  isExpanded.value = !isExpanded.value
+}
+
+// 計算是否需要展開功能
+const needsExpand = computed(() => {
+  return props.member.responsibilities && props.member.responsibilities.length > 3
 })
 </script>
 
@@ -48,8 +72,8 @@ defineProps({
   margin-bottom: 1.3rem;
   display: flex;
   align-items: flex-start;
-  gap: 1.3rem;
-  max-width: 536px;
+  gap: 2rem;
+  max-width: 720px;
   margin: 0 auto 1.3rem auto;
 }
 
@@ -68,6 +92,7 @@ defineProps({
 .member-info {
   flex: 1;
   padding-top: 0.7rem;
+  min-width: 0;
 }
 
 .title-name-row {
@@ -124,11 +149,55 @@ defineProps({
   line-height: 1.5;
 }
 
+.responsibilities-container {
+  transition: all 0.3s ease;
+}
+
+.responsibilities-container.collapsed {
+  max-height: none;
+  overflow: visible;
+}
+
 .responsibility-item {
   margin: 0.2rem 0 !important;
   line-height: 1.5 !important;
-  text-indent: -1em;
-  padding-left: 1em;
+  padding-left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.responsibility-item.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: none;
+}
+
+.expand-section {
+  margin-top: 0.5rem;
+}
+
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 0.5rem 0;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: #3f5963;
+  font-size: 13.5pt;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.expand-btn:hover {
+  color: #86a8ab;
 }
 
 .label {

@@ -191,70 +191,6 @@ const membersInfo = [
   margin-bottom: 3rem;
 }
 
-.director-card {
-  background: #d9d9d9;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.director-photo {
-  flex-shrink: 0;
-}
-
-.director-photo .photo {
-  width: 375px;
-  height: 375px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #86a8ab;
-}
-
-.director-info {
-  flex: 1;
-}
-
-.director-info .title {
-  font-size: 24pt;
-  color: #3f5963;
-  margin: 0 0 0.5rem 0;
-  font-weight: normal;
-}
-
-.director-info .name {
-  font-size: 28pt;
-  color: #333;
-  margin: 0 0 1rem 0;
-  font-weight: bold;
-}
-
-.contact-info {
-  margin-bottom: 1rem;
-}
-
-.contact-info p {
-  margin: 0.3rem 0;
-  font-size: 14pt;
-  color: #555;
-}
-
-.description {
-  font-size: 14pt;
-  color: #555;
-}
-
-.description p {
-  margin: 0.3rem 0;
-}
-
-.label {
-  font-weight: bold;
-  color: #3f5963;
-}
-
 /* 處成員標題 */
 .members-header {
   text-align: center;
@@ -270,7 +206,7 @@ const membersInfo = [
 
 /* 處成員區域 */
 .members-section {
-  max-width: 670px;  /* 原本 1000px * 0.67 */
+  max-width: 720px;  /* 配合 MemberCard 的新寬度 */
   margin: 0 auto;
 }
 
@@ -336,39 +272,6 @@ const membersInfo = [
   .nav-item {
     padding: 0.6rem 1rem;
     font-size: 14pt;
-  }
-
-  .director-card,
-  .member-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-  }
-
-  .director-photo .photo {
-    width: 120px;
-    height: 120px;
-  }
-
-  .member-photo .photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .director-info .title {
-    font-size: 20pt;
-  }
-
-  .director-info .name {
-    font-size: 24pt;
-  }
-
-  .member-title {
-    font-size: 16pt;
-  }
-
-  .member-name {
-    font-size: 18pt;
   }
 }
 </style>

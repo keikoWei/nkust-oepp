@@ -159,7 +159,7 @@ const membersInfo = [
 
 /* 中心成員區域 */
 .members-section {
-  max-width: 670px;  /* 原本 1000px * 0.67 */
+  max-width: 720px;  /* 配合 MemberCard 的新寬度 */
   margin: 0 auto;
 }
 </style>

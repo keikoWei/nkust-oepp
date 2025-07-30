@@ -59,8 +59,8 @@ defineProps({
   padding: 1.3rem;
   display: flex;
   align-items: center;
-  gap: 1.3rem;
-  max-width: 536px;
+  gap: 2rem;
+  max-width: 670px;
   margin: 0 auto;
 }
 
@@ -78,6 +78,7 @@ defineProps({
 
 .director-info {
   flex: 1;
+  min-width: 0;
 }
 
 .title-name-row {
@@ -130,8 +131,7 @@ defineProps({
 .responsibility-item {
   margin: 0.2rem 0 !important;
   line-height: 1.6 !important;
-  text-indent: -1em;
-  padding-left: 1em;
+  padding-left: 0;
 }
 
 .label {
