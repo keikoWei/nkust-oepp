@@ -33,7 +33,7 @@
           <!-- 整張圖片 -->
           <div class="image-container">
             <img 
-              src="/public/image/epc/中心簡介封面圖.jpg" 
+              src="/image/epc/中心簡介封面圖.jpg" 
               alt="會展及出版中心封面圖" 
               class="main-img"
             >
@@ -42,7 +42,7 @@
           <!-- 下載區域 -->
           <div class="download-section">
             <a 
-              href="/public/file/epc/中心簡介-簡報.pdf" 
+              href="/file/epc/中心簡介-簡報.pdf" 
               download
               class="download-link"
             >

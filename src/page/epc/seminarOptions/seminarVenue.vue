@@ -37,32 +37,32 @@
             </div>
             <div class="image-grid">
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_舞台TRUSS搭設.jpg" alt="舞台TRUSS搭設." class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_舞台TRUSS搭設.jpg" alt="舞台TRUSS搭設." class="grid-img">
                 <p class="image-caption">▲舞台TRUSS搭設</p>
                 <p class="image-caption">第三屆高科盃全國商業智慧競賽</p>
               </div>
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_LED視訊牆與燈光.jpg" alt="LED視訊牆與燈光" class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_LED視訊牆與燈光.jpg" alt="LED視訊牆與燈光" class="grid-img">
                 <p class="image-caption">▲LED視訊牆與燈光</p>
                 <p class="image-caption">校慶舞台</p>
               </div>
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_展間結構規劃.jpg" alt="展間結構規劃" class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_展間結構規劃.jpg" alt="展間結構規劃" class="grid-img">
                 <p class="image-caption">▲展間結構規劃</p>
                 <p class="image-caption">2022 亞洲永續供應+循環經濟會展</p>
               </div>
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_氣球佈置.jpg" alt="氣球佈置" class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_氣球佈置.jpg" alt="氣球佈置" class="grid-img">
                 <p class="image-caption">▲氣球佈置</p>
                 <p class="image-caption">第三屆高科盃全國商業智慧競賽</p>
               </div>
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_剪綵儀式規劃.jpg" alt="剪綵儀式規劃" class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_剪綵儀式規劃.jpg" alt="剪綵儀式規劃" class="grid-img">
                 <p class="image-caption">▲剪綵儀式規劃</p>
                 <p class="image-caption">毅志樓落成啟用典禮</p>
               </div>
               <div class="image-item">
-                <img src="/public/image/epc/seminarOptions/venue_活動手板製作.jpg" alt="活動手板製作" class="grid-img">
+                <img src="/image/epc/seminarOptions/venue_活動手板製作.jpg" alt="活動手板製作" class="grid-img">
                 <p class="image-caption">▲活動手板製作</p>
                 <p class="image-caption">2022 亞洲永續供應+循環經濟會展</p>
               </div>
@@ -88,12 +88,12 @@
             </div>
             <div class="bottom-images">
               <div class="bottom-image-item">
-                <img src="/public/image/epc/seminarOptions/venue_工作人員招募與訓練.jpg" alt="工作人員招募與訓練" class="bottom-img">
+                <img src="/image/epc/seminarOptions/venue_工作人員招募與訓練.jpg" alt="工作人員招募與訓練" class="bottom-img">
                 <p class="image-caption">▲工作人員招募與訓練</p>
                 <p class="image-caption">毅志樓落成啟用典禮</p>
               </div>
               <div class="bottom-image-item">
-                <img src="/public/image/epc/seminarOptions/venue_報到動線規劃.jpg" alt="報到動線規劃" class="bottom-img">
+                <img src="/image/epc/seminarOptions/venue_報到動線規劃.jpg" alt="報到動線規劃" class="bottom-img">
                 <p class="image-caption">▲報到動線規劃</p>
                 <p class="image-caption">校慶報到處</p>
               </div>

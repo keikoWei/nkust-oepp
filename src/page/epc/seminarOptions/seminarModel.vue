@@ -29,7 +29,7 @@
         <div class="model-section">
           <div class="section-header">
             <img 
-              src="/public/image/epc/seminarOptions/model_活動企劃.jpg" 
+              src="/image/epc/seminarOptions/model_活動企劃.jpg" 
               alt="活動企劃背景" 
               class="header-bg"
             >
@@ -56,7 +56,7 @@
         <div class="model-section">
           <div class="section-header">
             <img 
-              src="/public/image/epc/seminarOptions/model_虛擬會議平台規劃設計.jpg" 
+              src="/image/epc/seminarOptions/model_虛擬會議平台規劃設計.jpg" 
               alt="虛擬會議平台背景" 
               class="header-bg"
             >
@@ -65,7 +65,7 @@
           <div class="section-content">
             <div class="virtual-platform">
               <img 
-                src="/public/image/epc/seminarOptions/model_閉幕大合照.png" 
+                src="/image/epc/seminarOptions/model_閉幕大合照.png" 
                 alt="閉幕大合照" 
                 class="platform-img"
               >
@@ -81,7 +81,7 @@
         <div class="model-section">
           <div class="section-header">
             <img 
-              src="/public/image/epc/seminarOptions/model_線上直播現場直播.jpg" 
+              src="/image/epc/seminarOptions/model_線上直播現場直播.jpg" 
               alt="直播背景" 
               class="header-bg"
             >
@@ -110,7 +110,7 @@
         <div class="model-section">
           <div class="section-header">
             <img 
-              src="/public/image/epc/seminarOptions/model_動畫製作、影片剪輯.jpg" 
+              src="/image/epc/seminarOptions/model_動畫製作、影片剪輯.jpg" 
               alt="動畫製作背景" 
               class="header-bg"
             >
