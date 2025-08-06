@@ -258,11 +258,17 @@ const goToVideo = (index) => {
 }
 
 @media (max-width: 480px) {
+  .video-container {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
   .video-title h2 {
     font-size: 19pt;
   }
   
   .video-player-wrapper {
+    width: 100%;
     padding: 7px;
   }
   

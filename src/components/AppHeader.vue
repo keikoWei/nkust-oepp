@@ -8,13 +8,71 @@
           </RouterLink>
         </div>
         <div class="right-section">
-          <button class="school-home-btn" @click="openSchoolHome">
+          <!-- 手機版漢堡選單按鈕 -->
+          <button class="mobile-menu-btn" @click="toggleMobileMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <!-- 桌面版學校首頁按鈕 -->
+          <button class="school-home-btn desktop-only" @click="openSchoolHome">
             學校首頁
           </button>
         </div>
       </div>
     </div>
-    <div class="nav-container">
+    
+    <!-- 手機版下拉選單 -->
+    <div class="mobile-nav-overlay" v-show="showMobileMenu" @click="closeMobileMenu">
+      <div class="mobile-nav-menu" @click.stop>
+        <div class="mobile-nav-header">
+          <button class="mobile-nav-close" @click="closeMobileMenu">×</button>
+        </div>
+        <nav class="mobile-nav-content">
+          <div class="mobile-nav-item">
+            <button class="mobile-nav-btn" @click="toggleMobileDropdown">
+              關於我們
+              <span class="mobile-dropdown-arrow" :class="{ 'open': showMobileDropdown }">▼</span>
+            </button>
+            <div class="mobile-dropdown-menu" v-show="showMobileDropdown">
+              <RouterLink to="/about/intro" @click="closeMobileMenu" class="mobile-dropdown-item">
+                中心簡介
+              </RouterLink>
+              <RouterLink to="/about/members/oepp" @click="closeMobileMenu" class="mobile-dropdown-item">
+                人事介紹
+              </RouterLink>
+            </div>
+          </div>
+          
+          <RouterLink to="/educationCenter" class="mobile-nav-btn" @click="closeMobileMenu">
+            教育推廣中心
+          </RouterLink>
+          
+          <RouterLink to="/productCenter" class="mobile-nav-btn" @click="closeMobileMenu">
+            產品推廣中心
+          </RouterLink>
+          
+          <RouterLink to="/publication" class="mobile-nav-btn" @click="closeMobileMenu">
+            會展及出版中心
+          </RouterLink>
+          
+          <RouterLink to="/regulations/oepp" class="mobile-nav-btn" @click="closeMobileMenu">
+            法規彙編
+          </RouterLink>
+          
+          <RouterLink to="/download/oepp" class="mobile-nav-btn" @click="closeMobileMenu">
+            下載專區
+          </RouterLink>
+          
+          <button class="mobile-nav-btn mobile-school-btn" @click="openSchoolHome">
+            學校首頁
+          </button>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- 桌面版導航 -->
+    <div class="nav-container desktop-only">
       <div class="content-wrapper">
         <nav class="custom-nav-bg">
           <div class="navigation-group">
@@ -63,8 +121,12 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
-// 下拉選單狀態
+// 桌面版下拉選單狀態
 const showDropdown = ref(false)
+
+// 手機版選單狀態
+const showMobileMenu = ref(false)
+const showMobileDropdown = ref(false)
 
 const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value
@@ -72,6 +134,23 @@ const toggleDropdown = () => {
 
 const closeDropdown = () => {
   showDropdown.value = false
+}
+
+const toggleMobileMenu = () => {
+  showMobileMenu.value = !showMobileMenu.value
+  // 關閉手機版選單時，同時關閉下拉選單
+  if (!showMobileMenu.value) {
+    showMobileDropdown.value = false
+  }
+}
+
+const closeMobileMenu = () => {
+  showMobileMenu.value = false
+  showMobileDropdown.value = false
+}
+
+const toggleMobileDropdown = () => {
+  showMobileDropdown.value = !showMobileDropdown.value
 }
 
 const openSchoolHome = () => {
@@ -220,5 +299,162 @@ const openSchoolHome = () => {
   width: 70vw;
   max-width: 100%;
   margin: 0;
+}
+
+/* 手機版漢堡選單按鈕 */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #3f5963;
+  border-radius: 1.5px;
+  transition: all 0.3s ease;
+}
+
+/* 手機版選單覆蓋層 */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.mobile-nav-content {
+  padding: 1rem 0;
+}
+
+.mobile-nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
+}
+
+.mobile-nav-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.mobile-dropdown-arrow {
+  float: right;
+  transition: transform 0.3s;
+}
+
+.mobile-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  background-color: #f8f9fa;
+}
+
+.mobile-dropdown-item {
+  display: block;
+  padding: 10px 30px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.mobile-dropdown-item:hover {
+  background-color: #e9ecef;
+  border-left-color: #3f5963;
+}
+
+.mobile-school-btn {
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+  color: #3f5963;
+  font-weight: bold;
+}
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .content-wrapper {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .header-top .content-wrapper {
+    padding: 0 1rem;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-nav-overlay {
+    display: block;
+  }
 }
 </style> 

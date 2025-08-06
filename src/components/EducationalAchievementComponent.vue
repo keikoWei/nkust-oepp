@@ -347,34 +347,55 @@ onUnmounted(() => {
 }
 
 @media (max-width: 480px) {
+  .educational-achievement {
+    margin: 0;
+    padding: 1rem 1rem;
+  }
+
   .achievement-title h2 {
-    font-size: 28pt;
+    font-size: 16pt;
+    margin-bottom: 1rem;
   }
   
   .achievement-grid {
-    gap: 2rem;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .achievement-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    justify-items: center;
   }
   
   .achievement-item {
-    padding: 0.5rem;
-    gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.2rem;
+    gap: 0.1rem;
+    max-width: 100px;
   }
   
   .achievement-text h3 {
-    font-size: 20pt;
+    font-size: 7pt;
+    margin-bottom: 0.05rem;
   }
   
   .sdg-icon {
-    width: 75px;
-    height: 75px;
+    width: 28px;
+    height: 28px;
   }
   
   .percentage-number {
-    font-size: 32pt;
+    font-size: 11pt;
   }
   
   .percentage-symbol {
-    font-size: 18pt;
+    font-size: 6pt;
+  }
+
+  .percentage-display {
+    justify-content: center;
   }
 }
 </style> 

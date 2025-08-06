@@ -134,4 +134,27 @@ const carouselImages = [
   max-width: 100%;
   margin: 0 auto 3rem auto;
 }
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .banner {
+    width: 100%;
+    margin: 0 0 4rem 0;
+  }
+
+  .oepp-events {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+
+  .news-section,
+  .video-section,
+  .achievement-section,
+  .activities-section {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+}
 </style> 

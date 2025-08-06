@@ -2,8 +2,15 @@
   <footer class="main-footer">
     <!-- 波浪形頂部裝飾 -->
     <div class="wave-decoration">
-      <svg width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
+      <!-- 桌面版波浪 -->
+      <svg class="desktop-wave" width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
         <path d="M0,40 C90,40 90,80 180,80 C270,80 270,40 360,40 C450,40 450,80 540,80 C630,80 630,40 720,40 C810,40 810,80 900,80 C990,80 990,40 1080,40 C1140,40 1140,80 1200,80 L1200,0 L0,0 Z" 
+              :fill="waveColor" 
+              stroke="none"/>
+      </svg>
+      <!-- 手機版波浪 -->
+      <svg class="mobile-wave" width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <path d="M0,40 C200,40 200,80 400,80 C600,80 600,40 800,40 C1000,40 1000,80 1200,80 L1200,0 L0,0 Z" 
               :fill="waveColor" 
               stroke="none"/>
       </svg>
@@ -99,6 +106,14 @@ const props = defineProps({
   margin-top: -23px;
 }
 
+.mobile-wave {
+  display: none;
+}
+
+.desktop-wave {
+  display: block;
+}
+
 .footer-content {
   padding: 4rem 0 2.7rem 0;
   background-color: transparent;
@@ -190,8 +205,9 @@ const props = defineProps({
 
 @media (max-width: 768px) {
   .contact-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
   }
   
   .footer-title h2 {
@@ -220,29 +236,88 @@ const props = defineProps({
 }
 
 @media (max-width: 480px) {
+  .main-footer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .footer-title {
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-left: 0;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
   .footer-title h2 {
-    font-size: 13.5pt;
-    letter-spacing: 0.7px;
+    font-size: 14pt;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-align: left;
+    font-weight: bold;
+    color: v-bind(textColor);
+    font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   }
   
-  .contact-item h3 {
-    font-size: 11pt;
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
   }
-  
-  .contact-item p {
-    font-size: 9.5pt;
-  }
-  
-  .container {
-    padding: 0 0.3rem 0 3rem;
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    justify-items: flex-start;
   }
   
   .contact-item {
-    padding: 0.3rem;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .contact-item h3 {
+    font-size: 7pt;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+    color: v-bind(textColor);
+    font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+    line-height: 1.2;
+  }
+  
+  .contact-item p {
+    font-size: 6pt;
+    line-height: 1.2;
+    margin: 0.05rem 0;
+    color: v-bind(textColor);
+    text-align: left;
+    font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
+    word-break: break-all;
+  }
+  
+  .container {
+    padding: 0 1rem;
   }
   
   .wave-decoration {
-    height: 27px;
+    height: 25px;
+  }
+
+  .mobile-wave {
+    display: block;
+  }
+
+  .desktop-wave {
+    display: none;
+  }
+
+  .footer-content {
+    padding: 2rem 0 1.5rem 0;
   }
 }
 </style> 

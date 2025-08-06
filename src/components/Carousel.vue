@@ -318,5 +318,55 @@ onUnmounted(() => {
   }
 }
 
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .carousel-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .watermark-overlay {
+    padding: 60px 0 0 20px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent 60%);
+  }
+  
+  .watermark-title {
+    font-size: 18pt;
+    line-height: 1.1;
+  }
+  
+  .watermark-subtitle {
+    font-size: 10pt;
+    margin: 5px 0 0;
+  }
+
+  .carousel-button {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .prev {
+    left: 5px;
+  }
+
+  .next {
+    right: 5px;
+  }
+
+  .carousel-dots {
+    bottom: 8px;
+    gap: 3px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 
 </style> 

@@ -233,14 +233,24 @@ const handleMoreInfo = () => {
 }
 
 @media (max-width: 480px) {
+  .oepp-events-container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .events-wrapper {
+    padding: 0 1rem 20px 1rem;
+  }
+
   .events-grid {
-    max-width: 322px;
-    gap: 20px;
+    max-width: 100%;
+    gap: 15px;
     padding: 7px 0;
   }
   
   .event-card {
-    width: 302px;
+    width: 100%;
+    max-width: 350px;
     height: 201px;
     padding: 8px;
     border-radius: 10px;
@@ -259,7 +269,7 @@ const handleMoreInfo = () => {
   
   .button-with-lines {
     gap: 10px;
-    max-width: 300px;
+    max-width: 100%;
   }
   
   .line {
