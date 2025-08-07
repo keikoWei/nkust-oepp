@@ -81,4 +81,37 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   line-height: 1.6;
   text-align: center;
 }
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .download-banner {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;  /* 手機版縮小高度 */
+  }
+  
+  .download-page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #d9d9d9;
+  }
+  
+  .download-content {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .download-content h2 {
+    font-size: 20pt;
+  }
+  
+  .download-content p {
+    font-size: 12pt;
+  }
+}
 </style> 

@@ -220,6 +220,26 @@ const qualityManagement = [
 }
 
 @media (max-width: 480px) {
+  .regulation-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;  /* 手機版縮小高度 */
+  }
+  
+  .regulation-page {
+    width: 100vw;
+    margin: 0;
+    padding: 1rem 1rem 50px 1rem;
+  }
+  
+  .regulation-categories {
+    max-width: 100%;
+    width: 100%;
+  }
+  
   .category-title {
     font-size: 12pt;  /* 18pt * 0.67 */
   }
@@ -228,6 +248,8 @@ const qualityManagement = [
     height: 40px;
     min-width: 200px;
     padding: 0 15px;
+    width: 100%;
+    max-width: none;
   }
   
   .file-link {

@@ -84,5 +84,43 @@
     font-weight: normal;
   }
   
+  /* 手機版樣式 */
+  @media (max-width: 480px) {
+    .page-header {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .page-header h1 {
+      font-size: 24pt;
+      margin: 0 0 1rem 0;
+    }
+    
+    .department-nav {
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-item {
+      font-size: 14pt;
+      padding: 0.4rem 0.6rem;
+      text-align: center;
+    }
+    
+    .nav-separator {
+      font-size: 10pt;
+    }
+  }
+  
   /* 移除頂部圖片樣式，圖片現在獨立在頁面中 */
   </style> 

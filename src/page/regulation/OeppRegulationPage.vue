@@ -81,4 +81,34 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   line-height: 1.6;
   text-align: center;
 }
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .regulation-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;  /* 手機版縮小高度 */
+  }
+  
+  .regulation-page {
+    width: 100vw;
+    margin: 0;
+    padding: 1rem 1rem 50px 1rem;
+  }
+  
+  .regulation-content {
+    width: 100%;
+  }
+  
+  .regulation-content h2 {
+    font-size: 20pt;
+  }
+  
+  .regulation-content p {
+    font-size: 10pt;
+  }
+}
 </style> 

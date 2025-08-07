@@ -234,6 +234,7 @@ const downloadFiles = [
   .file-title {
     margin-top: 15px;
     margin-bottom: 10px;
+    text-align: left;
   }
 }
 
@@ -260,15 +261,49 @@ const downloadFiles = [
     min-height: 80px;
   }
   
+  .download-banner {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;  /* 手機版縮小高度 */
+  }
+  
+  .download-page {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #d9d9d9;
+  }
+  
+  .download-content {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .download-files {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .file-item {
+    max-width: 100%;
+    margin: 0 auto 1rem auto;
+  }
+  
   .title-download-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 8px;
-    margin-left: -160px;
-    padding-left: 160px;
-    position: absolute;
-    top: 35px;
+    margin-left: 0;
+    padding-left: 0;
+    position: static;
+    border-bottom: 2px solid #3f5963;
+    padding-bottom: 8px;
+    margin-bottom: 1rem;
   }
   
   .file-info {
@@ -279,6 +314,7 @@ const downloadFiles = [
   .file-title {
     margin-top: 12px;
     margin-bottom: 10px;
+    text-align: left;
   }
 }
 </style> 
