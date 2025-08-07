@@ -279,16 +279,90 @@ const toggleExpand = () => {
 }
 
 @media (max-width: 480px) {
+  .announcement-container {
+    margin: 0;
+    padding: 0 1rem;
+  }
+
   .announcement-title h2 {
-    font-size: 20pt;
+    font-size: 12pt; /* 30pt * 0.4 = 12pt */
+    margin-bottom: 0.8rem;
   }
   
   .announcement-content {
-    padding: 26px 13px;
+    width: 100%;
+    height: auto;
+    min-height: 323px; /* 808px * 0.4 = 323px */
+    padding: 12px; /* 30px * 0.4 = 12px */
+    border-radius: 10.4px; /* 26px * 0.4 = 10.4px */
+  }
+
+  .announcement-content::before {
+    top: 12px; /* 30px * 0.4 = 12px */
+    left: 12px; /* 30px * 0.4 = 12px */
+    right: 12px; /* 30px * 0.4 = 12px */
+    bottom: 12px; /* 30px * 0.4 = 12px */
+    width: calc(100% - 24px); /* 850px proportional */
+    height: calc(100% - 24px); /* 763px proportional */
+    border-radius: 6.8px; /* 17px * 0.4 = 6.8px */
+  }
+
+  .announcement-item {
+    padding: 5.2px 17.2px 8.4px 17.2px; /* 13px 43px 21px 43px * 0.4 */
+    min-height: 27.2px; /* 68px * 0.4 = 27.2px */
+    margin-bottom: 5.2px; /* 13px * 0.4 = 5.2px */
+    max-width: 306px; /* 765px * 0.4 = 306px */
+  }
+
+  .announcement-item::after {
+    bottom: 8.4px; /* 21px * 0.4 = 8.4px */
+    left: 17.2px; /* 43px * 0.4 = 17.2px */
+    right: 17.2px; /* 43px * 0.4 = 17.2px */
+    height: 0.4px; /* 1px * 0.4 = 0.4px */
+  }
+
+  .announcement-item:first-child {
+    margin-top: 30.8px; /* 77px * 0.4 = 30.8px */
+  }
+
+  .announcement-item:last-child {
+    min-height: 34px; /* 85px * 0.4 = 34px */
+  }
+
+  .announcement-date {
+    padding: 3.6px 4px; /* 9px 10px * 0.4 */
+    font-size: 8pt; /* 調整為可讀大小 */
+    min-width: 30.8px; /* 77px * 0.4 = 30.8px */
+    height: 13.6px; /* 34px * 0.4 = 13.6px */
+    margin-right: 6.8px; /* 17px * 0.4 = 6.8px */
   }
   
   .announcement-text {
-    font-size: 10pt;
+    font-size: 9pt; /* 調整為可讀大小 */
+    line-height: 1.2;
+  }
+
+  .announcement-text.two-line {
+    transform: translateY(-2pt); /* 5pt * 0.4 = 2pt */
+  }
+
+  .announcement-item:has(.announcement-text.two-line)::after {
+    transform: translateY(-1.2pt); /* 3pt * 0.4 = 1.2pt */
+  }
+
+  .expand-btn {
+    width: 32.8px; /* 82px * 0.4 = 32.8px */
+    height: 32.8px; /* 82px * 0.4 = 32.8px */
+    border-width: 0.8px; /* 2px * 0.4 = 0.8px */
+  }
+
+  .expand-btn svg {
+    width: 16px; /* 40px * 0.4 = 16px */
+    height: 10px; /* 25px * 0.4 = 10px */
+  }
+
+  .expand-more {
+    padding-bottom: 13.6px; /* 34px * 0.4 = 13.6px */
   }
 }
 </style> 

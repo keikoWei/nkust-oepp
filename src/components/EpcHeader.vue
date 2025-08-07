@@ -9,13 +9,71 @@
           </RouterLink>
         </div>
         <div class="right-section">
-          <button class="school-home-btn" @click="openSchoolHome">
+          <!-- 手機版漢堡選單按鈕 -->
+          <button class="mobile-menu-btn" @click="toggleMobileMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+          <!-- 桌面版學校首頁按鈕 -->
+          <button class="school-home-btn desktop-only" @click="openSchoolHome">
             學校首頁
           </button>
         </div>
       </div>
     </div>
-    <div class="nav-container">
+    
+    <!-- 手機版下拉選單 -->
+    <div class="mobile-nav-overlay" v-show="showMobileMenu" @click="closeMobileMenu">
+      <div class="mobile-nav-menu" @click.stop>
+        <div class="mobile-nav-header">
+          <button class="mobile-nav-close" @click="closeMobileMenu">×</button>
+        </div>
+        <nav class="mobile-nav-content">
+          <div class="mobile-nav-item">
+            <button class="mobile-nav-btn" @click="toggleMobileDropdown">
+              會展及出版中心
+              <span class="mobile-dropdown-arrow" :class="{ 'open': showMobileDropdown }">▼</span>
+            </button>
+            <div class="mobile-dropdown-menu" v-show="showMobileDropdown">
+              <RouterLink to="/exhibitionCenter/introduction" @click="closeMobileMenu" class="mobile-dropdown-item">
+                中心簡介
+              </RouterLink>
+              <RouterLink to="/about/members/epc" @click="closeMobileMenu" class="mobile-dropdown-item">
+                人事介紹
+              </RouterLink>
+            </div>
+          </div>
+          
+          <RouterLink to="/exhibitionCenter/seminar" class="mobile-nav-btn" @click="closeMobileMenu">
+            辦理研討會協助
+          </RouterLink>
+          
+          <RouterLink to="/exhibitionCenter/activity" class="mobile-nav-btn" @click="closeMobileMenu">
+            委辦活動申請
+          </RouterLink>
+          
+          <RouterLink to="/exhibitionCenter/achievement/university-ceremony" class="mobile-nav-btn" @click="closeMobileMenu">
+            成果實績
+          </RouterLink>
+          
+          <RouterLink to="/exhibitionCenter/publications" class="mobile-nav-btn" @click="closeMobileMenu">
+            相關出版品
+          </RouterLink>
+          
+          <RouterLink to="/regulations/epc" class="mobile-nav-btn" @click="closeMobileMenu">
+            法規
+          </RouterLink>
+          
+          <button class="mobile-nav-btn mobile-school-btn" @click="openSchoolHome">
+            學校首頁
+          </button>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- 桌面版導航 -->
+    <div class="nav-container desktop-only">
       <div class="content-wrapper">
         <nav class="custom-nav-bg">
           <div class="navigation-group">
@@ -65,12 +123,32 @@
 import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 
-// 下拉選單狀態
+// 桌面版下拉選單狀態
 const showDropdown = ref(false)
 const router = useRouter()
 
+// 手機版選單狀態
+const showMobileMenu = ref(false)
+const showMobileDropdown = ref(false)
+
 const closeDropdown = () => {
   showDropdown.value = false
+}
+
+const toggleMobileMenu = () => {
+  showMobileMenu.value = !showMobileMenu.value
+  if (!showMobileMenu.value) {
+    showMobileDropdown.value = false
+  }
+}
+
+const closeMobileMenu = () => {
+  showMobileMenu.value = false
+  showMobileDropdown.value = false
+}
+
+const toggleMobileDropdown = () => {
+  showMobileDropdown.value = !showMobileDropdown.value
 }
 
 const goToExhibitionCenter = () => {
@@ -231,6 +309,135 @@ const openSchoolHome = () => {
   color: #3e3b3a;
 }
 
+/* 手機版漢堡選單按鈕 */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #3e3b3a;
+  border-radius: 1.5px;
+  transition: all 0.3s ease;
+}
+
+/* 手機版選單覆蓋層 */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #839e8d;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(62, 59, 58, 0.2);
+}
+
+.mobile-nav-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #3e3b3a;
+}
+
+.mobile-nav-content {
+  padding: 1rem 0;
+}
+
+.mobile-nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #3e3b3a;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
+}
+
+.mobile-nav-btn:hover {
+  background-color: rgba(62, 59, 58, 0.1);
+}
+
+.mobile-dropdown-arrow {
+  float: right;
+  transition: transform 0.3s;
+}
+
+.mobile-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  background-color: rgba(62, 59, 58, 0.1);
+}
+
+.mobile-dropdown-item {
+  display: block;
+  padding: 10px 30px;
+  color: #3e3b3a;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.mobile-dropdown-item:hover {
+  background-color: rgba(62, 59, 58, 0.2);
+  border-left-color: #3e3b3a;
+}
+
+.mobile-school-btn {
+  border-top: 1px solid rgba(62, 59, 58, 0.2);
+  margin-top: 1rem;
+  color: #3e3b3a;
+  font-weight: bold;
+}
+
 /* 響應式設計 */
 @media (max-width: 1200px) {
   .navigation-group {
@@ -245,53 +452,31 @@ const openSchoolHome = () => {
   }
 }
 
-@media (max-width: 768px) {
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .content-wrapper {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
   .header-top .content-wrapper {
-    width: 95vw;
+    padding: 0 1rem;
   }
-  
+
   .logo img {
-    height: 54px;
+    height: 35px;
   }
-  
-  .school-home-btn {
-    font-size: 12pt;
+
+  .mobile-menu-btn {
+    display: flex;
   }
-  
-  .navigation-group {
-    flex-direction: column;
-    gap: 5px;
-    padding: 0.7rem;
-    width: 100%;
+
+  .desktop-only {
+    display: none !important;
   }
-  
-  .nav-btn {
-    font-size: 11pt;
-    padding: 8px 11px;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .nav-dropdown {
-    width: 100%;
-  }
-  
-  .dropdown-btn {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .dropdown-menu {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-top: 5px;
-  }
-  
-  .dropdown-item {
-    font-size: 9.5pt;
-    padding: 7px 11px;
+
+  .mobile-nav-overlay {
+    display: block;
   }
 }
 </style> 

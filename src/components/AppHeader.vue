@@ -341,7 +341,7 @@ const openSchoolHome = () => {
   right: 0;
   width: 280px;
   height: 100%;
-  background: #fff;
+  background: #3f5963;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   transform: translateX(100%);
   animation: slideIn 0.3s ease forwards;
@@ -357,7 +357,7 @@ const openSchoolHome = () => {
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobile-nav-close {
@@ -365,7 +365,7 @@ const openSchoolHome = () => {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: #666;
+  color: #fff;
 }
 
 .mobile-nav-content {
@@ -383,7 +383,7 @@ const openSchoolHome = () => {
   text-align: left;
   background: none;
   border: none;
-  color: #333;
+  color: #fff;
   font-size: 16px;
   text-decoration: none;
   cursor: pointer;
@@ -392,7 +392,7 @@ const openSchoolHome = () => {
 }
 
 .mobile-nav-btn:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-dropdown-arrow {
@@ -405,13 +405,13 @@ const openSchoolHome = () => {
 }
 
 .mobile-dropdown-menu {
-  background-color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-dropdown-item {
   display: block;
   padding: 10px 30px;
-  color: #666;
+  color: #fff;
   text-decoration: none;
   font-size: 14px;
   border-left: 3px solid transparent;
@@ -419,14 +419,14 @@ const openSchoolHome = () => {
 }
 
 .mobile-dropdown-item:hover {
-  background-color: #e9ecef;
-  border-left-color: #3f5963;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left-color: #fff;
 }
 
 .mobile-school-btn {
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 1rem;
-  color: #3f5963;
+  color: #fff;
   font-weight: bold;
 }
 
