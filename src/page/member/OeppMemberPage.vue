@@ -274,4 +274,38 @@ const membersInfo = [
     font-size: 14pt;
   }
 }
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .member-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;  /* 手機版縮小高度 */
+  }
+  
+  .member-page {
+    width: 100vw;
+    margin: 0;
+    padding: 1rem 1rem 50px 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .members-section {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .members-header {
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>

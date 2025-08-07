@@ -211,11 +211,33 @@ const needsExpand = computed(() => {
     flex-direction: column;
     text-align: center;
     padding: 1rem;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 1.3rem auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .member-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
   
   .member-photo .photo {
     width: 168px;
     height: 168px;
+  }
+  
+  .member-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .title-name-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   
   .member-title {
@@ -225,25 +247,106 @@ const needsExpand = computed(() => {
   .member-name {
     font-size: 13.5pt;
   }
+  
+  .member-subtitle {
+    text-align: center;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-info p {
+    text-align: center;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
+  .description p {
+    text-align: center;
+  }
+  
+  .responsibility-item {
+    text-align: center !important;
+  }
 }
 
 @media (max-width: 480px) {
+  .member-card {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 1rem 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .member-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
   .member-photo .photo {
-    width: 134px;
-    height: 134px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .member-info {
+    text-align: center;
+    width: 100%;
+    padding-top: 0;
+  }
+  
+  .title-name-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .member-title {
-    font-size: 11pt;
+    font-size: 14pt;
   }
   
   .member-name {
+    font-size: 16pt;
+  }
+  
+  .member-subtitle {
+    text-align: center;
     font-size: 12pt;
   }
   
-  .contact-info p,
+  .contact-info {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-info p {
+    font-size: 12pt;
+    text-align: center;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
   .description p {
-    font-size: 8pt;
+    font-size: 12pt;
+    text-align: center;
+  }
+  
+  .responsibility-item {
+    text-align: center !important;
+  }
+  
+  .expand-btn {
+    font-size: 12pt;
   }
 }
 </style> 

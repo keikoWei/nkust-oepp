@@ -141,15 +141,43 @@ defineProps({
 
 /* 響應式設計 */
 @media (max-width: 768px) {
+  .director-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
   .director-card {
     flex-direction: column;
     text-align: center;
     padding: 1rem;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .director-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
   
   .director-photo .photo {
     width: 168px;
     height: 168px;
+  }
+  
+  .director-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .title-name-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   
   .director-info .title {
@@ -159,20 +187,101 @@ defineProps({
   .director-info .name {
     font-size: 16pt;
   }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-info p {
+    text-align: center;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
+  .description p {
+    text-align: center;
+  }
+  
+  .responsibility-item {
+    text-align: center !important;
+  }
 }
 
 @media (max-width: 480px) {
+  .director-section {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  
+  .director-card {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .director-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
   .director-photo .photo {
-    width: 134px;
-    height: 134px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .director-info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .title-name-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
   
   .director-info .title {
-    font-size: 12pt;
+    font-size: 16pt;
   }
   
   .director-info .name {
-    font-size: 13.5pt;
+    font-size: 20pt;
+  }
+  
+  .contact-info {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-info p {
+    font-size: 14pt;
+    text-align: center;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
+  .description p {
+    font-size: 14pt;
+    text-align: center;
+  }
+  
+  .responsibility-item {
+    text-align: center !important;
   }
 }
 </style> 
