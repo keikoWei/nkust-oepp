@@ -245,6 +245,31 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 @media (max-width: 480px) {
+  .training-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+    width: 100%;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .banner-watermark {
+    padding: 20px 0 0 20px;
+  }
+  
+  .banner-watermark h1 {
+    font-size: 20pt;
+  }
+  
   .title {
     font-size: 22pt;
   }

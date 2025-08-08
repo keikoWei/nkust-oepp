@@ -114,17 +114,17 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   align-items: flex-start;
   justify-content: flex-start;
   z-index: 2;
-  padding: 34px 0 0 54px;  /* 原本 50px 0 0 80px * 0.67 */
+  padding: 34px 0 0 54px;  
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .banner-watermark h1 {
   color: white;
-  font-size: 37pt;  /* 原本 55pt * 0.67 */
+  font-size: 37pt;  
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin: 0;
-  letter-spacing: 2px;  /* 原本 3px * 0.67 */
+  letter-spacing: 2px;  
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
 }
 
@@ -354,11 +354,11 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
   
   .banner-watermark {
-    padding: 27px 0 0 40px;  /* 原本 40px 0 0 60px * 0.67 */
+    padding: 27px 0 0 40px;  
   }
   
   .banner-watermark h1 {
-    font-size: 30pt;  /* 原本 45pt * 0.67 */
+    font-size: 30pt;  
   }
 
   .title {
@@ -421,11 +421,11 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
   
   .banner-watermark {
-    padding: 20px 0 0 27px;  /* 原本 30px 0 0 40px * 0.67 */
+    padding: 20px 0 0 27px;  
   }
   
   .banner-watermark h1 {
-    font-size: 23pt;  /* 原本 35pt * 0.67 */
+    font-size: 23pt;  
   }
 
   .title {
@@ -453,6 +453,31 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 @media (max-width: 480px) {
+  .pay-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+    width: 100%;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .banner-watermark {
+    padding: 20px 0 0 20px;
+  }
+  
+  .banner-watermark h1 {
+    font-size: 20pt;
+  }
+  
   .page-title {
     font-size: 24pt;
   }
@@ -485,9 +510,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
 
   .title {
-    font-size: 16pt;
-    width: 175px;
-    height: 50px;
+    font-size: 14pt;
+    width: 180px;
+    height: 45px;
+    white-space: nowrap;
   }
   
   .content {

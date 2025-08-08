@@ -639,10 +639,46 @@
   }
   
   @media (max-width: 480px) {
+    .center-banner {
+      width: 100vw;
+      margin: 0;
+    }
+    
+    .banner-image {
+      height: 200px;
+      width: 100%;
+    }
+    
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .banner-watermark {
+      padding: 20px 0 0 20px;
+    }
+    
+    .banner-watermark h1 {
+      font-size: 20pt;
+    }
+    
+    .content-container {
+      width: 100vw;
+      margin: 0;
+      padding: 1rem;
+    }
+    
+    .content {
+      width: 100%;
+    }
+    
     .vision-mission-item {
       gap: 23px;
       margin-bottom: 45px;
       padding: 23px 15px;
+      width: 100%;
     }
     
     .circle-icon {
@@ -656,10 +692,13 @@
   
     .training-policy-section {
       padding: 30px 0;
+      width: 100vw;
+      margin: 0;
     }
   
     .policy-container {
-      padding: 0 10px;
+      padding: 0 1rem;
+      width: 100%;
     }
   
     .policy-title {
@@ -682,10 +721,13 @@
   
     .training-commitment-section {
       padding: 30px 0;
+      width: 100vw;
+      margin: 0;
     }
   
     .commitment-container {
-      padding: 0 10px;
+      padding: 0 1rem;
+      width: 100%;
     }
   
     .commitment-title {
@@ -708,10 +750,13 @@
   
     .business-goals-section {
       padding: 30px 0;
+      width: 100vw;
+      margin: 0;
     }
   
     .goals-container {
-      padding: 0 10px;
+      padding: 0 1rem;
+      width: 100%;
     }
   
     .goals-title-wrapper {
@@ -725,6 +770,7 @@
   
     .goals-content {
       gap: 25px;
+      width: 100%;
     }
   
     .goal-item {
