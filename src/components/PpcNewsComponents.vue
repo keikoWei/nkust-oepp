@@ -275,6 +275,7 @@ const toggleExpand = () => {
 
 @media (max-width: 480px) {
   .news-container {
+    width: 100%;
     margin: 0;
     padding: 0 1rem;
   }

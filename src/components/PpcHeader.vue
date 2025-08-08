@@ -441,6 +441,10 @@ const openSchoolHome = () => {
   
   .header-top .content-wrapper {
     padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
   }
 
   .logo img {
@@ -458,15 +462,29 @@ const openSchoolHome = () => {
   .mobile-nav-overlay {
     display: block;
   }
+  
+  /* 調整學校 icon 左側區塊 */
+  .header-top {
+    padding: 10px 0;
+  }
+  
+  .logo {
+    flex-shrink: 0;
+  }
+  
+  .right-section {
+    flex-shrink: 0;
+  }
 }
 
-/* 容器樣式 */
+/* 容器樣式 - 電腦版 */
 .content-wrapper {
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
 }
 
+/* 導航區域樣式 */
 .nav-container .content-wrapper {
   width: 70vw;
   max-width: 100%;

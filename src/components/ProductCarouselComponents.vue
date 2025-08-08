@@ -402,42 +402,87 @@ onUnmounted(() => {
 }
 
 @media (max-width: 480px) {
+  .product-carousel-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
   .product-carousel {
     width: 100%;
-    padding: 0 20px;
+    padding: 0;
     box-sizing: border-box;
   }
   
+  .product-display {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
   .product-image-section {
-    height: 600px;
+    width: 100%;
+    height: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .product-image-container {
+    padding: 20px;
+  }
+  
+  .product-image {
+    max-width: 250px;
+    max-height: 250px;
   }
   
   .product-info-section {
-    min-height: 350px;
-    padding: 30px 20px;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    padding: 20px;
+    order: 2;
+    position: relative;
+  }
+  
+  .product-info-content {
+    height: auto;
+    text-align: center;
   }
   
   .product-name {
-    font-size: 24pt;
+    font-size: 18pt;
+    margin: 0 0 0.5rem 0;
   }
   
   .product-description {
     font-size: 12pt;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1rem 0;
   }
   
   .buy-now-btn {
     font-size: 12pt;
     padding: 6px 0;
-    padding-left: 140px;
+    padding-left: 100px;
   }
   
   .buy-now-btn::before {
-    width: 120px;
+    width: 80px;
   }
   
   .buy-now-btn:hover::before {
-    width: 140px;
+    width: 100px;
+  }
+  
+  /* 調整輪播指示器位置 */
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+    justify-content: center;
+    z-index: 10;
   }
 }
 </style> 

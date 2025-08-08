@@ -107,14 +107,16 @@ const carouselImages = [
 }
 
 @media (max-width: 480px) {
-  .banner,
+  .banner {
+    width: 100%;
+    margin: 0 0 4rem 0;
+  }
+
   .news-section,
   .content-section {
-    width: 95vw;
-  }
-  
-  .banner {
-    margin-bottom: 3rem;
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
   }
 }
 </style>

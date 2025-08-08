@@ -238,38 +238,66 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
     padding: 2rem 0;
   }
   
-  .activity-card {
-    width: 95%;
+  .activity-item {
+    position: relative;
     height: auto;
-    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .activity-card {
+    width: 100%;
+    height: auto;
+    position: relative;
     padding: 15px;
+    border: 1pt solid #3e3b3a;
+    background: #f2eacc;
   }
   
   .card-image {
     width: 100%;
     height: 200px;
+    border: 1pt solid #3e3b3a;
+  }
+  
+  .card-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    min-width: auto;
+    height: auto;
+    padding: 1rem 0;
+    text-align: center;
   }
   
   .activity-title {
     font-size: 18pt;
+    text-align: center;
   }
   
   .activity-date {
     font-size: 14pt;
+    text-align: center;
+  }
+  
+  .bottom-section {
+    justify-content: center;
   }
   
   .view-more {
     font-size: 16pt;
   }
-  
+}
 
-  
+/* 手機版樣式 - 參考 OeppDownloadPage.vue */
+@media (max-width: 480px) {
   .member-banner {
-    width: 90vw;
+    width: 100%;
+    margin: 0;
   }
   
   .banner-image {
-    height: 300px;
+    height: 200px;
   }
   
   .watermark {

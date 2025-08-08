@@ -87,8 +87,8 @@ const videoList = [
   background-color: #ffffff;
 }
 
-/* 容器樣式 */
-.content-wrapper {
+/* 容器樣式 - 僅適用於 PPC 內容區域，不影響 header */
+.ppc-home .content-wrapper {
   width: 70vw;
   max-width: 100%;
   margin: 0 auto;
@@ -274,5 +274,72 @@ const videoList = [
   width: 70vw;
   max-width: 100%;
   margin: 0 auto 3rem auto;
+}
+
+/* 手機版樣式 - 參考 OeppMainLayout.vue */
+@media (max-width: 480px) {
+  .banner {
+    width: 100%;
+    margin: 0 0 4rem 0;
+  }
+
+  .ppc-events {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+
+  .news-section,
+  .video-section,
+  .achievement-section,
+  .activities-section {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+
+  .video-banner {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
+  
+  .video-section-title {
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    padding: 0 1rem;
+  }
+  
+  .video-section-title h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .dkshop-banner {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .dkshop-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .dkshop-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 0;
+    object-fit: cover;
+  }
+  
+  .product-carousel-section {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
+  }
 }
 </style>

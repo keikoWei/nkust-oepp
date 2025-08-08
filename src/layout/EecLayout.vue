@@ -92,6 +92,35 @@ const carouselImages = [
   background-color: #ffffff;
 }
 
+/* EEC首頁內容樣式 */
+.eec-home {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  width: 70vw;
+  max-width: 100%;
+  margin: 0 auto 6rem auto;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.no-gap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+.course-announcement-section,
+.hot-courses-section,
+.course-highlights-section {
+  width: 70vw;
+  max-width: 100%;
+  margin: 0 auto 3rem auto;
+}
+
 /* 響應式設計 */
 @media (max-width: 768px) {
   .course-announcement-section,
@@ -99,6 +128,22 @@ const carouselImages = [
   .course-highlights-section {
     margin: 2rem 0;
     padding: 1rem 0;
+  }
+}
+
+/* 手機版樣式 - 參考 OeppMainLayout.vue */
+@media (max-width: 480px) {
+  .banner {
+    width: 100%;
+    margin: 0 0 4rem 0;
+  }
+
+  .course-announcement-section,
+  .hot-courses-section,
+  .course-highlights-section {
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0 1rem;
   }
 }
 </style>

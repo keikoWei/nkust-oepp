@@ -107,15 +107,17 @@ import PpcNewsComponents from '@/components/PpcNewsComponents.vue'
   .news-content {
     padding: 2rem 0;
   }
-  
+}
 
-  
+/* 手機版樣式 - 參考 OeppDownloadPage.vue */
+@media (max-width: 480px) {
   .member-banner {
-    width: 90vw;
+    width: 100%;
+    margin: 0;
   }
   
   .banner-image {
-    height: 300px;
+    height: 200px;
   }
   
   .watermark {
