@@ -212,6 +212,11 @@ const router = createRouter({
       path: '/exhibitionCenter/publications',
       name: 'epc-publications',
       component: () => import('../page/epc/PublicationPage.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('../page/ErrorPage.vue')
     }
   ]
 })
