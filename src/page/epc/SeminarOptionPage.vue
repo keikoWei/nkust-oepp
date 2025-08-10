@@ -318,7 +318,17 @@ const goToModel = () => {
 
 }
 
+/* 手機版樣式 - 參考 OeppMemberPage.vue */
 @media (max-width: 480px) {
+  .page-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+  }
+  
   .banner-watermark h1 {
     font-size: 18pt;
   }
@@ -349,7 +359,5 @@ const goToModel = () => {
     width: 200px;
     height: 200px;
   }
-  
-
 }
 </style>

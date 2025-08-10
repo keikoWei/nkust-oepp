@@ -475,8 +475,23 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 @media (max-width: 480px) {
+  .page-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+  }
+  
   .banner-watermark h1 {
     font-size: 18pt;
+  }
+  
+  .content-container {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1rem 4rem 1rem;
   }
   
   .page-title h2 {

@@ -374,17 +374,45 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 @media (max-width: 480px) {
+  .page-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+  }
+  
   .banner-watermark h1 {
     font-size: 18pt;
+  }
+  
+  .content-container {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1rem 4rem 1rem;
   }
   
   .page-title h2 {
     font-size: 22pt;
   }
   
+  .service-items {
+    gap: 30px;
+  }
+  
+  .service-item {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  
   .service-icon {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
   
   .service-title-box {
@@ -396,8 +424,23 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
     font-size: 20pt;
   }
   
+  .service-content {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .service-description {
+    margin-left: 0;
+    align-items: center;
+    width: 100%;
+  }
+  
   .service-description p {
     font-size: 15pt;
+    text-align: center;
+    width: 100%;
   }
   
   .icon-text {

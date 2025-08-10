@@ -336,8 +336,23 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 }
 
 @media (max-width: 480px) {
+  .page-banner {
+    width: 100vw;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+  }
+  
   .banner-watermark h1 {
     font-size: 18pt;
+  }
+  
+  .content-container {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1rem 4rem 1rem;
   }
   
   .page-title h2 {
@@ -349,27 +364,33 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   }
   
   .service-section {
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
   
   .service-content {
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
   }
   
   .service-icon {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
   
   .service-title {
     font-size: 21pt;  /* 30pt * 0.69 */
-    min-width: 200px;
+    min-width: auto;
+    text-align: center;
   }
   
   .service-list {
     font-size: 14pt;  /* 20pt * 0.69 */
-    margin-left: 40px;
-    min-width: 350px;
+    margin-left: 0;
+    min-width: auto;
+    align-items: center;
   }
 }
 </style>

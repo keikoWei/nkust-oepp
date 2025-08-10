@@ -125,13 +125,16 @@ import AchievementNavigation from '@/components/AchievementNavigation.vue'
 
 /* 內容樣式 */
 .content-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
+  width: 100%;
+  min-height: 600px;
+  padding: 3rem 0;
+  background-color: #ffffff;
 }
 
 .content {
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
 }
 
 .page-content h2 {
@@ -284,24 +287,74 @@ import AchievementNavigation from '@/components/AchievementNavigation.vue'
     font-size: 14pt;
   }
   
-  .seminar-card {
-    width: 95%;
+  .seminar-item {
+    position: relative;
     height: auto;
-    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .seminar-card {
+    width: 100%;
+    height: auto;
+    position: relative;
     padding: 15px;
+    border: 1pt solid #3e3b3a;
+    background: #F7DBBF;
   }
   
   .card-image {
     width: 100%;
     height: 200px;
+    border: 1pt solid #3e3b3a;
+  }
+  
+  .card-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    min-width: auto;
+    height: auto;
+    padding: 1rem 0;
+    text-align: center;
   }
   
   .seminar-title {
     font-size: 18pt;
+    text-align: center;
+  }
+  
+  .bottom-section {
+    justify-content: center;
   }
   
   .view-more {
     font-size: 16pt;
+  }
+}
+
+/* 手機版樣式 */
+@media (max-width: 480px) {
+  .page-banner {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .banner-image {
+    height: 200px;
+  }
+  
+  .banner-watermark {
+    padding: 20px 0 0 30px;
+    font-size: 18pt;
+  }
+  
+  .content-container {
+    padding: 2rem 0;
+  }
+  
+  .content {
+    padding: 2rem 1rem;
   }
 }
 </style>
