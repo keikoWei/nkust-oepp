@@ -7,6 +7,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',  // 🔹 這裡設定相對路徑
   plugins: [
     vue({
       template: { transformAssetUrls }
