@@ -25,7 +25,16 @@
           <div class="livestream-item">
             <div class="livestream-card">
               <div class="card-image">
-                <img src="/image/epc/achievements/livestream_113學年度畢業典禮.jpg" alt="113年畢業典禮直播" class="livestream-img">
+                <!-- <img src="/image/epc/achievements/livestream_113學年度畢業典禮.jpg" alt="113年畢業典禮直播" class="livestream-img"> -->
+                <!-- 原圖寫法 -->
+                <iframe 
+                  src="https://www.youtube.com/embed/GQw9An0Rd5c" 
+                  title="113年畢業典禮直播"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen
+                  class="youtube-iframe">
+                </iframe>
               </div>
             </div>
             <div class="card-text">
@@ -318,6 +327,12 @@ import AchievementNavigation from '@/components/AchievementNavigation.vue'
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.youtube-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .card-text {

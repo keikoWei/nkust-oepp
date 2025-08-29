@@ -235,8 +235,8 @@ const openSchoolHome = () => {
 .nav-btn {
   color: #3e3b3a;
   font-size: 17.5pt;
-  padding: 15px 7px;
-  margin: 0 3px;
+  padding: 15px 10px;
+  margin: 0 4px;
   text-decoration: none;
   background: none;
   border: none;
@@ -246,6 +246,8 @@ const openSchoolHome = () => {
   font-weight: normal;
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-width: 120px;
 }
 
 /* EPC導航欄hover效果 - hover顏色：#839e8d */

@@ -68,17 +68,18 @@
 .nav-item {
   text-decoration: none;
   color: #ff8c00;
-  font-size: 16pt;
+  font-size: 22pt;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  border: 2px solid transparent;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
 }
 
 .nav-item:hover {
   background-color: #fff3e0;
   color: #ff8c00;
+  border: 2px solid #ff8c00;
 }
 
 .nav-item.active {

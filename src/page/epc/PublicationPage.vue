@@ -32,7 +32,6 @@
                 </div>
               </div>
               <div class="publication-info">
-                <div class="publication-date">Date: 2025/05/08(四)</div>
                 <div class="publication-title">{{ publication.title }}</div>
               </div>
             </div>
@@ -306,12 +305,6 @@ onUnmounted(() => {
 
 .publication-info {
   padding: 2rem;
-}
-
-.publication-date {
-  font-size: 20pt;
-  color: #666;
-  margin-bottom: 0.5rem;
 }
 
 .publication-title {
