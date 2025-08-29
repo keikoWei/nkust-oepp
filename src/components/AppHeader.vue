@@ -56,6 +56,10 @@
             會展及出版中心
           </RouterLink>
           
+          <a href="https://oom.nkust.edu.tw/" target="_blank" class="mobile-nav-btn">
+            經營管理中心
+          </a>
+          
           <RouterLink to="/regulations/oepp" class="mobile-nav-btn" @click="closeMobileMenu">
             法規彙編
           </RouterLink>
@@ -102,6 +106,10 @@
             <RouterLink to="/publication" class="nav-btn">
               會展及出版中心
             </RouterLink>
+            
+            <a href="https://oom.nkust.edu.tw/" target="_blank" class="nav-btn">
+              經營管理中心
+            </a>
             
             <RouterLink to="/regulations/oepp" class="nav-btn">
               法規彙編
