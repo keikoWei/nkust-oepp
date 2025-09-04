@@ -79,6 +79,11 @@ const router = createRouter({
       component: () => import('../page/regulation/EpcRegulationPage.vue')
     },
     {
+      path: '/regulations/com',
+      name: 'com-regulations',
+      component: () => import('../page/regulation/ComEecRegulationPage.vue')
+    },
+    {
       path: '/download/oepp',
       name: 'oepp-download',
       component: () => import('../page/download/OeppDownloadPage.vue')
@@ -97,6 +102,11 @@ const router = createRouter({
       path: '/download/epc',
       name: 'epc-download',
       component: () => import('../page/download/EpcDownloadPage.vue')
+    },
+    {
+      path: '/download/com',
+      name: 'com-download',
+      component: () => import('../page/download/ComDownloadPage.vue')
     },
     {
       path: '/educationCenter/payment/process',
