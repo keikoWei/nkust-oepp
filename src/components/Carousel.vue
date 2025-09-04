@@ -156,8 +156,8 @@ onUnmounted(() => {
       <!-- 浮水印文字 -->
       <div v-if="showWatermark" class="watermark-overlay">
         <div class="watermark-text">
-          <h1 class="watermark-title">教育事業暨產品推廣處</h1>
-          <p class="watermark-subtitle">Office of Educational and Product Promotion</p>
+          <h1 class="watermark-title">教育推廣與經營管理處</h1>
+          <p class="watermark-subtitle">Office of Continuing Education and Operations Management</p>
         </div>
       </div>
       
