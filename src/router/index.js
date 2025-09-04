@@ -34,6 +34,11 @@ const router = createRouter({
       component: () => import('../page/ppc/PpcNewsPage.vue')
     },
     {
+      path: '/about/intro',
+      name: 'oceom-introduction',
+      component: () => import('../page/oceom/OceomIntroductionPage.vue')
+    },
+    {
       path: '/about/members/oepp',
       name: 'oepp-members',
       component: () => import('../page/member/OeppMemberPage.vue')
