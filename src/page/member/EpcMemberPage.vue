@@ -43,7 +43,7 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 const directorInfo = {
   title: '中心主任',
   name: '鄭兆宏',
-  photo: '/image/members/epc_主任.jpg',
+  photo: '/image/members/副處長與會展中心主任.png',
   extension: '12850',
   email: 'zhcheng@nkust.edu.tw',
   responsibility: '綜理會展及出版中心業務與管理'
@@ -54,7 +54,7 @@ const membersInfo = [
   {
     title: '約用組員',
     name: '黃昱瑄',
-    photo: '/image/members/epc_昱瑄.jpg',
+    photo: '/image/members/epc_昱瑄.png',
     contacts: [
       { label: '分機', value: '12851' },
       { label: '信箱', value: 'chuh0302@nkust.edu.tw' }
@@ -70,7 +70,7 @@ const membersInfo = [
   {
     title: '專任助理',
     name: '林讌宣',
-    photo: '/image/members/epc_讌宣.jpg',
+    photo: '/image/members/epc_讌宣.png',
     contacts: [
       { label: '分機', value: '12852' },
       { label: '信箱', value: 'yenhsuan613@nkust.edu.tw' }

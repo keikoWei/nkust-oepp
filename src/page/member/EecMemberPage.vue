@@ -42,8 +42,8 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊
 const directorInfo = {
   title: '中心主任',
-  name: '李純怡',
-  photo: '/image/members/eec_李純怡主任.png',
+  name: '',
+  photo: '/image/members/eec_教推中心主任.png',
   extension: '12840',
   email: '-',
   responsibilities: [
@@ -59,7 +59,7 @@ const membersInfo = [
   {
     title: '約用專員',
     name: '張鏵方',
-    photo: '/image/members/eec_張鏵方約用專員.png',
+    photo: '/image/members/default_woman_01.png',
     contacts: [
       { label: '分機', value: '12842' },
       { label: '職務代理人', value: '邱淑屏' }
@@ -81,7 +81,7 @@ const membersInfo = [
   {
     title: '約用專員',
     name: '許慧芬',
-    photo: '/image/members/eec_許慧芬約用專員.png',
+    photo: '/image/members/default_woman_01.png',
     contacts: [
       { label: '分機', value: '12845' },
       { label: '職務代理人', value: '邱淑屏' }
@@ -99,7 +99,7 @@ const membersInfo = [
   {
     title: '約用組員',
     name: '潘淑花',
-    photo: '/image/members/default_woman_01.png',
+    photo: '/image/members/eec_淑花.png',
     contacts: [
       { label: '分機', value: '12846' },
       { label: '職務代理人', value: '楊富閔' }
@@ -121,7 +121,7 @@ const membersInfo = [
   {
     title: '專案副理',
     name: '邱淑屏',
-    photo: '/image/members/default_woman_02.png',
+    photo: '/image/members/eec_淑屏.png',
     contacts: [
       { label: '分機', value: '12844' },
       { label: '職務代理人', value: '許慧芬' }
@@ -143,7 +143,7 @@ const membersInfo = [
   {
     title: '專任助理',
     name: '呂婉如',
-    photo: '/image/members/default_woman_01.png',
+    photo: '/image/members/eec_婉如.png',
     contacts: [
       { label: '分機', value: '22867' },
       { label: '職務代理人', value: '張驊方' }
@@ -164,7 +164,7 @@ const membersInfo = [
   {
     title: '專任助理',
     name: '邱麓仱',
-    photo: '/image/members/default_man_01.png',
+    photo: '/image/members/eec_麓仱.png',
     contacts: [
       { label: '分機', value: '12847' },
       { label: '職務代理人', value: '邱淑屏' }
@@ -180,7 +180,7 @@ const membersInfo = [
   {
     title: '專任助理',
     name: '陳苡榕',
-    photo: '/image/members/default_woman_02.png',
+    photo: '/image/members/eec_苡榕.png',
     contacts: [
       { label: '分機', value: '12849' },
       { label: '職務代理人', value: '許慧芬' }

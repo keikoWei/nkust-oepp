@@ -43,7 +43,7 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 const directorInfo = {
   title: '中心主任',
   name: '黃志雄',
-  photo: '/image/members/ppc_黃志雄主任.jpg',
+  photo: '/image/members/ppc_產品推廣中心主任.png',
   extension: '-',
   email: '-',
   responsibility: '產品推廣中心業務綜理',
@@ -61,7 +61,7 @@ const membersInfo = [
   {
     title: '約用組員',
     name: '蔡宛汝',
-    photo: '/image/members/ppc_宛汝.jpg',
+    photo: '/image/members/ppc_宛汝.png',
     contacts: [
       { label: '分機', value: '12858' },
       { label: '信箱', value: 'ru66@nkust.edu.tw' }
@@ -85,7 +85,7 @@ const membersInfo = [
   {
     title: '專任助理',
     name: '許郁萱',
-    photo: '/image/members/ppc_郁萱.jpg',
+    photo: '/image/members/ppc_郁萱.png',
     contacts: [
       { label: '分機', value: '12859' },
       { label: '信箱', value: 'yuxuan@nkust.edu.tw' }
