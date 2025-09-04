@@ -59,6 +59,11 @@ const router = createRouter({
       component: () => import('../page/member/EpcMemberPage.vue')
     },
     {
+      path: '/about/members/com',
+      name: 'com-members',
+      component: () => import('../page/member/ComMemberPage.vue')
+    },
+    {
       path: '/regulations/oepp',
       name: 'oepp-regulations',
       component: () => import('../page/regulation/OeppRegulationPage.vue')

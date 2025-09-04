@@ -19,6 +19,10 @@
         <router-link to="/about/members/epc" :class="['nav-item', { active: activeTab === 'epc' }]">
           會展及出版中心
         </router-link>
+        <span class="nav-separator">|</span>
+        <router-link to="/about/members/com" :class="['nav-item', { active: activeTab === 'com' }]">
+          經營管理中心
+        </router-link>
       </div>
     </div>
   </div>
@@ -29,7 +33,7 @@ defineProps({
   activeTab: {
     type: String,
     required: true,
-    validator: (value) => ['oepp', 'eec', 'ppc', 'epc'].includes(value)
+    validator: (value) => ['oepp', 'eec', 'ppc', 'epc', 'com'].includes(value)
   }
 })
 </script>
