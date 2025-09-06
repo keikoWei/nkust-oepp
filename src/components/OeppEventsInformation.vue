@@ -9,31 +9,31 @@
       
       <!-- 4格圖片區域 -->
       <div class="events-grid">
-        <!-- 左上：中華花藝 -->
+        <!-- 左上：活動圖片01 -->
         <div class="event-card">
           <div class="image-container">
-            <img src="/image/example.png" alt="中華花藝" class="event-image" />
+            <img src="/image/oceom/activity_image01.jpg" alt="活動圖片01" class="event-image" />
           </div>
         </div>
         
-        <!-- 右上：PMP實務班 -->
+        <!-- 右上：活動圖片02 -->
         <div class="event-card">
           <div class="image-container">
-            <img src="/image/example.png" alt="專案經理PMP實務班" class="event-image" />
+            <img src="/image/oceom/activity_image02.jpg" alt="活動圖片02" class="event-image" />
           </div>
         </div>
         
-        <!-- 左下：水域技能培訓班 -->
+        <!-- 左下：活動圖片03 -->
         <div class="event-card">
           <div class="image-container">
-            <img src="/image/example.png" alt="水肺潛水暖水域技能培訓班" class="event-image" />
+            <img src="/image/oceom/activity_image03.jpg" alt="活動圖片03" class="event-image" />
           </div>
         </div>
         
-        <!-- 右下：手作時光 -->
+        <!-- 右下：活動圖片04 -->
         <div class="event-card">
           <div class="image-container">
-            <img src="/image/example.png" alt="手作時光" class="event-image" />
+            <img src="/image/oceom/activity_image04.jpg" alt="活動圖片04" class="event-image" />
           </div>
         </div>
       </div>

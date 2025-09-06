@@ -2,7 +2,7 @@
   <div class="news-container">
     <!-- 標題 -->
     <div class="news-title">
-      <h2>最新消息/訊息公告</h2>
+      <h2>重要網站</h2>
     </div>
     
     <!-- 新聞內容區域 -->
