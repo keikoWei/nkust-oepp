@@ -39,7 +39,7 @@ import DirectorCard from '@/components/member/DirectorCard.vue'
 import MemberCard from '@/components/member/MemberCard.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 
-// 中心主任資訊，因為是副處長兼任，所以需要特殊處理
+// 中心主任資訊，兼任副處長兼任中心主任
 const directorInfo = {
   title: '中心主任',
   name: '鄭兆宏',
