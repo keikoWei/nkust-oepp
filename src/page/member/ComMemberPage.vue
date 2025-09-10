@@ -67,29 +67,6 @@ const membersInfo = [
     ]
   },
   {
-    title: '約用助理員',
-    name: '蘇宸儀',
-    photo: '/image/members/com_宸儀.png',
-    contacts: [
-      { label: '分機', value: '(07)3617141 轉 22114' },
-      { label: '信箱', value: 'judy2022@nkust.edu.tw' },
-      { label: '職務代理人', value: '賴杏雲' }
-
-    ],
-    responsibilities: [
-      '公文分發及稽催',
-      '大事紀要、登革熱場域管理及自主管理填報窗口',
-      '網站管理及維護',
-      '辦理中心內財物盤點',
-      '修訂經營管理中心相關法規',
-      '分配中心內預算及執行控管',
-      '管理中心內物品及採購核銷',
-      '管理經營管理中心兼任助理',
-      '其他行政支援及臨時交辦事項',
-
-    ]
-  },
-  {
     title: '約用專員',
     name: '黃杏雲',
     photo: '/image/members/com_杏雲.png',
@@ -122,7 +99,30 @@ const membersInfo = [
       '配合全校各單位業務彙整提報資料',
       '其他行政支援及臨時交辦事項'
     ]
-  }
+  },
+  {
+    title: '約用助理員',
+    name: '蘇宸儀',
+    photo: '/image/members/com_宸儀.png',
+    contacts: [
+      { label: '分機', value: '(07)3617141 轉 22114' },
+      { label: '信箱', value: 'judy2022@nkust.edu.tw' },
+      { label: '職務代理人', value: '賴杏雲' }
+
+    ],
+    responsibilities: [
+      '公文分發及稽催',
+      '大事紀要、登革熱場域管理及自主管理填報窗口',
+      '網站管理及維護',
+      '辦理中心內財物盤點',
+      '修訂經營管理中心相關法規',
+      '分配中心內預算及執行控管',
+      '管理中心內物品及採購核銷',
+      '管理經營管理中心兼任助理',
+      '其他行政支援及臨時交辦事項',
+
+    ]
+  },
 ]
 </script>
 
