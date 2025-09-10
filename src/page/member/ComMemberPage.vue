@@ -52,27 +52,41 @@ const directorInfo = {
 // 中心成員資訊
 const membersInfo = [
   {
-    title: '約用專員',
-    name: '陳君豪',
+    title: '專案經理',
+    name: '王君豪',
     photo: '/image/members/com_君豪.png',
     contacts: [
-      { label: '分機', value: '' },
-      { label: '信箱', value: '' }
+      { label: '分機', value: '(07)3617141 轉 22123' },
+      { label: '信箱', value: 'johnnycooky@nkust.edu.tw' },
+      { label: '職務代理人', value: '賴杏雲,吳永生' }
     ],
     responsibilities: [
-      
+      '經營管理中心各類專案之規劃與執行',
+      '配合全校各單位業務彙整提報資料',
+      '其他行政支援及臨時交辦事項'
     ]
   },
   {
-    title: '約用專員',
-    name: '林宸儀',
+    title: '約用助理員',
+    name: '蘇宸儀',
     photo: '/image/members/com_宸儀.png',
     contacts: [
-      { label: '分機', value: '' },
-      { label: '信箱', value: '' }
+      { label: '分機', value: '(07)3617141 轉 22114' },
+      { label: '信箱', value: 'judy2022@nkust.edu.tw' },
+      { label: '職務代理人', value: '賴杏雲' }
+
     ],
     responsibilities: [
-      
+      '公文分發及稽催',
+      '大事紀要、登革熱場域管理及自主管理填報窗口',
+      '網站管理及維護',
+      '辦理中心內財物盤點',
+      '修訂經營管理中心相關法規',
+      '分配中心內預算及執行控管',
+      '管理中心內物品及採購核銷',
+      '管理經營管理中心兼任助理',
+      '其他行政支援及臨時交辦事項',
+
     ]
   },
   {
@@ -80,11 +94,18 @@ const membersInfo = [
     name: '黃杏雲',
     photo: '/image/members/com_杏雲.png',
     contacts: [
-      { label: '分機', value: '' },
-      { label: '信箱', value: '' }
+      { label: '分機', value: '(07)3617141 轉 22101' },
+      { label: '信箱', value: 'xingyun@nkust.edu.tw' },
+      { label: '職務代理人', value: '蘇宸儀' }
     ],
     responsibilities: [
-      
+      '處長行程安排及公文核稿',
+      '彙整及召開中心會議',
+      '彙整各項工作報告（含專案）進度',
+      '彙整及管考年度計畫',
+      '彙整及提報業務績效報告資料',
+      '經營管理中心各類專案之規劃與執行',
+      '其他行政支援及臨時交辦事項'
     ]
   },
   {
@@ -92,11 +113,14 @@ const membersInfo = [
     name: '王永生',
     photo: '/image/members/com_永生.png',
     contacts: [
-      { label: '分機', value: '' },
-      { label: '信箱', value: '' }
+      { label: '分機', value: '(07)3617141 轉 22124' },
+      { label: '信箱', value: 'r7163069@nkust.edu.tw' },
+      { label: '職務代理人', value: '賴杏雲' }
     ],
     responsibilities: [
-      
+      '經營管理中心各類專案之規劃與執行',
+      '配合全校各單位業務彙整提報資料',
+      '其他行政支援及臨時交辦事項'
     ]
   }
 ]
