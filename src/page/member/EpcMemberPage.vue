@@ -46,7 +46,9 @@ const directorInfo = {
   photo: '/image/members/副處長與會展中心主任.png',
   extension: '12850',
   email: 'zhcheng@nkust.edu.tw',
-  responsibility: '綜理會展及出版中心業務與管理'
+  responsibilities: [
+    '綜理會展及出版中心業務與管理'
+  ]
 }
 
 // 中心成員資訊
@@ -181,7 +183,6 @@ const membersInfo = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   
   .members-header {

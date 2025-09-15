@@ -305,7 +305,6 @@ const membersInfo = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   
   .members-header {

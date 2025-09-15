@@ -46,8 +46,8 @@ const directorInfo = {
   photo: '/image/members/ppc_產品推廣中心主任.png',
   extension: '-',
   email: '-',
-  responsibility: '產品推廣中心業務綜理',
   responsibilities: [
+    '產品推廣中心業務綜理',
     '組織管理',
     '商品策略',
     '行銷策略',
@@ -188,7 +188,6 @@ const membersInfo = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   
   .members-header {

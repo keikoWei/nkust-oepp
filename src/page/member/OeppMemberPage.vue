@@ -46,7 +46,9 @@ const directorInfo = {
   photo: '/image/members/ocepm_經管中心主任.png',
   extension: '12860',
   email: 'jckao@nkust.edu.tw',
-  responsibility: '綜理教育推廣中心業務與管理'
+  responsibilities: [
+    '綜理教育推廣中心業務與管理'
+  ]
 }
 
 // 處室成員資訊
@@ -186,11 +188,6 @@ const membersInfo = [
   margin: -2rem calc(-15vw) 2rem calc(-15vw);
 }
 
-/* 處室長區域 */
-.director-section {
-  margin-bottom: 3rem;
-}
-
 /* 處成員標題 */
 .members-header {
   text-align: center;
@@ -208,50 +205,6 @@ const membersInfo = [
 .members-section {
   max-width: 720px;  /* 配合 MemberCard 的新寬度 */
   margin: 0 auto;
-}
-
-.member-card {
-  background: #d9d9d9;
-  padding: 2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.member-photo {
-  flex-shrink: 0;
-}
-
-.member-photo .photo {
-  width: 315px;
-  height: 315px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #86a8ab;
-}
-
-.member-info {
-  flex: 1;
-}
-
-.member-title {
-  font-size: 18pt;
-  color: #3f5963;
-  margin: 0 0 0.3rem 0;
-  font-weight: normal;
-}
-
-.member-name {
-  font-size: 22pt;
-  color: #333;
-  margin: 0 0 0.3rem 0;
-  font-weight: bold;
-}
-
-.member-subtitle {
-  font-size: 14pt;
-  color: #666;
-  margin: 0 0 1rem 0;
 }
 
 /* 響應式設計 */
@@ -300,7 +253,6 @@ const membersInfo = [
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   
   .members-header {

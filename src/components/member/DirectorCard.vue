@@ -51,17 +51,18 @@ defineProps({
 <style scoped>
 /* 處室長區域 */
 .director-section {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .director-card {
   background: #d9d9d9;
   padding: 1.3rem;
+  margin-bottom: 1.3rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
-  max-width: 670px;
-  margin: 0 auto;
+  max-width: 720px;
+  margin: 0 auto 1.3rem auto;
 }
 
 .director-photo {
@@ -69,8 +70,8 @@ defineProps({
 }
 
 .director-photo .photo {
-  width: 251px;
-  height: 251px;
+  width: 211px;
+  height: 211px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #86a8ab;
@@ -78,6 +79,7 @@ defineProps({
 
 .director-info {
   flex: 1;
+  padding-top: 0.7rem;
   min-width: 0;
 }
 
@@ -85,7 +87,7 @@ defineProps({
   display: flex;
   align-items: baseline;
   gap: 0.7rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -172,6 +174,7 @@ defineProps({
   .director-info {
     text-align: center;
     width: 100%;
+    padding-top: 0;
   }
   
   .title-name-row {
@@ -244,6 +247,7 @@ defineProps({
   .director-info {
     text-align: center;
     width: 100%;
+    padding-top: 0;
   }
   
   .title-name-row {
