@@ -10,32 +10,40 @@
       <!-- 4格圖片區域 -->
       <div class="events-grid">
         <!-- 左上：活動圖片01 -->
-        <div class="event-card">
-          <div class="image-container">
-            <img src="/image/oceom/activity_image01.jpg" alt="活動圖片01" class="event-image" />
+        <a href="/exhibitionCenter/seminar" class="event-card-link">
+          <div class="event-card">
+            <div class="image-container">
+              <img src="/image/oceom/activity_image01.jpg" alt="研討會活動委託" class="event-image" />
+            </div>
           </div>
-        </div>
+        </a>
         
         <!-- 右上：活動圖片02 -->
-        <div class="event-card">
-          <div class="image-container">
-            <img src="/image/oceom/activity_image02.jpg" alt="活動圖片02" class="event-image" />
+        <a href="https://souvenir.nkust.edu.tw/" target="_blank" class="event-card-link">
+          <div class="event-card">
+            <div class="image-container">
+              <img src="/image/oceom/activity_image02.jpg" alt="宣傳品請領" class="event-image" />
+            </div>
           </div>
-        </div>
+        </a>
         
         <!-- 左下：活動圖片03 -->
-        <div class="event-card">
-          <div class="image-container">
-            <img src="/image/oceom/activity_image03.jpg" alt="活動圖片03" class="event-image" />
+        <a href="https://dkshop2020.cyberbiz.co/" target="_blank" class="event-card-link">
+          <div class="event-card">
+            <div class="image-container">
+              <img src="/image/oceom/activity_image03.jpg" alt="DK Shop" class="event-image" />
+            </div>
           </div>
-        </div>
+        </a>
         
         <!-- 右下：活動圖片04 -->
-        <div class="event-card">
-          <div class="image-container">
-            <img src="/image/oceom/activity_image04.jpg" alt="活動圖片04" class="event-image" />
+        <a href="https://cec.nkust.edu.tw/CurriculumList.aspx" target="_blank" class="event-card-link">
+          <div class="event-card">
+            <div class="image-container">
+              <img src="/image/oceom/activity_image04.jpg" alt="課程報名系統" class="event-image" />
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       
       <!-- 了解更多按鈕區域 -->
@@ -102,6 +110,12 @@ const handleMoreInfo = () => {
   margin-right: auto;
   justify-items: center;
   padding: 13px 0;
+}
+
+.event-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .event-card {
