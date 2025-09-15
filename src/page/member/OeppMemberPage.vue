@@ -69,7 +69,7 @@ const membersInfo = [
     name: '江芷汝',
     photo: '/image/members/oceom_芷汝.png',
     contacts: [
-      { label: '處辦信箱', value: 'ieoffice01@nkust.edu.tw' },
+      { label: '分機', value: '12861' },
       { label: '信箱', value: 'z779c632@nkust.edu.tw' }
     ],
     responsibilities: [
