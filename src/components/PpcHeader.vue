@@ -37,7 +37,7 @@
             </button>
             <div class="mobile-dropdown-menu" v-show="showMobileDropdown">
               <RouterLink to="/about/members/ppc" @click="closeMobileMenu" class="mobile-dropdown-item">
-                人事介紹
+                員介紹
               </RouterLink>
             </div>
           </div>
@@ -85,7 +85,7 @@
               </button>
               <div class="dropdown-menu" v-show="showDropdown">
                 <RouterLink to="/about/members/ppc" @click="closeDropdown">
-                  <div class="dropdown-item">人事介紹</div>
+                  <div class="dropdown-item">人員介紹</div>
                 </RouterLink>
               </div>
             </div>

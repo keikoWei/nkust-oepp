@@ -39,7 +39,7 @@
                 中心簡介
               </RouterLink>
               <RouterLink to="/about/members/oepp" @click="closeMobileMenu" class="mobile-dropdown-item">
-                人事介紹
+                人員介紹
               </RouterLink>
             </div>
           </div>
@@ -90,7 +90,7 @@
                   <div class="dropdown-item">中心簡介</div>
                 </RouterLink>
                 <RouterLink to="/about/members/oepp" @click="closeDropdown">
-                  <div class="dropdown-item">人事介紹</div>
+                  <div class="dropdown-item">人員介紹</div>
                 </RouterLink>
               </div>
             </div>

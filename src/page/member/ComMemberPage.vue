@@ -13,10 +13,6 @@
     
     <DirectorCard :director="directorInfo" />
 
-    <!-- 中心成員標題 -->
-    <div class="members-header">
-      <h2>中心成員</h2>
-    </div>
 
     <!-- 中心成員區域 -->
     <div class="members-section">
@@ -70,7 +66,7 @@ const membersInfo = [
   },
   {
     title: '約用專員',
-    name: '黃杏雲',
+    name: '賴杏雲',
     photo: '/image/members/com_杏雲.png',
     contacts: [
       { label: '分機', value: '(07)3617141 轉 22101' },
@@ -89,7 +85,7 @@ const membersInfo = [
   },
   {
     title: '約用專員',
-    name: '王永生',
+    name: '吳永生',
     photo: '/image/members/com_永生.png',
     contacts: [
       { label: '分機', value: '(07)3617141 轉 22124' },
@@ -225,18 +221,6 @@ const membersInfo = [
   margin: -2rem calc(-15vw) 2rem calc(-15vw);
 }
 
-/* 中心成員標題 */
-.members-header {
-  text-align: center;
-  margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
-}
-
-.members-header h2 {
-  font-size: 30pt;  /* 原本 45pt * 0.67 */
-  color: #333;
-  margin: 0;
-  font-weight: normal;
-}
 
 /* 中心成員區域 */
 .members-section {

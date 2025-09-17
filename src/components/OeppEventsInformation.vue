@@ -10,13 +10,13 @@
       <!-- 4格圖片區域 -->
       <div class="events-grid">
         <!-- 左上：活動圖片01 -->
-        <a href="/exhibitionCenter/seminar" class="event-card-link">
+        <router-link to="/exhibitionCenter/seminar" class="event-card-link">
           <div class="event-card">
             <div class="image-container">
               <img src="/image/oceom/activity_image01.jpg" alt="研討會活動委託" class="event-image" />
             </div>
           </div>
-        </a>
+        </router-link>
         
         <!-- 右上：活動圖片02 -->
         <a href="https://souvenir.nkust.edu.tw/" target="_blank" class="event-card-link">

@@ -13,10 +13,6 @@
     
     <DirectorCard :director="directorInfo" />
 
-    <!-- 中心成員標題 -->
-    <div class="members-header">
-      <h2>中心成員</h2>
-    </div>
 
     <!-- 中心成員區域 -->
     <div class="members-section">
@@ -44,8 +40,8 @@ const directorInfo = {
   title: '中心主任',
   name: '黃志雄',
   photo: '/image/members/ppc_產品推廣中心主任.png',
-  extension: '-',
-  email: '-',
+  extension: '12889/23511',
+  email: 'chhuang23511@nkust.edu.tw',
   responsibilities: [
     '產品推廣中心業務綜理',
     '組織管理',
@@ -142,19 +138,6 @@ const membersInfo = [
   padding: 1.3rem 0.7rem 67px 0.7rem;  /* 原本 2rem 1rem 100px 1rem * 0.67 */
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   background-color: #d9d9d9;
-}
-
-/* 中心成員標題 */
-.members-header {
-  text-align: center;
-  margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
-}
-
-.members-header h2 {
-  font-size: 30pt;  /* 原本 45pt * 0.67 */
-  color: #333;
-  margin: 0;
-  font-weight: normal;
 }
 
 /* 中心成員區域 */
