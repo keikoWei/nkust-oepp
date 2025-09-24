@@ -47,7 +47,7 @@ defineProps({
 
 .page-header h1 {
   font-size: 30pt;
-  color: #333;
+  color: #67554C;
   margin: 0 0 1.3rem 0;
   font-weight: normal;
 }
@@ -57,14 +57,14 @@ defineProps({
   justify-content: center;
   align-items: center;
   gap: 0.7rem;
-  background: #d9d9d9;
+  background: #EFEDEB;
   padding: 0.3rem;
 }
 
 .nav-item {
   padding: 0.5rem 0.7rem;
   text-decoration: none;
-  color: #666;
+  color: #67554C;
   font-size: 21.5pt;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
@@ -72,18 +72,18 @@ defineProps({
 }
 
 .nav-item.active {
-  color: #333;
+  color: #67554C;
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
   font-weight: 900;
   letter-spacing: 0.3px;
 }
 
 .nav-item:not(.active):hover {
-  color: #3f5963;
+  color: #3E3A39;
 }
 
 .nav-separator {
-  color: #666;
+  color: #67554C;
   font-size: 11pt;
   font-weight: normal;
 }

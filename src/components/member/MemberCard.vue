@@ -67,7 +67,7 @@ const needsExpand = computed(() => {
 
 <style scoped>
 .member-card {
-  background: #d9d9d9;
+  background: #EFEDEB;
   padding: 1.3rem;
   margin-bottom: 1.3rem;
   display: flex;
@@ -86,7 +86,6 @@ const needsExpand = computed(() => {
   height: 211px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #86a8ab;
 }
 
 .member-info {
@@ -106,7 +105,7 @@ const needsExpand = computed(() => {
 
 .member-title {
   font-size: 21.5pt;
-  color: #3f5963;
+  color: #67554C;
   margin: 0;
   font-weight: normal;
   flex-shrink: 0;
@@ -114,8 +113,8 @@ const needsExpand = computed(() => {
 }
 
 .member-name {
-  font-size: 16pt;
-  color: #333;
+  font-size: 21.5pt;
+  color: #67554C;
   margin: 0;
   font-weight: bold;
   flex-shrink: 0;
@@ -136,12 +135,12 @@ const needsExpand = computed(() => {
 .contact-info p {
   margin: 0.2rem 0;
   font-size: 13.5pt;
-  color: #333;
+  color: #3E3A39;
 }
 
 .description {
   font-size: 13.5pt;
-  color: #333;
+  color: #3E3A39;
 }
 
 .description p {
@@ -188,7 +187,7 @@ const needsExpand = computed(() => {
 .expand-btn {
   background: none;
   border: none;
-  color: #3f5963;
+  color: #67554C;
   font-size: 13.5pt;
   cursor: pointer;
   padding: 0.3rem 0;
@@ -202,7 +201,7 @@ const needsExpand = computed(() => {
 
 .label {
   font-weight: bold;
-  color: #3f5963;
+  color: #67554C;
 }
 
 /* 響應式設計 */

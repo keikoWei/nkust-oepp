@@ -51,20 +51,19 @@ import { ref, computed } from 'vue'
 
 const currentIndex = ref(0)
 
-// YouTube 影片列表 (可以添加更多影片)
+// YouTube 影片列表
 const videoList = ref([
   {
-    id: 'eNt78mQJavY',
-    title: '精彩花絮 1'
-  },
-  // 可以添加更多影片
-  {
-    id: 'dQw4w9WgXcQ', // 示例影片ID
-    title: '精彩花絮 2'
+    id: 'GQw9An0Rd5c',
+    title: '113學年度畢業典禮'
   },
   {
-    id: 'jNQXAC9IVRw', // 示例影片ID
-    title: '精彩花絮 3'
+    id: 'ChmAfkProsQ',
+    title: '7週年校慶慶祝大會'
+  },
+  {
+    id: 'ppPEzx_hsSs',
+    title: '「大學社會責任對推動永續發展的貢獻」國際研討會暨「海洋事務」論壇'
   }
 ])
 

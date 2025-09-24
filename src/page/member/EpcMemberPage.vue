@@ -4,7 +4,7 @@
   <!-- 頂部圖片區域 -->
   <section class="member-banner">
     <div class="banner-image">
-      <img src="/image/members/epc_member_page_top.jpg" alt="會展及出版中心成員介紹頂部圖片" class="banner-img">
+      <img src="/image/members/member_top.jpg" alt="會展及出版中心成員介紹頂部圖片" class="banner-img">
     </div>
   </section>
   
@@ -25,7 +25,7 @@
   </div>
   
   <!-- Footer -->
-  <MainFooterComponent waveColor="#d9d9d9" />
+  <MainFooterComponent waveColor="#EFEDEB" />
 </template>
 
 <script setup>
@@ -132,7 +132,7 @@ const membersInfo = [
   margin: 0 auto;
   padding: 1.3rem 0.7rem 67px 0.7rem;  /* 原本 2rem 1rem 100px 1rem * 0.67 */
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
-  background-color: #d9d9d9;
+  background-color: #EFEDEB;
 }
 
 /* 中心成員區域 */

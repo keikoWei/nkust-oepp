@@ -4,7 +4,7 @@
     <div class="events-wrapper">
       <!-- 標題區域 -->
       <div class="title-section">
-        <h2 class="title-text">教推處活動消息</h2>
+        <h2 class="title-text">教推與經管處常用連結</h2>
       </div>
       
       <!-- 4格圖片區域 -->

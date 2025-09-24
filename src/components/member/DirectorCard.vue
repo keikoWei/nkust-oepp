@@ -55,7 +55,7 @@ defineProps({
 }
 
 .director-card {
-  background: #d9d9d9;
+  background: #EFEDEB;
   padding: 1.3rem;
   margin-bottom: 1.3rem;
   display: flex;
@@ -74,7 +74,6 @@ defineProps({
   height: 211px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #86a8ab;
 }
 
 .director-info {
@@ -94,7 +93,7 @@ defineProps({
 
 .director-info .title {
   font-size: 27pt;
-  color: #3f5963;
+  color: #67554C;
   margin: 0;
   font-weight: normal;
   flex-shrink: 0;
@@ -102,8 +101,8 @@ defineProps({
 }
 
 .director-info .name {
-  font-size: 37pt;
-  color: #333;
+  font-size: 27pt;
+  color: #67554C;
   margin: 0;
   font-weight: bold;
   flex-shrink: 0;
@@ -117,12 +116,12 @@ defineProps({
 .contact-info p {
   margin: 0.3rem 0;
   font-size: 15.5pt;
-  color: #333;
+  color: #3E3A39;
 }
 
 .description {
   font-size: 15.5pt;
-  color: #333;
+  color: #3E3A39;
 }
 
 .description p {
@@ -138,7 +137,7 @@ defineProps({
 
 .label {
   font-weight: bold;
-  color: #3f5963;
+  color: #67554C;
 }
 
 /* 響應式設計 */

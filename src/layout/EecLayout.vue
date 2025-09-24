@@ -39,15 +39,15 @@ import CourseHighlightsComponent from '@/components/CourseHighlightsComponent.vu
 // EEC專用的輪播圖片
 const carouselImages = [
   {
-    url: '/image/carousels/oepp_1_carousel.jpg',
+    url: '/image/carousels/eec_1_carousel.png',
     alt: '教育推廣中心 1'
   },
   {
-    url: '/image/carousels/oepp_2_carousel.jpg',
+    url: '/image/carousels/eec_2_carousel.png',
     alt: '教育推廣中心 2'
   },
   {
-    url: '/image/carousels/oepp_3_carousel.jpg',
+    url: '/image/carousels/eec_3_carousel.png',
     alt: '教育推廣中心 3'
   }
 ]

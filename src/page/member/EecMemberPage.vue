@@ -25,7 +25,7 @@
   </div>
   
   <!-- Footer -->
-  <MainFooterComponent waveColor="#d9d9d9" />
+  <MainFooterComponent waveColor="#EFEDEB" />
 </template>
 
 <script setup>
@@ -52,6 +52,25 @@ const directorInfo = {
 
 // 中心成員資訊
 const membersInfo = [
+{
+    title: '約用專員',
+    name: '薛伊評',
+    photo: '/image/members/default_woman_02.png',
+    contacts: [
+      { label: '分機', value: '12847' },
+      { label: '信箱', value: 'eyebrow01170@nkust.edu.tw' }
+    ],
+    responsibilities: [
+      '彙整全校開班提案資料及教育推廣小組會議召開',
+      '各班次主計計畫代碼開設、課程結案及提撥管理費',
+      '各類經費彙整統計、中心經費統籌及經費核銷',
+      '教育部cell系統填報',
+      '技專校院資料庫填報',
+      '推廣教育審查會議(大會)召開',
+      '推廣教育中心會議召開',
+      '其他臨時交辦事項'
+    ]
+  },
   {
     title: '約用組員',
     name: '潘淑花',
@@ -182,25 +201,6 @@ const membersInfo = [
     ]
   },
   {
-    title: '約用專員',
-    name: '薛伊評',
-    photo: '/image/members/default_woman_02.png',
-    contacts: [
-      { label: '分機', value: '12847' },
-      { label: '信箱', value: 'eyebrow01170@nkust.edu.tw' }
-    ],
-    responsibilities: [
-      '彙整全校開班提案資料及教育推廣小組會議召開',
-      '各班次主計計畫代碼開設、課程結案及提撥管理費',
-      '各類經費彙整統計、中心經費統籌及經費核銷',
-      '教育部cell系統填報',
-      '技專校院資料庫填報',
-      '推廣教育審查會議(大會)召開',
-      '推廣教育中心會議召開',
-      '其他臨時交辦事項'
-    ]
-  },
-  {
     title: '待聘',
     name: '',
     photo: '/image/members/default_man_02.png',
@@ -252,7 +252,7 @@ const membersInfo = [
   margin: 0 auto;
   padding: 1.3rem 0.7rem 67px 0.7rem;  /* 原本 2rem 1rem 100px 1rem * 0.67 */
   font-family: "GenYoGothic TW", "源樣黑體月", "Microsoft JhengHei", sans-serif;
-  background-color: #d9d9d9;
+  background-color: #EFEDEB;
 }
 
 /* 中心成員區域 */
