@@ -5,7 +5,7 @@
     <!-- 教育推廣中心內容 -->
     <div class="eec-home">
       <section class="banner no-gap">
-        <Carousel :images="carouselImages" :interval="10000" :showWatermark="false" />
+        <EecCarousel :images="carouselImages" :interval="10000" :showWatermark="false" :imageObjectFit="'contain'" />
       </section>
 
       <!-- 課程公告區域 -->
@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import Carousel from '@/components/Carousel.vue'
+import EecCarousel from '@/components/EecCarousel.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 import EecHeader from '@/components/EecHeader.vue'
 import CourseAnnouncementComponent from '@/components/CourseAnnouncementComponent.vue'
