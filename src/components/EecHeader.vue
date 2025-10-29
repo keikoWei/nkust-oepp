@@ -347,7 +347,7 @@ const openSchoolHome = () => {
 
 .nav-btn {
   color: #534741;
-  font-size: 17.5pt;
+  font-size: clamp(13.33px, calc(13.33px + (100vw - 700px) * 10 / 1200), 23.33px);
   padding: 15px 7px;
   margin: 0 3px;
   text-decoration: none;
@@ -404,7 +404,7 @@ const openSchoolHome = () => {
 .dropdown-item {
   padding: 8px 13px;
   color: #534741;
-  font-size: 11pt;
+  font-size: clamp(12px, calc(12px + (100vw - 700px) * 2.67 / 1200), 14.67px);
   cursor: pointer;
   transition: background-color 0.3s;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -424,7 +424,7 @@ const openSchoolHome = () => {
 
 /* 台企銀代收繳費網特殊樣式 - 縮小字體以單排顯示 */
 .dropdown-item.bank-payment {
-  font-size: 9.5pt;
+  font-size: clamp(10px, calc(10px + (100vw - 700px) * 2.67 / 1200), 12.67px);
   letter-spacing: -0.3px;
 }
 

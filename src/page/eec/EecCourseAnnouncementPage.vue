@@ -17,7 +17,7 @@
     <!-- 頁面內容 -->
     <div class="content-container">
       
-      <CourseAnnouncementComponent />
+      <AllCourseAnnouncementComponent />
     </div>
 
     <!-- Footer -->
@@ -28,7 +28,7 @@
 <script setup>
 import EecHeader from '@/components/EecHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
-import CourseAnnouncementComponent from '@/components/CourseAnnouncementComponent.vue'
+import AllCourseAnnouncementComponent from '@/components/AllCourseAnnouncementComponent.vue'
 </script>
 
 <style scoped>

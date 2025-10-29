@@ -8,9 +8,9 @@
     <!-- 公告內容區域 -->
     <div class="announcement-content">
       <!-- 公告項目 -->
-      <div class="announcement-item" v-for="(announcement, index) in announcementList" :key="index">
+      <div class="announcement-item" v-for="(announcement, index) in sortedAnnouncementList" :key="index">
         <div class="announcement-date">{{ announcement.date }}</div>
-        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }">{{ announcement.title }}</div>
+        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement.id)">{{ announcement.title }}</div>
       </div>
       
       <!-- 展開更多按鈕 -->
@@ -26,39 +26,57 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-const expanded = ref(false)
+const router = useRouter()
 
 const announcementList = ref([
   {
-    date: '2025.02.27',
-    title: '🔥 114年上半年度【高科大 x 產業新尖兵】：15-29歲的你~免費參訓＋8000元獎勵金💰 報名截止中!'
+    id: 45,
+    date: '2025.10.29',
+    title: '1 1 4 年 度 職 業 訓 練 課 程-Python 人工智慧應用系統 第01期 公 告 錄 訓 名 單'
   },
   {
-    date: '2025.02.03',
-    title: '【114上半年-產投課程】專案經理PMP實務班第01期'
+    id: 44,
+    date: '2025.10.01',
+    title: '🔥【職前訓練】Python人工智慧應用系統 第01期 開放報名中！'
   },
   {
-    date: '2025.01.29',
-    title: '【113-2】金工手作限額開放 🔥 打造專屬你的飾品 💎 報名從速!'
+    id: 43,
+    date: '2025.09.15',
+    title: '🎉 【114學年度】樂齡新時代 (建工校區自費班)熱烈招生中！'
   },
   {
-    date: '2025.01.24',
-    title: '【公告】113-2 樂齡大學新時代 正取/備取名單 及 正取報到時間'
+    id: 42,
+    date: '2025.09.12',
+    title: '🔥【職前訓練】AI Agent應用實務 第02期 開放報名中！🔥'
   },
   {
-    date: '2025.01.16',
-    title: '【114上半年-產投課程】水肺潛水極限挑戰訓練班'
+    id: 41,
+    date: '2025.09.05',
+    title: '【AI會計應用系統實戰課程】帶你用 AI 工具升級財會效率！'
   },
   {
-    date: '2025.01.14',
-    title: '【緊急通知】樂齡大學原訂1月14日10點開放報名，因網路問題調整至10點15分重新開放報名。'
+    id: 40,
+    date: '2025.09.01',
+    title: '💎 組織溫室氣體盤查實務班第01期 💎勞動部產業人才投資方案📩在職勞工【最高補助100_】'
   }
 ])
 
+// 按照 id 降序排列（id 大的在前）
+const sortedAnnouncementList = computed(() => {
+  return [...announcementList.value].sort((a, b) => b.id - a.id)
+})
+
 const toggleExpand = () => {
-  expanded.value = !expanded.value
+  router.push('/educationCenter/courseAnnouncement')
+}
+
+const goToDetail = (id) => {
+  if (id) {
+    router.push(`/announcement-detail/${id}`)
+  }
 }
 </script>
 
@@ -187,6 +205,13 @@ const toggleExpand = () => {
   color: #534741;
   line-height: 1.2;
   flex: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.announcement-text:hover {
+  color: #8B4513;
+  text-decoration: underline;
 }
 
 /* 字數超過35時的兩行文字樣式 */

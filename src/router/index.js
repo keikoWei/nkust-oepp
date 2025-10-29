@@ -234,6 +234,11 @@ const router = createRouter({
       component: () => import('../page/epc/PublicationPage.vue')
     },
     {
+      path: '/announcement-detail/:id',
+      name: 'announcement-detail',
+      component: () => import('../page/eec/CourseAnnouncementDetailPage.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('../page/ErrorPage.vue')

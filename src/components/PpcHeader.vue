@@ -230,7 +230,7 @@ const openSchoolHome = () => {
 
 .nav-btn {
   color: #333;
-  font-size: 17.5pt;
+  font-size: clamp(13.33px, calc(13.33px + (100vw - 700px) * 10 / 1200), 23.33px);
   padding: 15px 7px;
   margin: 0 3px;
   text-decoration: none;
@@ -283,7 +283,7 @@ const openSchoolHome = () => {
 
 .dropdown-item {
   color: #333;
-  font-size: 16pt;
+  font-size: clamp(13.33px, calc(13.33px + (100vw - 700px) * 8 / 1200), 21.33px);
   padding: 10px 13.5px;
   font-family: "GenYoGothic TW", "源樣夜黑體", "Microsoft JhengHei", sans-serif;
   cursor: pointer;
