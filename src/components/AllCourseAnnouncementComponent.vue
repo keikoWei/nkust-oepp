@@ -39,6 +39,11 @@ const itemsPerPage = 10
 
 const announcementList = ref([
   {
+    id: 46,
+    date: '2025.11.21',
+    title: '114學年度第2學期推廣教育碩士學分班招生簡章'
+  },
+  {
     id: 45,
     date: '2025.10.29',
     title: '1 1 4 年 度 職 業 訓 練 課 程-Python 人工智慧應用系統 第01期 公 告 錄 訓 名 單'
