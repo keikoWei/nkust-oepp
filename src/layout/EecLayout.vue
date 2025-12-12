@@ -49,6 +49,10 @@ const carouselImages = [
   {
     url: '/image/carousels/eec_3_carousel.png',
     alt: '教育推廣中心 3'
+  },
+  {
+    url: '/image/carousels/eec_4_carousel.png',
+    alt: '教育推廣中心 4'
   }
 ]
 </script>
