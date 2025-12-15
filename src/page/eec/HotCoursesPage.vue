@@ -1,5 +1,5 @@
 <template>
-  <div class="course-announcement-page-container">
+  <div class="hot-courses-page-container">
 
     <!-- 教育推廣中心導覽欄 -->
     <EecHeader />
@@ -7,9 +7,9 @@
     <!-- 頂部圖片區域 -->
     <section class="course-banner">
       <div class="banner-image">
-        <img src="/image/eec/eec_top.png" alt="教育推廣中心最新消息頂部圖片" class="banner-img">
+        <img src="/image/eec/eec_top.png" alt="教育推廣中心熱門課程頂部圖片" class="banner-img">
         <div class="banner-watermark">
-          <h1>最新消息</h1>
+          <h1>熱門課程</h1>
         </div>
       </div>
     </section>
@@ -17,7 +17,7 @@
     <!-- 頁面內容 -->
     <div class="content-container">
       
-      <AllCourseAnnouncementComponent />
+      <EecHotCoursesComponent />
     </div>
 
     <!-- Footer -->
@@ -28,11 +28,11 @@
 <script setup>
 import EecHeader from '@/components/EecHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
-import AllCourseAnnouncementComponent from '@/components/AllCourseAnnouncementComponent.vue'
+import EecHotCoursesComponent from '@/components/EecHotCoursesComponent.vue'
 </script>
 
 <style scoped>
-.course-announcement-page-container {
+.hot-courses-page-container {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -93,41 +93,6 @@ import AllCourseAnnouncementComponent from '@/components/AllCourseAnnouncementCo
   padding: 0 20px;
 }
 
-.title-container {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 40px;
-}
-
-.title {
-  font-size: 26pt;
-  padding: 10px 40px;
-  border: 3px solid #534741;
-  border-radius: 15px;
-  color: #534741;
-  background-color: #e3d9cd;
-  width: 280px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
-}
-
-.content {
-  font-size: 20pt;
-  color: #534741;
-  line-height: 1.6;
-  font-family: "GenYoGothic TW", "源樣黑體", "Microsoft JhengHei", sans-serif;
-}
-
-h3 {
-  font-size: 20pt;
-  color: #534741;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
 /* 響應式設計 */
 @media (max-width: 1024px) {
   .banner-watermark {
@@ -136,20 +101,6 @@ h3 {
   
   .banner-watermark h1 {
     font-size: 30pt;
-  }
-
-  .title {
-    font-size: 22pt;
-    width: 245px;
-    height: 70px;
-  }
-  
-  .content {
-    font-size: 17pt;
-  }
-  
-  h3 {
-    font-size: 17pt;
   }
 }
 
@@ -160,20 +111,6 @@ h3 {
   
   .banner-watermark h1 {
     font-size: 23pt;
-  }
-
-  .title {
-    font-size: 18pt;
-    width: 210px;
-    height: 60px;
-  }
-  
-  .content {
-    font-size: 14pt;
-  }
-  
-  h3 {
-    font-size: 14pt;
   }
 }
 
@@ -202,19 +139,6 @@ h3 {
   .banner-watermark h1 {
     font-size: 20pt;
   }
-  
-  .title {
-    font-size: 16pt;
-    width: 175px;
-    height: 50px;
-  }
-  
-  .content {
-    font-size: 12pt;
-  }
-  
-  h3 {
-    font-size: 12pt;
-  }
 }
 </style>
+

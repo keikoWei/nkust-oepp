@@ -52,8 +52,8 @@
             線上報名
           </a>
           
-          <RouterLink to="/educationCenter/courseAnnouncement" class="mobile-nav-btn" @click="closeMobileMenu">
-            課程公告
+          <RouterLink to="/educationCenter/hotCourses" class="mobile-nav-btn" @click="closeMobileMenu">
+            熱門課程
           </RouterLink>
           
           <div class="mobile-nav-item">
@@ -95,7 +95,7 @@
           
           <div class="mobile-nav-item">
             <button class="mobile-nav-btn" @click="toggleMobileFaqDropdown">
-              常見問題
+              相關連結
               <span class="mobile-dropdown-arrow" :class="{ 'open': showMobileFaqDropdown }">▼</span>
             </button>
             <div class="mobile-dropdown-menu" v-show="showMobileFaqDropdown">
@@ -142,8 +142,8 @@
               線上報名
             </a>
             
-            <RouterLink to="/educationCenter/courseAnnouncement" class="nav-btn">
-              課程公告
+            <RouterLink to="/educationCenter/hotCourses" class="nav-btn">
+              熱門課程
             </RouterLink>
             
             <div class="nav-dropdown" @mouseenter="showPaymentDropdown = true" @mouseleave="showPaymentDropdown = false">
@@ -185,7 +185,7 @@
             
             <div class="nav-dropdown" @mouseenter="showFaqDropdown = true" @mouseleave="showFaqDropdown = false">
               <button class="nav-btn dropdown-btn">
-                常見問題
+                相關連結
                 <span class="dropdown-arrow">▼</span>
               </button>
               <div class="dropdown-menu" v-show="showFaqDropdown">

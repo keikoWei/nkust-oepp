@@ -8,7 +8,7 @@
         <EecCarousel :images="carouselImages" :interval="10000" :showWatermark="false" :imageObjectFit="'contain'" />
       </section>
 
-      <!-- 課程公告區域 -->
+      <!-- 最新消息區域 -->
       <section class="course-announcement-section">
         <CourseAnnouncementComponent />
       </section>
@@ -72,7 +72,7 @@ const carouselImages = [
   margin: 0 auto;
 }
 
-/* 課程公告區域樣式 */
+/* 最新消息區域樣式 */
 .course-announcement-section {
   width: 100%;
   margin: 3rem 0;

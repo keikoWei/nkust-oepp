@@ -77,7 +77,7 @@
           <div class="commitment-content">
             <div class="commitment-item">
               <span class="commitment-number">1.</span>
-              <p>本中心秉持TQS持續改善精神，致力規劃提升相關專業訓練及輔導協助，提供學員多元課程及滿意的服務，以培育優秀專業人才，進而提升學員個人競爭力。</p>
+              <p>本中心秉持TTQS持續改善精神，致力規劃提升相關專業訓練及輔導協助，提供學員多元課程及滿意的服務，以培育優秀專業人才，進而提升學員個人競爭力。</p>
             </div>
             <div class="commitment-item">
               <span class="commitment-number">2.</span>

@@ -8,7 +8,7 @@
       <div class="banner-image">
         <img src="/image/eec/eec_top.png" alt="教育推廣中心頂部圖" class="banner-img" />
         <div class="banner-watermark">
-          <h1>課程公告</h1>
+          <h1>最新消息</h1>
         </div>
       </div>
     </section>

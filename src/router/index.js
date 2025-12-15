@@ -139,6 +139,11 @@ const router = createRouter({
       component: () => import('../page/eec/EecCourseAnnouncementPage.vue')
     },
     {
+      path: '/educationCenter/hotCourses',
+      name: 'eec-hot-courses',
+      component: () => import('../page/eec/HotCoursesPage.vue')
+    },
+    {
       path: '/educationCenter/seniorCitizensUniversity',
       name: 'eec-senior-citizens-university',
       component: () => import('../page/eec/SeniorCitizensUniversityPage.vue')

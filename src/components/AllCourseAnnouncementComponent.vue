@@ -2,7 +2,7 @@
   <div class="announcement-container">
     <!-- 標題 -->
     <div class="announcement-title">
-      <h2>課程公告</h2>
+      <h2>最新消息</h2>
     </div>
     
     <!-- 公告內容區域 -->
