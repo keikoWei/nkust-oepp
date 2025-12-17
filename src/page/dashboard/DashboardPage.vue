@@ -113,7 +113,8 @@ const handleAdd = () => {
     // 透過事件觸發輪播圖管理頁面的新增功能
     window.dispatchEvent(new CustomEvent('open-carousel-modal'))
   } else if (activeTab.value === 'news') {
-    console.log('新增消息')
+    // 透過事件觸發消息管理頁面的新增功能
+    window.dispatchEvent(new CustomEvent('open-news-modal'))
   }
 }
 </script>
