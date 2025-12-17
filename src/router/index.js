@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { isAuthenticated, getCurrentUser, getDashboardPathByRole } from '@/api/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -244,11 +245,145 @@ const router = createRouter({
       component: () => import('../page/eec/CourseAnnouncementDetailPage.vue')
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('../page/dashboard/LoginPage.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('../page/dashboard/DashboardPage.vue'),
+      redirect: '/dashboard/oceom/carousel',
+      children: [
+        {
+          path: 'oceom/carousel',
+          name: 'dashboard-oceom-carousel',
+          component: () => import('../page/dashboard/CarouselManagementPage.vue')
+        },
+        {
+          path: 'oceom/news',
+          name: 'dashboard-oceom-news',
+          component: () => import('../page/dashboard/NewsManagementPage.vue')
+        },
+        {
+          path: 'eec/carousel',
+          name: 'dashboard-eec-carousel',
+          component: () => import('../page/dashboard/CarouselManagementPage.vue')
+        },
+        {
+          path: 'eec/news',
+          name: 'dashboard-eec-news',
+          component: () => import('../page/dashboard/NewsManagementPage.vue')
+        },
+        {
+          path: 'epc/carousel',
+          name: 'dashboard-epc-carousel',
+          component: () => import('../page/dashboard/CarouselManagementPage.vue')
+        },
+        {
+          path: 'epc/news',
+          name: 'dashboard-epc-news',
+          component: () => import('../page/dashboard/NewsManagementPage.vue')
+        },
+        {
+          path: 'ppc/carousel',
+          name: 'dashboard-ppc-carousel',
+          component: () => import('../page/dashboard/CarouselManagementPage.vue')
+        },
+        {
+          path: 'ppc/news',
+          name: 'dashboard-ppc-news',
+          component: () => import('../page/dashboard/NewsManagementPage.vue')
+        },
+        {
+          path: 'com/carousel',
+          name: 'dashboard-com-carousel',
+          component: () => import('../page/dashboard/CarouselManagementPage.vue')
+        },
+        {
+          path: 'com/news',
+          name: 'dashboard-com-news',
+          component: () => import('../page/dashboard/NewsManagementPage.vue')
+        }
+      ]
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('../page/ErrorPage.vue')
     }
   ]
+})
+
+// 路由守衛：保護後台頁面
+router.beforeEach((to, from, next) => {
+  // 檢查是否要訪問後台頁面
+  const isDashboardRoute = to.path.startsWith('/dashboard')
+  
+  if (isDashboardRoute) {
+    // 檢查是否已登入
+    if (!isAuthenticated()) {
+      // 未登入，跳轉到登入頁
+      next('/login')
+    } else {
+      const user = getCurrentUser()
+      
+      // 檢查是否訪問了中心根路徑（如 /dashboard/oceom）
+      // 如果是，則重定向到該中心的輪播圖頁面
+      const pathMatch = to.path.match(/^\/dashboard\/(oceom|eec|epc|ppc|com)$/)
+      if (pathMatch) {
+        const center = pathMatch[1]
+        next(`/dashboard/${center}/carousel`)
+        return
+      }
+      
+      // 檢查用戶是否有權限訪問該中心頁面
+      if (user) {
+        const centerRoleMap = {
+          'oceom': 'HEADQUARTERS',
+          'eec': 'EDUCATION_CENTER',
+          'epc': 'EXHIBITION_CENTER',
+          'ppc': 'PRODUCT_CENTER',
+          'com': 'MANAGEMENT_CENTER'
+        }
+        
+        // 從路徑中提取中心名稱
+        const centerMatch = to.path.match(/^\/dashboard\/(oceom|eec|epc|ppc|com)/)
+        if (centerMatch) {
+          const centerName = centerMatch[1]
+          const requiredRole = centerRoleMap[centerName]
+          
+          // 超級管理員可以訪問所有中心
+          if (user.role === 'SUPER_ADMIN') {
+            next()
+            return
+          }
+          
+          // 其他角色只能訪問自己對應的中心
+          if (user.role !== requiredRole) {
+            // 無權限，重定向到用戶有權限的中心頁面
+            alert('您沒有權限訪問此中心')
+            next(getDashboardPathByRole(user.role))
+            return
+          }
+        }
+      }
+      
+      // 已登入且有權限，允許訪問
+      next()
+    }
+  } else if (to.path === '/login' && isAuthenticated()) {
+    // 如果已登入但訪問登入頁，跳轉到後台
+    const user = getCurrentUser()
+    if (user) {
+      next(getDashboardPathByRole(user.role))
+    } else {
+      next('/dashboard/oceom/carousel')
+    }
+  } else {
+    // 其他頁面正常訪問
+    next()
+  }
 })
 
 export default router 

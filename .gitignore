@@ -31,3 +31,6 @@ coverage
 
 # Video files
 public/video/
+
+# API Documentation
+FRONTEND_API_DOCUMENTATION.md
