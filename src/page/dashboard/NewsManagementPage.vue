@@ -114,6 +114,15 @@
               >
                 <img :src="preview.url" alt="預覽" />
                 <button type="button" class="remove-image-btn" @click="removeNewImage(index)">×</button>
+                <div class="sync-carousel-checkbox">
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      v-model="preview.syncToCarousel"
+                    />
+                    <span>同步至輪播圖</span>
+                  </label>
+                </div>
               </div>
               <div
                 v-for="(imageUrl, index) in (editingNews ? editingNews.imageUrls : [])"
@@ -219,6 +228,7 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { createNews, updateNews, deleteNews, getAllNews } from '@/api/news'
+import { createCarousel } from '@/api/carousel'
 import Editor from '@tinymce/tinymce-vue'
 
 
@@ -352,7 +362,11 @@ const handleImagesChange = (event) => {
     selectedImageFiles.value.push(file)
     const reader = new FileReader()
     reader.onload = (e) => {
-      imagePreviews.value.push({ url: e.target.result, file })
+      imagePreviews.value.push({ 
+        url: e.target.result, 
+        file,
+        syncToCarousel: false // 預設不勾選
+      })
     }
     reader.readAsDataURL(file)
   })
@@ -443,6 +457,7 @@ const closeModal = () => {
   imageUrlsToRemove.value = []
   filePathsToRemove.value = []
   errorMessage.value = ''
+  syncToCarousel.value = false
   if (imageInput.value) imageInput.value.value = ''
   if (fileInput.value) fileInput.value.value = ''
 }
@@ -503,6 +518,28 @@ const handleSubmit = async () => {
     } else {
       // 新增
       await createNews(formData)
+    }
+
+    // 為勾選的圖片創建輪播圖
+    const imagesToSync = imagePreviews.value.filter(preview => preview.syncToCarousel)
+    if (imagesToSync.length > 0) {
+      try {
+        // 為每張勾選的圖片創建輪播圖
+        for (const preview of imagesToSync) {
+          const carouselFormData = new FormData()
+          carouselFormData.append('title', form.value.title)
+          carouselFormData.append('centerRole', currentCenterRole.value)
+          carouselFormData.append('image', preview.file)
+          carouselFormData.append('clickUrl', '') // 可以留空或設置為消息詳情頁的連結
+          carouselFormData.append('sortOrder', '0')
+          carouselFormData.append('isEnabled', 'true')
+          
+          await createCarousel(carouselFormData)
+        }
+      } catch (carouselError) {
+        console.error('同步新增輪播圖失敗:', carouselError)
+        // 不阻止消息的創建，只記錄錯誤
+      }
     }
 
     // 重新載入列表
@@ -1120,6 +1157,27 @@ onUnmounted(() => {
   flex: none;
   display: inline-block;
   min-width: auto;
+}
+
+.sync-carousel-checkbox {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.sync-carousel-checkbox .checkbox-label {
+  margin: 0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sync-carousel-checkbox .checkbox-label span {
+  color: #534741;
+  font-weight: 500;
 }
 
 .checkbox-label {
