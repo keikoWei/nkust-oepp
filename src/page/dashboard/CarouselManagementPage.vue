@@ -228,6 +228,9 @@ const filteredCarousels = computed(() => {
     )
   }
 
+  // 依據ID排序，數字越大排序越前面（由新到舊）
+  filtered.sort((a, b) => b.id - a.id)
+
   // 分頁
   const start = (currentPage.value - 1) * itemsPerPage
   const end = start + itemsPerPage
@@ -247,6 +250,9 @@ const totalPages = computed(() => {
       carousel.title.toLowerCase().includes(query)
     )
   }
+  
+  // 依據ID排序，數字越大排序越前面（由新到舊）
+  filtered.sort((a, b) => b.id - a.id)
   
   return Math.ceil(filtered.length / itemsPerPage)
 })
