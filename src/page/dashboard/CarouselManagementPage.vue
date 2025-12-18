@@ -431,10 +431,18 @@ watch(searchQuery, () => {
 })
 
 // 監聽路由變化，當切換中心時重新載入資料
-watch(() => route.path, () => {
-  currentPage.value = 1
-  loadCarousels()
-})
+watch(
+  () => route.path, 
+  (newPath, oldPath) => {
+    console.log('CarouselManagementPage route.path changed:', oldPath, '->', newPath)
+    // 確保路徑真的變化了
+    if (newPath !== oldPath && newPath.includes('/carousel')) {
+      currentPage.value = 1
+      carousels.value = [] // 清空舊資料
+      loadCarousels()
+    }
+  }
+)
 
 // 監聽父組件的新增事件
 defineExpose({
@@ -448,6 +456,9 @@ const searchHandler = (event) => {
 
 // 監聽來自 DashboardPage 的事件
 onMounted(() => {
+  console.log('CarouselManagementPage mounted, path:', route.path)
+  currentPage.value = 1
+  carousels.value = [] // 清空舊資料
   loadCarousels()
   
   // 監聽自定義事件來開啟新增模態框
@@ -457,10 +468,16 @@ onMounted(() => {
   window.addEventListener('carousel-search', searchHandler)
 })
 
-// 清理事件監聽器
+// 清理事件監聽器和狀態
 onUnmounted(() => {
+  console.log('CarouselManagementPage unmounted')
   window.removeEventListener('open-carousel-modal', handleAdd)
   window.removeEventListener('carousel-search', searchHandler)
+  // 清理狀態
+  carousels.value = []
+  currentPage.value = 1
+  searchQuery.value = ''
+  showModal.value = false
 })
 </script>
 

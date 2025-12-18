@@ -645,10 +645,18 @@ watch(searchQuery, () => {
 })
 
 // 監聽路由變化，當切換中心時重新載入資料
-watch(() => route.path, () => {
-  currentPage.value = 1
-  loadNews()
-})
+watch(
+  () => route.path, 
+  (newPath, oldPath) => {
+    console.log('NewsManagementPage route.path changed:', oldPath, '->', newPath)
+    // 確保路徑真的變化了
+    if (newPath !== oldPath && newPath.includes('/news')) {
+      currentPage.value = 1
+      newsList.value = [] // 清空舊資料
+      loadNews()
+    }
+  }
+)
 
 // 監聽父組件的新增事件
 defineExpose({
@@ -662,6 +670,9 @@ const searchHandler = (event) => {
 
 // 監聽來自 DashboardPage 的事件
 onMounted(() => {
+  console.log('NewsManagementPage mounted, path:', route.path)
+  currentPage.value = 1
+  newsList.value = [] // 清空舊資料
   loadNews()
   
   // 監聽自定義事件來開啟新增模態框
@@ -671,15 +682,17 @@ onMounted(() => {
   window.addEventListener('news-search', searchHandler)
 })
 
-// 清理事件監聽器
+// 清理事件監聽器和狀態
 onUnmounted(() => {
+  console.log('NewsManagementPage unmounted')
   window.removeEventListener('open-news-modal', handleAdd)
   window.removeEventListener('news-search', searchHandler)
-  
-  // 清理 TinyMCE 實例
-  if (tinymce) {
-    tinymce.remove()
-  }
+  // 清理狀態
+  newsList.value = []
+  currentPage.value = 1
+  searchQuery.value = ''
+  showModal.value = false
+  showPreviewModal.value = false
 })
 </script>
 
