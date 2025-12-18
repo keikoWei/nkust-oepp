@@ -35,7 +35,8 @@ const activeTab = ref('carousel')
 const updateActiveTabFromRoute = () => {
   const pathParts = route.path.split('/')
   const tab = pathParts[3] // /dashboard/center/tab
-  if (tab === 'carousel' || tab === 'news') {
+  const validTabs = ['carousel', 'news', 'hot-courses', 'training-plan', 'seminar', 'publication']
+  if (validTabs.includes(tab)) {
     activeTab.value = tab
   } else {
     activeTab.value = 'carousel'
@@ -53,21 +54,43 @@ watch(() => route.path, () => {
 const navbarTabs = computed(() => {
   const center = route.path.split('/')[2] // 取得中心名稱 (oceom, eec, epc, ppc, com)
   
-  // 所有中心都顯示相同的標籤
-  return [
+  // 基本標籤（所有中心都有）
+  const baseTabs = [
     { key: 'carousel', label: '輪播圖' },
     { key: 'news', label: '消息管理' }
   ]
+  
+  // 根據不同中心添加特定標籤
+  if (center === 'eec') {
+    // 教育推廣中心
+    return [
+      ...baseTabs,
+      { key: 'hot-courses', label: '熱門課程' },
+      { key: 'training-plan', label: '委訓計畫' }
+    ]
+  } else if (center === 'epc') {
+    // 會展中心
+    return [
+      ...baseTabs,
+      { key: 'seminar', label: '研討會選項' },
+      { key: 'publication', label: '出版品管理' }
+    ]
+  }
+  
+  // 其他中心使用基本標籤
+  return baseTabs
 })
 
 const searchPlaceholder = computed(() => {
-  if (activeTab.value === 'news') {
-    return '搜尋消息標題、內容'
+  const placeholders = {
+    'carousel': '搜尋輪播圖標題',
+    'news': '搜尋消息標題、內容',
+    'hot-courses': '搜尋熱門課程',
+    'training-plan': '搜尋委訓計畫',
+    'seminar': '搜尋研討會',
+    'publication': '搜尋出版品'
   }
-  if (activeTab.value === 'carousel') {
-    return '搜尋輪播圖標題'
-  }
-  return '搜尋...'
+  return placeholders[activeTab.value] || '搜尋...'
 })
 
 const showAddButton = computed(() => {
@@ -76,13 +99,15 @@ const showAddButton = computed(() => {
 })
 
 const addButtonText = computed(() => {
-  if (activeTab.value === 'carousel') {
-    return '新增輪播圖'
+  const buttonTexts = {
+    'carousel': '新增輪播圖',
+    'news': '新增消息',
+    'hot-courses': '新增熱門課程',
+    'training-plan': '新增委訓計畫',
+    'seminar': '新增研討會',
+    'publication': '新增出版品'
   }
-  if (activeTab.value === 'news') {
-    return '新增消息'
-  }
-  return '新增'
+  return buttonTexts[activeTab.value] || '新增'
 })
 
 const handleTabChange = (tabKey) => {
@@ -100,21 +125,33 @@ const handleSearch = (query) => {
   // 處理搜尋邏輯
   searchQuery.value = query
   // 透過事件傳遞給子組件
-  if (activeTab.value === 'carousel') {
-    window.dispatchEvent(new CustomEvent('carousel-search', { detail: query }))
-  } else if (activeTab.value === 'news') {
-    window.dispatchEvent(new CustomEvent('news-search', { detail: query }))
+  const eventMap = {
+    'carousel': 'carousel-search',
+    'news': 'news-search',
+    'hot-courses': 'hot-courses-search',
+    'training-plan': 'training-plan-search',
+    'seminar': 'seminar-search',
+    'publication': 'publication-search'
+  }
+  const eventName = eventMap[activeTab.value]
+  if (eventName) {
+    window.dispatchEvent(new CustomEvent(eventName, { detail: query }))
   }
 }
 
 const handleAdd = () => {
   // 處理新增邏輯
-  if (activeTab.value === 'carousel') {
-    // 透過事件觸發輪播圖管理頁面的新增功能
-    window.dispatchEvent(new CustomEvent('open-carousel-modal'))
-  } else if (activeTab.value === 'news') {
-    // 透過事件觸發消息管理頁面的新增功能
-    window.dispatchEvent(new CustomEvent('open-news-modal'))
+  const eventMap = {
+    'carousel': 'open-carousel-modal',
+    'news': 'open-news-modal',
+    'hot-courses': 'open-hot-courses-modal',
+    'training-plan': 'open-training-plan-modal',
+    'seminar': 'open-seminar-modal',
+    'publication': 'open-publication-modal'
+  }
+  const eventName = eventMap[activeTab.value]
+  if (eventName) {
+    window.dispatchEvent(new CustomEvent(eventName))
   }
 }
 </script>

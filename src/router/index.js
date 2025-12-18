@@ -276,6 +276,16 @@ const router = createRouter({
           component: () => import('../page/dashboard/NewsManagementPage.vue')
         },
         {
+          path: 'eec/hot-courses',
+          name: 'dashboard-eec-hot-courses',
+          component: () => import('../page/dashboard/HotCoursesManagementPage.vue')
+        },
+        {
+          path: 'eec/training-plan',
+          name: 'dashboard-eec-training-plan',
+          component: () => import('../page/dashboard/TrainingPlanManagementPage.vue')
+        },
+        {
           path: 'epc/carousel',
           name: 'dashboard-epc-carousel',
           component: () => import('../page/dashboard/CarouselManagementPage.vue')
@@ -284,6 +294,16 @@ const router = createRouter({
           path: 'epc/news',
           name: 'dashboard-epc-news',
           component: () => import('../page/dashboard/NewsManagementPage.vue')
+        },
+        {
+          path: 'epc/seminar',
+          name: 'dashboard-epc-seminar',
+          component: () => import('../page/dashboard/SeminarManagementPage.vue')
+        },
+        {
+          path: 'epc/publication',
+          name: 'dashboard-epc-publication',
+          component: () => import('../page/dashboard/PublicationManagementPage.vue')
         },
         {
           path: 'ppc/carousel',
@@ -335,6 +355,18 @@ router.beforeEach((to, from, next) => {
         const center = pathMatch[1]
         next(`/dashboard/${center}/carousel`)
         return
+      }
+      
+      // 驗證路由的 module 參數是否有效
+      const validModules = ['carousel', 'news', 'hot-courses', 'training-plan', 'seminar', 'publication']
+      const moduleMatch = to.path.match(/^\/dashboard\/[^/]+\/([^/]+)$/)
+      if (moduleMatch && !validModules.includes(moduleMatch[1])) {
+        // 無效的 module，重定向到 carousel
+        const centerMatch = to.path.match(/^\/dashboard\/([^/]+)/)
+        if (centerMatch) {
+          next(`/dashboard/${centerMatch[1]}/carousel`)
+          return
+        }
       }
       
       // 檢查用戶是否有權限訪問該中心頁面
