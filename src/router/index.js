@@ -296,11 +296,6 @@ const router = createRouter({
           component: () => import('../page/dashboard/NewsManagementPage.vue')
         },
         {
-          path: 'epc/seminar',
-          name: 'dashboard-epc-seminar',
-          component: () => import('../page/dashboard/SeminarManagementPage.vue')
-        },
-        {
           path: 'epc/publication',
           name: 'dashboard-epc-publication',
           component: () => import('../page/dashboard/PublicationManagementPage.vue')
@@ -358,7 +353,7 @@ router.beforeEach((to, from, next) => {
       }
       
       // 驗證路由的 module 參數是否有效
-      const validModules = ['carousel', 'news', 'hot-courses', 'training-plan', 'seminar', 'publication']
+      const validModules = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication']
       const moduleMatch = to.path.match(/^\/dashboard\/[^/]+\/([^/]+)$/)
       if (moduleMatch && !validModules.includes(moduleMatch[1])) {
         // 無效的 module，重定向到 carousel

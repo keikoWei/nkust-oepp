@@ -35,7 +35,7 @@ const activeTab = ref('carousel')
 const updateActiveTabFromRoute = () => {
   const pathParts = route.path.split('/')
   const tab = pathParts[3] // /dashboard/center/tab
-  const validTabs = ['carousel', 'news', 'hot-courses', 'training-plan', 'seminar', 'publication']
+  const validTabs = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication']
   if (validTabs.includes(tab)) {
     activeTab.value = tab
   } else {
@@ -72,7 +72,6 @@ const navbarTabs = computed(() => {
     // 會展中心
     return [
       ...baseTabs,
-      { key: 'seminar', label: '研討會選項' },
       { key: 'publication', label: '出版品管理' }
     ]
   }
@@ -87,7 +86,6 @@ const searchPlaceholder = computed(() => {
     'news': '搜尋消息標題、內容',
     'hot-courses': '搜尋熱門課程',
     'training-plan': '搜尋委訓計畫',
-    'seminar': '搜尋研討會',
     'publication': '搜尋出版品'
   }
   return placeholders[activeTab.value] || '搜尋...'
@@ -104,7 +102,6 @@ const addButtonText = computed(() => {
     'news': '新增消息',
     'hot-courses': '新增熱門課程',
     'training-plan': '新增委訓計畫',
-    'seminar': '新增研討會',
     'publication': '新增出版品'
   }
   return buttonTexts[activeTab.value] || '新增'
@@ -130,7 +127,6 @@ const handleSearch = (query) => {
     'news': 'news-search',
     'hot-courses': 'hot-courses-search',
     'training-plan': 'training-plan-search',
-    'seminar': 'seminar-search',
     'publication': 'publication-search'
   }
   const eventName = eventMap[activeTab.value]
@@ -146,7 +142,6 @@ const handleAdd = () => {
     'news': 'open-news-modal',
     'hot-courses': 'open-hot-courses-modal',
     'training-plan': 'open-training-plan-modal',
-    'seminar': 'open-seminar-modal',
     'publication': 'open-publication-modal'
   }
   const eventName = eventMap[activeTab.value]
