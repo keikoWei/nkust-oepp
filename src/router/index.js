@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { isAuthenticated, getCurrentUser, getDashboardPathByRole } from '@/api/auth'
+import { getMaintenanceStatus } from '@/api/maintenance'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -266,6 +267,11 @@ const router = createRouter({
           component: () => import('../page/dashboard/NewsManagementPage.vue')
         },
         {
+          path: 'oceom/maintenance',
+          name: 'dashboard-oceom-maintenance',
+          component: () => import('../page/dashboard/MaintenanceManagementPage.vue')
+        },
+        {
           path: 'eec/carousel',
           name: 'dashboard-eec-carousel',
           component: () => import('../page/dashboard/CarouselManagementPage.vue')
@@ -323,6 +329,11 @@ const router = createRouter({
       ]
     },
     {
+      path: '/maintenance',
+      name: 'maintenance',
+      component: () => import('../page/MaintenancePage.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('../page/ErrorPage.vue')
@@ -330,10 +341,27 @@ const router = createRouter({
   ]
 })
 
-// 路由守衛：保護後台頁面
-router.beforeEach((to, from, next) => {
-  // 檢查是否要訪問後台頁面
+// 路由守衛：保護後台頁面和維護狀態檢查
+router.beforeEach(async (to, from, next) => {
+  // 檢查是否要訪問後台頁面或登入頁面（這些頁面不受維護狀態影響）
   const isDashboardRoute = to.path.startsWith('/dashboard')
+  const isLoginRoute = to.path === '/login'
+  const isMaintenanceRoute = to.path === '/maintenance'
+  
+  // 如果不是後台路由、登入頁面或維護頁面，則檢查維護狀態
+  if (!isDashboardRoute && !isLoginRoute && !isMaintenanceRoute) {
+    try {
+      const maintenanceStatus = await getMaintenanceStatus()
+      if (maintenanceStatus.maintenanceMode) {
+        // 維護中，導向維護頁面
+        next('/maintenance')
+        return
+      }
+    } catch (error) {
+      // 如果獲取維護狀態失敗，繼續正常流程（避免維護狀態 API 問題影響網站）
+      console.error('獲取維護狀態失敗:', error)
+    }
+  }
   
   if (isDashboardRoute) {
     // 檢查是否已登入
@@ -353,7 +381,7 @@ router.beforeEach((to, from, next) => {
       }
       
       // 驗證路由的 module 參數是否有效
-      const validModules = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication']
+      const validModules = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication', 'maintenance']
       const moduleMatch = to.path.match(/^\/dashboard\/[^/]+\/([^/]+)$/)
       if (moduleMatch && !validModules.includes(moduleMatch[1])) {
         // 無效的 module，重定向到 carousel

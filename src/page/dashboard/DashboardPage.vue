@@ -35,7 +35,7 @@ const activeTab = ref('carousel')
 const updateActiveTabFromRoute = () => {
   const pathParts = route.path.split('/')
   const tab = pathParts[3] // /dashboard/center/tab
-  const validTabs = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication']
+  const validTabs = ['carousel', 'news', 'hot-courses', 'training-plan', 'publication', 'maintenance']
   if (validTabs.includes(tab)) {
     activeTab.value = tab
   } else {
@@ -61,7 +61,13 @@ const navbarTabs = computed(() => {
   ]
   
   // 根據不同中心添加特定標籤
-  if (center === 'eec') {
+  if (center === 'oceom') {
+    // 處本部
+    return [
+      ...baseTabs,
+      { key: 'maintenance', label: '維護' }
+    ]
+  } else if (center === 'eec') {
     // 教育推廣中心
     return [
       ...baseTabs,
@@ -86,14 +92,15 @@ const searchPlaceholder = computed(() => {
     'news': '搜尋消息標題、內容',
     'hot-courses': '搜尋熱門課程',
     'training-plan': '搜尋委訓計畫',
-    'publication': '搜尋出版品'
+    'publication': '搜尋出版品',
+    'maintenance': '搜尋...'
   }
   return placeholders[activeTab.value] || '搜尋...'
 })
 
 const showAddButton = computed(() => {
-  // 兩個標籤都可以新增
-  return true
+  // 維護頁面不需要新增按鈕
+  return activeTab.value !== 'maintenance'
 })
 
 const addButtonText = computed(() => {
@@ -102,7 +109,8 @@ const addButtonText = computed(() => {
     'news': '新增消息',
     'hot-courses': '新增熱門課程',
     'training-plan': '新增委訓計畫',
-    'publication': '新增出版品'
+    'publication': '新增出版品',
+    'maintenance': '新增'
   }
   return buttonTexts[activeTab.value] || '新增'
 })
@@ -119,6 +127,10 @@ const handleTabChange = (tabKey) => {
 const searchQuery = ref('')
 
 const handleSearch = (query) => {
+  // 維護頁面不需要搜尋功能
+  if (activeTab.value === 'maintenance') {
+    return
+  }
   // 處理搜尋邏輯
   searchQuery.value = query
   // 透過事件傳遞給子組件
@@ -136,6 +148,10 @@ const handleSearch = (query) => {
 }
 
 const handleAdd = () => {
+  // 維護頁面不需要新增功能
+  if (activeTab.value === 'maintenance') {
+    return
+  }
   // 處理新增邏輯
   const eventMap = {
     'carousel': 'open-carousel-modal',
