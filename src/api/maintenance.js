@@ -1,6 +1,18 @@
 import { get } from './index'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api'
+// API 基礎配置
+// 如果 VITE_API_BASE_URL 為空字串或未設定，使用相對路徑（正式環境）
+// 否則使用設定的 URL（本地開發環境）
+const getApiBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL
+  // 如果是空字串、undefined 或 null，使用相對路徑
+  if (!envUrl || envUrl.trim() === '') {
+    return '/api'
+  }
+  return envUrl
+}
+
+const API_BASE_URL = getApiBaseUrl()
 
 /**
  * 獲取維護模式狀態
