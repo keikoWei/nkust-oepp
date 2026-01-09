@@ -186,7 +186,7 @@ const announcementData = [
       '/file/eec/2026-01-12_樂齡新時代QRcode.png',
       '/file/eec/2026-01-12_樂齡新時代課程時間.png'
     ],
-    downloadFile: '/file/eec/2026-01-12_114-2學期教育推廣中心隨班附讀學分班簡章.pdf'
+    downloadFile: '/file/eec/2026-01-12_114-1推廣教育學分班簡章.pdf'
   },
   {
     id: 47,
