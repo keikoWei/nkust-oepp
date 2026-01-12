@@ -143,8 +143,7 @@ const announcementData = [
       <p>讓您跳脫框架、翻轉思考、創造新勢力！</p>
     `,
     images: [
-      '/file/eec/2026-01-12_樂齡新時代QRcode.png',
-      '/file/eec/2026-01-12_樂齡新時代課程時間.png'
+      '/file/eec/2026-01-12_學分班招生簡章.png'
     ],
     downloadFile: '/file/eec/2026-01-12_114-1推廣教育學分班簡章.pdf'
   },
