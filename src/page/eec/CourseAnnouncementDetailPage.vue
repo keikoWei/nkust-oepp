@@ -131,56 +131,16 @@ const announcementData = [
     date: '2026.01.12',
     title: '114-2學期教育推廣中心隨班附讀學分班簡章',
     content: `
-      <p>114學年度第2學期 樂齡新時代 招生簡章</p>
-      <p style="color: red;">~ 樂 齡 新 時 代 (建工校區自費班 ) ~</p>
-      <p style="color: red;">！ 熱 烈 招 生 中 ！</p>
-      <p>歡迎有興趣者報名參加~「快樂學習，樂而忘齡」٩(^ᴗ^)۶</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【招生人數、對象】</p>
-      <p>每班上限65人。</p>
-      <p>年滿55歲之國民優先（招收55歲以上對象，不限學歷（需識字），身體健康良好，可行動不需扶持、無照護需求）。</p>
-      <p>*樂齡大學未具正式學籍，故無學生平安保險*</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【上課日期、時間】</p>
-      <p>115/03/09（一）起，依各班課表時間上課。依照教推中心課務安排為原則。</p>
-      
       <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【報名時間】</p>
-      <p>115/01/12（一）上午10:00 開放報名</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【收費標準】</p>
-      <p>報名學員需繳交報名費4,500元/學期，包含課務費、印刷講義費、雜支等。※校外參訪需自費。</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【報名方式】</p>
-      <p>僅提供 電話及 官方LINE@帳號報名，</p>
-      <p>並於教推中心官網公告正取及備取名單。</p>
-      <p>1. 本學期採續讀學員優先制，扣除續讀學員名額後，</p>
-      <p>剩餘名額將開放報名，依報名順序錄取，</p>
-      <p>每班上限65人，報名滿65人後為備取生，</p>
-      <p>如正取生放棄，將依序通知備取生。</p>
-      <p style="background-color: #e0e0e0; display: inline-block; padding: 2px 4px;">2. 報名請提供： 姓名、身分證號、生日、連絡電話、地址</p>
-      <p> (官方帳號傳送內容為1對1，無須擔心資料外洩)</p>
-      <p>※ 官方LINE留言範例(可複製使用)：</p>
-      <p>您好，我想報名114學年樂齡新時代，</p>
-      <p>班級：木星班</p>
-      <p>姓名：陳小美</p>
-      <p>身分證號：A123456789</p>
-      <p>生日：59/01/01</p>
-      <p>連絡電話：0912345678</p>
-      <p>地址：高雄市三民區建工路415號</p>
-
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【退費方式】</p>
-      <p>學員完成報名繳費後因個人因素無法上課，依下列標準退費：</p>
-      <p>1. 已繳完報名費後開學日前退還報名費９成。</p>
-      <p>2. 自實際上課日起未逾總時數三分之一者，退還報名費之半數。</p>
-      <p>3. 若已逾總時數三分之一者，則不予退還。</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【公告正取/備取名單】</p>
-      <p>115/01/30（五）上午10:00（網路公告）</p>
-      
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【洽詢電話】</p>
-      <p>07-3814526 #12845、12841</p>
-      <p style="background-color: yellow; display: inline-block; padding: 2px 4px;">【官方ＬＩＮＥ帳號】</p>
-      <p>LINE搜尋【@cxl2230k】https://lin.ee/8VXsGdK</p>
+      <p>線上報名：115年01月12日(一)上午10時至02月08日(日)下午5時止</p>
+      <p>LINE客服：115年02月09日(一)上午10時至02月13日(五)下午5時止</p>
+      <p>高科大36個系所開放學分班隨班附讀</p>
+      <p>【工電專業領域】、【創新創業特色】、【海洋科技產業】等豐富多元課程</p>
+      <p>不論您想增進</p>
+      <p>1.〈職場技能能力〉、2.〈未來考取研究所〉、3.〈累積自我實力〉4.〈考取專業執照〉</p>
+      <p>只要有心想提升自我，『高科大』是您最佳選擇!!</p>
+      <p>我們有師資專業授課、實務案例討論分享與移地教學等課程規劃，在2026年一起創造新勢力！</p>
+      <p>讓您跳脫框架、翻轉思考、創造新勢力！</p>
     `,
     images: [
       '/file/eec/2026-01-12_樂齡新時代QRcode.png',
