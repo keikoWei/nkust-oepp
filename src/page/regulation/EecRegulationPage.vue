@@ -64,12 +64,12 @@ const educationRegulations = [
   {
     name: '國立高雄科技大學推廣教育實施辦法.pdf',
     title: '國立高雄科技大學推廣教育實施辦法',
-    path: '/file/regulations/eec/國立高雄科技大學推廣教育實施辦法.pdf'
+    path: '/file/regulations/eec/國立高雄科技大學推廣教育實施辦法_1141217通過.pdf'
   },
   {
     name: '國立高雄科技大學推廣教育優惠要點.pdf',
     title: '國立高雄科技大學推廣教育優惠要點',
-    path: '/file/regulations/eec/國立高雄科技大學推廣教育優惠要點.pdf'
+    path: '/file/regulations/eec/國立高雄科技大學推廣教育優惠要點_1141217通過.pdf'
   },
   {
     name: '國立高雄科技大學推廣教育收支管理要點.pdf',
@@ -84,7 +84,7 @@ const educationRegulations = [
   {
     name: '國立高雄科技大學隨班附讀作業要點.pdf',
     title: '國立高雄科技大學隨班附讀作業要點',
-    path: '/file/regulations/eec/國立高雄科技大學隨班附讀作業要點.pdf'
+    path: '/file/regulations/eec/國立高雄科技大學隨班附讀作業要點_1141217通過.pdf'
   }
 ]
 
