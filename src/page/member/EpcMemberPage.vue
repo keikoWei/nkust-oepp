@@ -83,12 +83,12 @@ const membersInfo = [
     ]
   },
   {
-    title: '待聘',
-    name: '',
+    title: '專任助理',
+    name: '陳怡璇',
     photo: '/image/members/default_man_01.png',
     contacts: [
-      { label: '分機', value: '-' },
-      { label: '信箱', value: '-' }
+      { label: '分機', value: '12854' },
+      { label: '信箱', value: 'eihc4020@nkust.edu.tw' }
     ],
     responsibilities: [
       '承攬校外公、私部門及企業委辦之活動業務',

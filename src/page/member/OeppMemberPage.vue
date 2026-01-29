@@ -83,6 +83,22 @@ const membersInfo = [
       '教育推廣與經營管理處綜合業務及公文處理',
       '其他臨時交辦事項'
     ]
+  },
+  {
+    title: '約用助理員',
+    name: '蘇宸儀',
+    photo: '/image/members/oepp_宸儀.png',
+    contacts: [
+      { label: '分機', value: '12864' },
+      { label: '信箱', value: 'judy2022@nkust.edu.tw' }
+    ],
+    responsibilities: [
+      '小額採購核銷',
+      '工讀生加退保作業',
+      '辦理處辦財物盤點',
+      '大事紀要、登革熱場域管理及自主管理填報窗口',
+      '其他行政支援及臨時交辦事項'
+    ]
   }
 ]
 </script>

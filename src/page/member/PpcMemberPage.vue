@@ -79,12 +79,12 @@ const membersInfo = [
     ]
   },
   {
-    title: '專任助理',
-    name: '許郁萱',
-    photo: '/image/members/ppc_郁萱.png',
+    title: '待聘',
+    name: '',
+    photo: '/image/members/default_man_01.png',
     contacts: [
-      { label: '分機', value: '12859' },
-      { label: '信箱', value: 'yuxuan@nkust.edu.tw' }
+      { label: '分機', value: '-' },
+      { label: '信箱', value: '-' }
     ],
     responsibilities: [
       '校徽商品規劃與開發、商品投保、售價訂定',
