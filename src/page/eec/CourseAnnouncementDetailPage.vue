@@ -127,6 +127,67 @@ const processedContent = computed(() => {
 // 模擬從 API 或 store 獲取公告資料
 const announcementData = [
   {
+    id: 49,
+    date: '2026.01.30',
+    title: '🎉【公告】11４-2 樂齡新時代 正取/備取名單 及 正取報到',
+    content: `
+      <p style="line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#ffffff; background-color:#008080; -aw-import:spaces">&#xa0;</span><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#ffffff; background-color:#008080">正取生報到及繳費 </span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_1.報到時間.png" width="554" height="161" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'Segoe UI Emoji'">🙌</span><span style="font-family:'源石黑體丹 B'">請依各班報到時間報到。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'Segoe UI Emoji'">🙌</span><span style="font-family:'源石黑體丹 B'">報到地點：高科大(建工校區)-行政大樓6樓交誼廳。</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_報到地點.png" width="554" height="388" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">【報到及繳費】</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">1.</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">確認個人資料，新生報到請攜帶2吋照片1張。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">(113-2、114-1學期舊生如有領取學員證者可免繳) </span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">2.</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">當日攜帶信用卡線上繳費或領取繳費單自行繳納。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">3.</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">登記停車證。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">4.</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">加入班級群組。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#c00000">*可委託他人代為辦理*</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">【收費標準】</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">報名費</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">4,500元</span><span style="font-family:'源石黑體丹 B'">&#xa0;</span><span style="font-family:'源石黑體丹 B'">/學期，</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">包含課務費、印刷講義費、雜支等(校外參訪需自費)。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">報到當天不收取現金</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">報到當天不收取現金</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">報到當天不收取現金</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">*</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">正取生於報到當天使用線上信用卡繳費</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">或領取繳費單後自行至超商繳費(請於報到後1週內繳費完畢)。</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'">如果無法到場，煩請來電告知</span></p>
+      <p style="text-align:center; line-height:116%; font-size:14pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; text-decoration:underline">07-3814526 #12845、12841</span><span style="font-family:'源石黑體丹 B'">！謝謝。</span></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#ffffff; background-color:#008080; -aw-import:spaces">&#xa0;</span><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#ffffff; background-color:#008080">正取/備取名單 </span></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'">===================================================</span></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#244061">正取名單</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00; -aw-import:spaces">&#xa0;</span><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">金星班 </span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_2.金星班-正.png" width="554" height="820" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">木星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_3.木星班-正.png" width="554" height="639" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">水星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_4.水星班-正.png" width="554" height="823" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">火星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_5.火星班-正.png" width="554" height="822" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#ffff00">土星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_6.土星班-正.png" width="554" height="521" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'">===================================================</span></p>
+      <p style="text-align:center; line-height:116%; font-size:18pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; color:#244061">備取名單</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; color:#c00000">!!</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">如正取名額有變動，則依照備取序號通知</span><span style="font-family:'源石黑體丹 B'; color:#c00000">&#xa0;</span><span style="font-family:'源石黑體丹 B'; color:#c00000">!!</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#00ffff">金星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_7.金星班-備.png" width="325" height="90" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#00ffff">水星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_8.水星班-備.png" width="554" height="237" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+      <p style="text-align:center; line-height:116%; font-size:16pt"><span style="font-family:'源石黑體丹 B'; font-weight:bold; background-color:#00ffff">火星班</span></p>
+      <p style="text-align:center"><img src="/file/eec/2026-01-30_9.火星班-備.png" width="324" height="85" alt="" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline" /></p>
+      <p style="text-align:center"><span style="font-family:'源石黑體丹 B'; -aw-import:ignore">&#xa0;</span></p>
+    `,
+  },
+  {
     id: 48,
     date: '2026.01.12',
     title: '114-2學期教育推廣中心隨班附讀學分班簡章',
