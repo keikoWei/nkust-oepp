@@ -38,10 +38,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊
 const directorInfo = {
   title: '中心主任',
-  name: '陳志誠',
-  photo: '/image/members/eec_教推中心主任.png',
-  extension: '12840/34217',
-  email: 'volvic@nkust.edu.tw',
+  name: '李純怡',
+  photo: '/image/members/default_woman_02.png',
+  extension: '12840/15337',
+  email: 'chunilee@nkust.edu.tw',
   responsibilities: [
     '綜理教育推廣中心業務與管理',
     '策畫推廣教育班業務',
@@ -161,28 +161,28 @@ const membersInfo = [
       '其他臨時交辦事項'
     ]
   },
-  {
-    title: '專任助理',
-    name: '陳苡榕',
-    photo: '/image/members/eec_苡榕.png',
-    contacts: [
-      { label: '分機', value: '12849' },
-      { label: '信箱', value: 'rong1012@nkust.edu.tw' },
-      { label: '職務代理人', value: '' }
-    ],
-    responsibilities: [
-      '執行【AI智慧製造產業人才培訓據點】',
-      '課程開發及師資接洽',
-      '招生工作(EDM製作、LINE@/mail廣宣等)',
-      '教推中心報名系統資料建立、校對及台企銀繳費系統建立',
-      '學員聯繫(報名資格優惠審核、寄發開關課簡訊、催繳報名費、辦理學員退費、群組管理)',
-      '教務工作(聯繫老師、教學評量施作、課程手冊製作等)',
-      '總務工作(借用教室、經費核銷及結案、停車證/學員證辦理、上課設備準備等)',
-      '各類證書印製(聘書、感謝狀、結業證書)',
-      'LINE@問題回覆',
-      '其他臨時交辦事項'
-    ]
-  },
+  // {
+  //   title: '專任助理',
+  //   name: '陳苡榕',
+  //   photo: '/image/members/eec_苡榕.png',
+  //   contacts: [
+  //     { label: '分機', value: '12849' },
+  //     { label: '信箱', value: 'rong1012@nkust.edu.tw' },
+  //     { label: '職務代理人', value: '' }
+  //   ],
+  //   responsibilities: [
+  //     '執行【AI智慧製造產業人才培訓據點】',
+  //     '課程開發及師資接洽',
+  //     '招生工作(EDM製作、LINE@/mail廣宣等)',
+  //     '教推中心報名系統資料建立、校對及台企銀繳費系統建立',
+  //     '學員聯繫(報名資格優惠審核、寄發開關課簡訊、催繳報名費、辦理學員退費、群組管理)',
+  //     '教務工作(聯繫老師、教學評量施作、課程手冊製作等)',
+  //     '總務工作(借用教室、經費核銷及結案、停車證/學員證辦理、上課設備準備等)',
+  //     '各類證書印製(聘書、感謝狀、結業證書)',
+  //     'LINE@問題回覆',
+  //     '其他臨時交辦事項'
+  //   ]
+  // },
   {
     title: '專任助理',
     name: '郭立德',

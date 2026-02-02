@@ -38,10 +38,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊，兼任副處長兼任中心主任
 const directorInfo = {
   title: '中心主任',
-  name: '鄭兆宏',
-  photo: '/image/members/副處長與會展中心主任.png',
-  extension: '12850',
-  email: 'zhcheng@nkust.edu.tw',
+  name: '王御風',
+  photo: '/image/members/default_man_01.png',
+  extension: '12850/23680',
+  email: 'wang0916@nkust.edu.tw',
   responsibilities: [
     '綜理會展及出版中心業務與管理'
   ]

@@ -38,10 +38,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 處長資訊
 const directorInfo = {
   title: '處長',
-  name: '高瑞鍾',
-  photo: '/image/members/ocepm_經管中心主任.png',
+  name: '鄭瑞鴻',
+  photo: '/image/members/oepp_瑞鴻.png',
   extension: '12860',
-  email: 'jckao@nkust.edu.tw',
+  email: 'rick.cheng@nkust.edu.tw',
   responsibilities: [
     '綜理教育推廣中心業務與管理'
   ]
@@ -52,10 +52,10 @@ const membersInfo = [
   {
     title: '副處長',
     name: '鄭兆宏',
-    photo: '/image/members/副處長與會展中心主任.png',
+    photo: '/image/members/default_man_01.png',
     contacts: [
-      { label: '分機', value: '12850' },
-      { label: '信箱', value: 'zhcheng@nkust.edu.tw' }
+      { label: '分機', value: '-' },
+      { label: '信箱', value: '-' }
     ],
     responsibilities: [
       '協助教推處處長綜理教推處事務',

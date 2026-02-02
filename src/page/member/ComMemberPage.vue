@@ -38,10 +38,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊
 const directorInfo = {
   title: '中心主任',
-  name: '高瑞鍾',
-  photo: '/image/members/ocepm_經管中心主任.png',
-  extension: '12860',
-  email: 'jckao@nkust.edu.tw',
+  name: '鄭瑞鴻',
+  photo: '/image/members/oepp_瑞鴻.png',
+  extension: '15416',
+  email: 'rick.cheng@nkust.edu.tw',
   responsibilities: [
     '綜理經營管理中心業務與管理'
   ]

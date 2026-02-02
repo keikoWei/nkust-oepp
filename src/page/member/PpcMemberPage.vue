@@ -38,10 +38,10 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 // 中心主任資訊
 const directorInfo = {
   title: '中心主任',
-  name: '黃志雄',
-  photo: '/image/members/ppc_產品推廣中心主任.png',
-  extension: '12889/23511',
-  email: 'chhuang23511@nkust.edu.tw',
+  name: '黃凱翔',
+  photo: '/image/members/default_man_01.png',
+  extension: '12889/15207',
+  email: 'kshuang@nkust.edu.tw',
   responsibilities: [
     '產品推廣中心業務綜理',
     '組織管理',
