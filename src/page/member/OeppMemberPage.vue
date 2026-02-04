@@ -51,7 +51,7 @@ const directorInfo = {
 const membersInfo = [
   {
     title: '副處長',
-    name: '鄭兆宏',
+    name: '-',
     photo: '/image/members/default_man_01.png',
     contacts: [
       { label: '分機', value: '-' },
