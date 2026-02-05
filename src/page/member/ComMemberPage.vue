@@ -65,7 +65,7 @@ const membersInfo = [
     ]
   },
   {
-    title: '約用專員',
+    title: '約用組員',
     name: '賴杏雲',
     photo: '/image/members/com_杏雲.png',
     contacts: [
@@ -84,7 +84,7 @@ const membersInfo = [
     ]
   },
   {
-    title: '約用專員',
+    title: '約用組員',
     name: '吳永生',
     photo: '/image/members/com_永生.png',
     contacts: [
