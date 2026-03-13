@@ -4,7 +4,7 @@ import { get, post, put, del } from './index'
 // 如果 VITE_API_BASE_URL 為空字串或未設定，使用相對路徑（正式環境）
 // 否則使用設定的 URL（本地開發環境）
 const getApiBaseUrl = () => {
-  const envUrl = import.meta.env.VITE_API_BASE_URL_
+  const envUrl = import.meta.env.VITE_API_BASE_URL
   // 如果是空字串、undefined 或 null，使用相對路徑
   if (!envUrl || envUrl.trim() === '') {
     return '/api'
@@ -100,12 +100,12 @@ export async function getAllCarousels() {
  * @returns {Promise<Array>} 輪播圖列表
  */
 export async function getPublicCarousels(centerRole, onlyEnabled = true) {
-  const url = new URL(`${API_BASE_URL}/carousel/public/${centerRole}`)
-  url.searchParams.append('onlyEnabled', onlyEnabled.toString())
+  const isAbsolute = API_BASE_URL.startsWith('http')
+  const url = isAbsolute
+    ? `${API_BASE_URL}/carousel/public/${centerRole}?onlyEnabled=${encodeURIComponent(onlyEnabled)}`
+    : `${API_BASE_URL}/carousel/public/${centerRole}?onlyEnabled=${encodeURIComponent(onlyEnabled)}`
 
-  const response = await fetch(url.toString(), {
-    method: 'GET',
-  })
+  const response = await fetch(url, { method: 'GET' })
 
   if (!response.ok) {
     throw new Error('獲取失敗')

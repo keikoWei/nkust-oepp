@@ -1,64 +1,81 @@
 <template>
   <div class="eec-courses-container">
-    <!-- 主要容器 -->
     <div class="courses-wrapper">
-      <!-- 標題區域 -->
       <div class="title-section">
         <h2 class="title-text">教育推廣中心 - 熱門課程</h2>
       </div>
-      
-      <!-- 4格圖片區域 -->
-      <div class="courses-grid">
-        <!-- 左上：中華花藝 -->
-        <div class="course-card">
-          <div class="image-container">
-            <img src="/image/example.png" alt="中華花藝" class="course-image" />
+
+      <p v-if="loading" class="courses-loading">載入中...</p>
+      <p v-else-if="!courseList.length" class="courses-empty">暫無課程</p>
+      <template v-else>
+        <div class="courses-grid">
+          <div
+            class="course-card"
+            v-for="(course, index) in courseList"
+            :key="course.id || index"
+            @click="goToCourseDetail(course)"
+          >
+            <div class="image-container">
+              <img
+                :src="course.mainImageUrl || course.main_image_url || (course.imageUrls && course.imageUrls[0]) || (course.image_urls && course.image_urls[0]) || '/image/example.png'"
+                :alt="course.title"
+                class="course-image"
+              />
+            </div>
           </div>
         </div>
-        
-        <!-- 右上：PMP實務班 -->
-        <div class="course-card">
-          <div class="image-container">
-            <img src="/image/example.png" alt="專案經理PMP實務班" class="course-image" />
+        <div class="more-info-section">
+          <div class="button-with-lines">
+            <div class="line left-line"></div>
+            <q-btn
+              rounded
+              class="more-btn"
+              label="了解更多"
+              no-caps
+              @click="handleMoreInfo"
+            />
+            <div class="line right-line"></div>
           </div>
         </div>
-        
-        <!-- 左下：水域技能培訓班 -->
-        <div class="course-card">
-          <div class="image-container">
-            <img src="/image/example.png" alt="水肺潛水暖水域技能培訓班" class="course-image" />
-          </div>
-        </div>
-        
-        <!-- 右下：手作時光 -->
-        <div class="course-card">
-          <div class="image-container">
-            <img src="/image/example.png" alt="手作時光" class="course-image" />
-          </div>
-        </div>
-      </div>
-      
-      <!-- 了解更多按鈕區域 -->
-      <div class="more-info-section">
-        <div class="button-with-lines">
-          <div class="line left-line"></div>
-          <q-btn 
-            rounded 
-            class="more-btn"
-            label="了解更多" 
-            no-caps 
-            @click="handleMoreInfo"
-          />
-          <div class="line right-line"></div>
-        </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { getPublicCourses } from '@/api/course'
+
+const router = useRouter()
+const loading = ref(true)
+const courses = ref([])
+
+const courseList = computed(() => {
+  const list = [...courses.value]
+  list.sort((a, b) => (a.sortOrder ?? a.sort_order ?? 0) - (b.sortOrder ?? b.sort_order ?? 0))
+  return list.slice(0, 6)
+})
+
+onMounted(async () => {
+  try {
+    const res = await getPublicCourses('EDUCATION_CENTER')
+    const list = Array.isArray(res) ? res : (res?.data ?? [])
+    courses.value = list ?? []
+  } catch {
+    courses.value = []
+  } finally {
+    loading.value = false
+  }
+})
+
+const goToCourseDetail = (course) => {
+  if (course?.id != null) {
+    router.push({ path: `/educationCenter/course-detail/${course.id}`, state: { course } })
+  }
+}
+
 const handleMoreInfo = () => {
-  // 導向課程列表頁面
   window.open('https://cec.nkust.edu.tw/CurriculumList.aspx', '_blank')
 }
 </script>
@@ -91,6 +108,14 @@ const handleMoreInfo = () => {
   letter-spacing: 0.7px;
 }
 
+.courses-loading,
+.courses-empty {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+  margin: 0;
+}
+
 /* 4格圖片佈局 */
 .courses-grid {
   display: grid;
@@ -114,6 +139,7 @@ const handleMoreInfo = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .course-card:hover {

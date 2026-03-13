@@ -20,43 +20,20 @@
         <div class="title">委訓計畫相關連結</div>
       </div>
       
-      <!-- 外部連結區塊 -->
+      <!-- 委訓計畫連結（API） -->
       <div class="external-links-section">
-        <div class="links-container">
-          <a 
-            href="https://www.epa.gov.tw/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+        <p v-if="loading" class="links-loading">載入中...</p>
+        <p v-else-if="!planList.length" class="links-empty">暫無委訓計畫連結</p>
+        <div v-else class="links-container">
+          <a
+            v-for="(plan, index) in planList"
+            :key="plan.id || index"
+            :href="plan.link || '#'"
+            target="_blank"
+            rel="noopener noreferrer"
             class="link-button"
           >
-            環境健康與生物科技研究中心
-          </a>
-          
-          <a 
-            href="https://www.epa.gov.tw/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="link-button"
-          >
-            南區毒災應變諮詢中心
-          </a>
-          
-          <a 
-            href="https://www.taiwanjobs.gov.tw/home/new_index.aspx" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="link-button"
-          >
-            台灣就業通-產業人才投資計畫
-          </a>
-          
-          <a 
-            href="https://ojt.wda.gov.tw/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="link-button"
-          >
-            在職訓連網
+            {{ plan.title }}
           </a>
         </div>
       </div>
@@ -68,8 +45,31 @@
 </template>
 
 <script setup>
+import { ref, onMounted, computed } from 'vue'
 import EecHeader from '@/components/EecHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import { getPublicTrainingPlans } from '@/api/trainingPlan'
+
+const loading = ref(true)
+const plans = ref([])
+
+const planList = computed(() => {
+  const list = [...plans.value]
+  list.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+  return list
+})
+
+onMounted(async () => {
+  try {
+    const res = await getPublicTrainingPlans('EDUCATION_CENTER')
+    const list = Array.isArray(res) ? res : (res?.data ?? [])
+    plans.value = list ?? []
+  } catch {
+    plans.value = []
+  } finally {
+    loading.value = false
+  }
+})
 </script>
 
 <style scoped>
@@ -155,6 +155,14 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
 .external-links-section {
   width: 100%;
   background-color: #fff;
+}
+
+.links-loading,
+.links-empty {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+  margin: 0;
 }
 
 .links-container {

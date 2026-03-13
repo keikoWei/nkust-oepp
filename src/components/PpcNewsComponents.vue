@@ -7,8 +7,18 @@
     
     <!-- 新聞內容區域 -->
     <div class="news-content">
+      <template v-if="loading">載入中...</template>
+      <template v-else-if="!newsList.length">
+        <p class="news-empty">尚未有資料</p>
+      </template>
+      <template v-else>
       <!-- 新聞項目 -->
-      <div class="news-item" v-for="(news, index) in newsList" :key="index">
+      <div
+        class="news-item"
+        v-for="(news, index) in displayList"
+        :key="news.id"
+        @click="goToDetail(news)"
+      >
         <div class="news-date">{{ news.date }}</div>
         <div class="news-text" :class="{ 'two-line': news.title.length > 35 }">{{ news.title }}</div>
       </div>
@@ -21,44 +31,51 @@
           </svg>
         </button>
       </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { getPublicNews } from '@/api/news'
 
-const expanded = ref(false)
+const router = useRouter()
+const loading = ref(true)
+const newsList = ref([])
 
-const newsList = ref([
-  {
-    date: '2025.02.24',
-    title: '有關114年上半年本校招募條擬或校園紀念品製作廠或銷售申請等於114年3月1日(六)至3月31日(一)止，敬邀師生踴躍參與！'
-  },
-  {
-    date: '2024.12.05',
-    title: '🍰🍰 2024 DK SHOP 週年慶🍰🍰多項產品優惠等等您來選購😍'
-  },
-  {
-    date: '2024.09.16',
-    title: '💰💰中秋佳節活動期間08/28~10/11 ✨✨常溫「實主」消費滿5000贈茶好韋旅行袋🍰🍰生鮮「實主」消費滿5000贈保冰袋之品'
-  },
-  {
-    date: '2024.07.01',
-    title: '113年度學生創意及行銷提案發話競賽之獲獎通知'
-  },
-  {
-    date: '2024.04.12',
-    title: 'DK SHOP 4月 檜櫻預告 歡慶母親節💐💐💐💐'
-  },
-  {
-    date: '2024.04.12',
-    title: '🍰想要去順優咱咱啥 但想不到什麼好優購👌'
+function formatNewsDate(isoStr) {
+  if (!isoStr) return ''
+  const d = new Date(isoStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+onMounted(async () => {
+  try {
+    const list = await getPublicNews('PRODUCT_CENTER')
+    newsList.value = (list || []).map(item => ({
+      ...item,
+      date: formatNewsDate(item.publishTime)
+    })).sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime))
+  } catch {
+    newsList.value = []
+  } finally {
+    loading.value = false
   }
-])
+})
+
+const displayList = computed(() => newsList.value.slice(0, 6))
+
+const goToDetail = (news) => {
+  router.push({ path: `/productCenter/news-detail/${news.id}`, state: { news } })
+}
 
 const toggleExpand = () => {
-  expanded.value = !expanded.value
+  router.push('/productCenter/news')
 }
 </script>
 
@@ -81,6 +98,16 @@ const toggleExpand = () => {
   color: #534741;
   margin: 0;
   letter-spacing: 1px;
+}
+
+.news-empty {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  position: relative;
+  z-index: 2;
 }
 
 /* 新聞內容區域 - 整體大框 */

@@ -151,11 +151,12 @@ onUnmounted(() => {
     <div class="carousel">
       <div class="carousel-track" 
            :style="{ transform: `translateX(-${trackPosition * 100}%)` }">
-        <img v-for="(image, index) in extendedImages" 
-             :key="index"
-             :src="image.url"
-             :alt="image.alt"
-             class="carousel-image">
+        <template v-for="(image, index) in extendedImages" :key="index">
+          <a v-if="image.clickUrl" :href="image.clickUrl" target="_blank" rel="noopener noreferrer" class="carousel-slide-link">
+            <img :src="image.url" :alt="image.alt" class="carousel-image">
+          </a>
+          <img v-else :src="image.url" :alt="image.alt" class="carousel-image">
+        </template>
       </div>
       
       <!-- 浮水印文字 -->
@@ -209,6 +210,14 @@ onUnmounted(() => {
   transition: transform 0.6s ease-in-out;
 }
 
+.carousel-track .carousel-slide-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
 .carousel-image {
   width: 100%;
   height: 100%;
@@ -258,7 +267,7 @@ onUnmounted(() => {
   background: white;
 }
 
-/* 浮水印樣式 */
+/* 浮水印樣式（pointer-events: none 讓點擊穿透，輪播連結可觸發） */
 .watermark-overlay {
   position: absolute;
   top: 0;
@@ -272,6 +281,7 @@ onUnmounted(() => {
   padding: 159px 0 0 54px;  /* 637px * 1/4 ≈ 159px */
   color: white;
   z-index: 1;
+  pointer-events: none;
 }
 
 .watermark-text {

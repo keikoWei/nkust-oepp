@@ -7,10 +7,15 @@
     
     <!-- 公告內容區域 -->
     <div class="announcement-content">
+      <template v-if="loading">載入中...</template>
+      <template v-else-if="!announcementList.length">
+        <p class="announcement-empty">尚未有資料</p>
+      </template>
+      <template v-else>
       <!-- 公告項目 -->
       <div class="announcement-item" v-for="(announcement, index) in paginatedAnnouncements" :key="announcement.id">
         <div class="announcement-date">{{ announcement.date }}</div>
-        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement.id)">{{ announcement.title }}</div>
+        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement)">{{ announcement.title }}</div>
       </div>
       
       <!-- 分頁控制 -->
@@ -25,269 +30,48 @@
           {{ page }}
         </button>
       </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { getPublicNews } from '@/api/news'
 
 const router = useRouter()
 const currentPage = ref(1)
 const itemsPerPage = 10
+const loading = ref(true)
+const announcementList = ref([])
 
-const announcementList = ref([
-  {
-    id: 49,
-    date: '2026.01.30',
-    title: '🎉【公告】11４-2 樂齡新時代 正取/備取名單 及 正取報到',
-  },
-  {
-    id: 48,
-    date: '2026.01.12',
-    title: '114-2學期教育推廣中心隨班附讀學分班簡章'
-  },
-  {
-    id: 47,
-    date: '2025.12.12',
-    title: '🎉 114學年度第2學期 樂齡新時代 招生簡章'
-  },
-  {
-    id: 46,
-    date: '2025.11.21',
-    title: '114學年度第2學期推廣教育碩士學分班招生簡章'
-  },
-  {
-    id: 45,
-    date: '2025.10.29',
-    title: '1 1 4 年 度 職 業 訓 練 課 程-Python 人工智慧應用系統 第01期 公 告 錄 訓 名 單'
-  },
-  {
-    id: 44,
-    date: '2025.10.01',
-    title: '🔥【職前訓練】Python人工智慧應用系統 第01期 開放報名中！'
-  },
-  {
-    id: 43,
-    date: '2025.09.15',
-    title: '🎉 【114學年度】樂齡新時代 (建工校區自費班)熱烈招生中！'
-  },
-  {
-    id: 42,
-    date: '2025.09.12',
-    title: '🔥【職前訓練】AI Agent應用實務 第02期 開放報名中！🔥'
-  },
-  {
-    id: 41,
-    date: '2025.09.05',
-    title: '【AI會計應用系統實戰課程】帶你用 AI 工具升級財會效率！'
-  },
-  {
-    id: 40,
-    date: '2025.09.01',
-    title: '💎 組織溫室氣體盤查實務班第01期 💎勞動部產業人才投資方案📩在職勞工【最高補助100_】'
-  },
-  {
-    id: 39,
-    date: '2025.08.18',
-    title: '🦾【AI Agent應用實務】延後開課，開放報名中！'
-  },
-  {
-    id: 38,
-    date: '2025.07.31',
-    title: '🦾【職前訓練】 AI Agent應用實務 熱烈報名中!'
-  },
-  {
-    id: 37,
-    date: '2025.07.22',
-    title: '🎉【公告】114-1 樂齡新時代 正取備取名單 及 正取報到時間'
-  },
-  {
-    id: 36,
-    date: '2025.07.18',
-    title: '🎉 114學年度樂齡大學補助班(楠梓校區)熱烈招生中！'
-  },
-  {
-    id: 35,
-    date: '2025.07.14',
-    title: '【公告】國立高雄科技大學114學年度第1學期教育推廣中心學分班熱烈招生中'
-  },
-  {
-    id: 34,
-    date: '2025.07.10',
-    title: '💎 以GRI準則ESG永續報告書實務班第02期 💎勞動部產業人才投資方案📩在職勞工【最高補助100_】'
-  },
-  {
-    id: 33,
-    date: '2025.07.04',
-    title: '🌈【夏日創作營–mini仿真黏土  奇幻熱縮片】🎨 這個夏天，讓孩子的創意發光發熱！'
-  },
-  {
-    id: 32,
-    date: '2025.07.02',
-    title: '0709AI智慧製造產業人才培訓據點 課程說明會'
-  },
-  {
-    id: 31,
-    date: '2025.07.01',
-    title: '🔥【產業新尖兵】 ESG 淨零人才專案管理師培訓班第一梯次﹝15-29歲的你~免費參訓＋16000元獎勵金﹞熱烈報名中!'
-  },
-  {
-    id: 30,
-    date: '2025.06.26',
-    title: '🌿 【 AI量化投資分析碩士學分專班 】招生中！'
-  },
-  {
-    id: 29,
-    date: '2025.06.23',
-    title: '🔥 114年下半年度【高科大 X 產業新尖兵】﹝15-29歲的你~免費參訓＋8000元獎勵金﹞◢ 熱烈報名中!'
-  },
-  {
-    id: 28,
-    date: '2025.06.09',
-    title: '🎉粽情肆意 飄香端午🎉 DK SHOP推出好禮優惠，滿額送端午限定禮品🎁'
-  },
-  {
-    id: 27,
-    date: '2025.05.28',
-    title: '▶ 產投－Python程式設計與MySQL資料庫應用實務班第01期'
-  },
-  {
-    id: 26,
-    date: '2025.05.28',
-    title: '▶114年 三菱FX.Q系列'
-  },
-  {
-    id: 25,
-    date: '2025.05.28',
-    title: '產投－ AI行銷與社群增粉實戰班第01期'
-  },
-  {
-    id: 24,
-    date: '2025.05.28',
-    title: '💻 Python程式設計與MySQL資料庫應用實務班第01期！勞動部產業人才投資方案📩在職勞工【最高補助100_】'
-  },
-  {
-    id: 23,
-    date: '2025.05.28',
-    title: '📱 AI行銷與社群增粉實戰班第01期！勞動部產業人才投資方案📩在職勞工【最高補助100_】'
-  },
-  {
-    id: 22,
-    date: '2025.05.27',
-    title: '114年高科大 第一校區限定 🏊‍♂️ 兒童游泳加強班'
-  },
-  {
-    id: 21,
-    date: '2025.05.12',
-    title: '114學年度第1學期推廣教育碩士學分班招生簡章 (以入學大學同等學力認定標準第七條資格報名者適用)'
-  },
-  {
-    id: 20,
-    date: '2025.05.09',
-    title: '🪐三菱Q系列課程，我們滿足你！勞動部產業人才投資方案📩在職勞工【最高補助100_】'
-  },
-  {
-    id: 19,
-    date: '2025.05.02',
-    title: '114年高科大 🏊‍♂️ 游你真棒 🏸 羽你同樂 暑期兒童開班啦 😍'
-  },
-  {
-    id: 18,
-    date: '2025.04.29',
-    title: '🔥【產業新尖兵】 淨零綠建築資訊模型(BIM)工程實務班第一梯次﹝15-29歲的你~免費參訓＋16000元獎勵金﹞熱烈報名中!'
-  },
-  {
-    id: 17,
-    date: '2025.04.08',
-    title: '✦免費參加✦114年產業新尖兵計畫-課程招生說明會【五校區】熱烈報名中'
-  },
-  {
-    id: 16,
-    date: '2025.02.27',
-    title: '🔥 114年上半年度【高科大 X 產業新尖兵】﹝15-29歲的你~免費參訓＋8000元獎勵金﹞◢ 熱烈報名中!'
-  },
-  {
-    id: 15,
-    date: '2025.02.25',
-    title: '【113-2】手作時光 ✦ 波西米亞風編織手機包 ✨'
-  },
-  {
-    id: 14,
-    date: '2025.02.24',
-    title: '【113-2】❤️ 找回內在平衡，釋放壓力，擁抱健康生活 🔹 第一校區 x 健康瑜珈班 🔹 招生中！'
-  },
-  {
-    id: 13,
-    date: '2025.02.22',
-    title: '【113-2】雙手締造永恆｜打造專屬你的雙環銀戒 💍 【金工手作體驗－雙環之美】限額開放！'
-  },
-  {
-    id: 12,
-    date: '2025.02.11',
-    title: '【113-2】🔥 燃燒 🔥 每一滴汗水 💦 飛輪、體適能精彩四班齊聚，快來燃燒卡路里，讓你達到理想の體態 😍'
-  },
-  {
-    id: 11,
-    date: '2025.02.03',
-    title: '【114上半年-產投課程】專案經理PMP實務班第01期'
-  },
-  {
-    id: 10,
-    date: '2025.01.29',
-    title: '【113-2】 金工手作限額開放 🔥 打造專屬你的銀戒 💍 報名從速！'
-  },
-  {
-    id: 9,
-    date: '2025.01.24',
-    title: '【公告】113-2樂齡大學新時代正取、備取名單及正取報到時間'
-  },
-  {
-    id: 8,
-    date: '2025.01.16',
-    title: '【114上半年-產投課程】水肺潛水暨水域技能培訓班'
-  },
-  {
-    id: 7,
-    date: '2025.01.14',
-    title: '【緊急通知】樂齡大學原為01月14日 10點開放報名，因網路問題將延至10點15分重新開放報名。'
-  },
-  {
-    id: 6,
-    date: '2025.01.13',
-    title: '【公告】國立高雄科技大學113學年度第2學期教育推廣中心學分班熱烈招生中'
-  },
-  {
-    id: 5,
-    date: '2025.01.13',
-    title: '🎉 更新【113學年度第2學期】樂齡大學新時代 (建工校區)熱烈招生中！'
-  },
-  {
-    id: 4,
-    date: '2025.01.13',
-    title: '【公告】國立高雄科技大學113學年度第2學期教育推廣中心學分班於1140113(一)公告招生'
-  },
-  {
-    id: 3,
-    date: '2025.01.10',
-    title: '【重要通知】樂齡大學於114年01月14日(星期二) 上午10時 開放報名 ！'
-  },
-  {
-    id: 2,
-    date: '2025.01.08',
-    title: '【113-2】中華花藝 👉 花不語 — 但花懂你 🌹'
-  },
-  {
-    id: 1,
-    date: '2025.01.02',
-    title: '🎉 114年高雄市管線挖掘工程管理人員認證訓練班熱烈招生中'
-  },
-])
+function formatNewsDate(isoStr) {
+  if (!isoStr) return ''
+  const d = new Date(isoStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+onMounted(async () => {
+  try {
+    const list = await getPublicNews('EDUCATION_CENTER')
+    announcementList.value = (list || []).map(item => ({
+      ...item,
+      date: formatNewsDate(item.publishTime)
+    })).sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
+  } catch {
+    announcementList.value = []
+  } finally {
+    loading.value = false
+  }
+})
 
 // 按照 id 降序排列（id 大的在前，日期由新到舊）
 const sortedAnnouncementList = computed(() => {
-  return [...announcementList.value].sort((a, b) => b.id - a.id)
+  return [...announcementList.value].sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
 })
 
 // 計算總頁數
@@ -309,10 +93,10 @@ const goToPage = (page) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// 跳轉到詳情頁
-const goToDetail = (id) => {
-  if (id) {
-    router.push(`/announcement-detail/${id}`)
+// 跳轉到詳情頁（傳遞 state 供 API 消息詳情使用）
+const goToDetail = (announcement) => {
+  if (announcement?.id != null) {
+    router.push({ path: `/announcement-detail/${announcement.id}`, state: { news: announcement } })
   }
 }
 </script>
@@ -336,6 +120,16 @@ const goToDetail = (id) => {
   color: #534741;
   margin: 0;
   letter-spacing: 1px;
+}
+
+.announcement-empty {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  position: relative;
+  z-index: 2;
 }
 
 /* 公告內容區域 - 整體大框 */

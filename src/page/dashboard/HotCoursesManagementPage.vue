@@ -635,10 +635,10 @@ const handleSubmit = async () => {
     formData.append('sortOrder', form.value.sortOrder.toString())
     formData.append('isEnabled', form.value.isEnabled.toString())
     
-    if (form.value.publishTime) {
-      const publishDate = new Date(form.value.publishTime)
-      formData.append('publishTime', publishDate.toISOString())
-    }
+    const publishTime = form.value.publishTime
+      ? new Date(form.value.publishTime).toISOString()
+      : new Date().toISOString()
+    formData.append('publishTime', publishTime)
     
     if (editingCourse.value) {
       await updateCourse(editingCourse.value.id, formData)

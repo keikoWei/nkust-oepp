@@ -92,12 +92,9 @@ export async function getAllCourses() {
  * @returns {Promise<Array>} 課程列表
  */
 export async function getPublicCourses(centerRole, onlyEnabled = true) {
-  const url = new URL(`${API_BASE_URL}/courses/public/${centerRole}`)
-  url.searchParams.append('onlyEnabled', onlyEnabled.toString())
-
-  const response = await fetch(url.toString(), {
-    method: 'GET'
-  })
+  const base = API_BASE_URL.replace(/\/$/, '')
+  const url = `${base}/courses/public/${centerRole}?onlyEnabled=${encodeURIComponent(onlyEnabled)}`
+  const response = await fetch(url, { method: 'GET' })
 
   if (!response.ok) {
     throw new Error('獲取公開課程失敗')
@@ -107,14 +104,25 @@ export async function getPublicCourses(centerRole, onlyEnabled = true) {
 }
 
 /**
+ * 取得課程檔案下載 URL（依 API 文件 3.4：建議用 query 參數，避免 404）
+ * GET ${baseUrl}/api/courses/file?path=${encodeURIComponent(filePath)}
+ * @param {string} filePath - 從課程 filePaths 取，例如 "courses/xxx.pdf"
+ * @returns {string} 完整下載 URL
+ */
+export function getCourseFileDownloadUrl(filePath) {
+  if (!filePath) return ''
+  const base = API_BASE_URL.replace(/\/$/, '')
+  return `${base}/courses/file?path=${encodeURIComponent(filePath)}`
+}
+
+/**
  * 下載課程檔案
  * @param {string} filePath - 檔案相對路徑
  * @returns {Promise<Blob>} 檔案內容
  */
 export async function downloadCourseFile(filePath) {
-  const response = await fetch(`${API_BASE_URL}/courses/file/${filePath}`, {
-    method: 'GET'
-  })
+  const url = getCourseFileDownloadUrl(filePath)
+  const response = await fetch(url, { method: 'GET' })
 
   if (!response.ok) {
     throw new Error('下載檔案失敗')

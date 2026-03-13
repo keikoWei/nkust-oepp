@@ -19,9 +19,10 @@
         <div class="page-content">
           
           
-          <!-- 出版品展示區域 -->
-          <div class="publications-grid">
-            <div class="publication-item" v-for="(publication, index) in publications" :key="index">
+          <p v-if="loading" class="publications-loading">載入中...</p>
+          <p v-else-if="!publicationList.length" class="publications-empty">暫無出版品</p>
+          <div v-else class="publications-grid">
+            <div class="publication-item" v-for="(publication, index) in publicationList" :key="publication.id || index">
               <div class="publication-image" @click="openEbook(index)">
                 <img :src="publication.image" :alt="publication.title" class="publication-img">
                 <div class="overlay">
@@ -49,19 +50,20 @@
             <i class="fas fa-times"></i>
           </button>
         </div>
-        <div class="ebook-content">
+        <div class="ebook-content" v-if="currentPublication.iframeSrc">
           <div class="ebook-iframe-container">
-            <iframe 
-              :src="currentPublication.iframeSrc" 
-              style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" 
-              seamless="seamless" 
-              scrolling="no" 
-              frameborder="0" 
-              allowtransparency="true" 
+            <iframe
+              :src="currentPublication.iframeSrc"
+              style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;"
+              seamless="seamless"
+              scrolling="no"
+              frameborder="0"
+              allowtransparency="true"
               allowfullscreen="true">
             </iframe>
           </div>
         </div>
+        <p v-else class="ebook-no-link">此出版品無預覽連結</p>
       </div>
     </div>
 
@@ -74,43 +76,39 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import EpcHeader from '@/components/EpcHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import { getPublicPublications } from '@/api/publication'
 
-// 出版品資料
-const publications = ref([
-  {
-    title: '第一屆 青年藝術家典藏獎',
-    image: '/image/epc/publications/publication_第一屆青藝獎.jpg',
-    iframeSrc: 'https://online.fliphtml5.com/tbmmm/acmg/'
-  },
-  {
-    title: '第二屆 青年藝術家典藏獎',
-    image: '/image/epc/publications/publication_第二屆青藝獎.jpg',
-    iframeSrc: 'https://online.fliphtml5.com/tbmmm/kxwg/'
-  },
-  {
-    title: '第三屆 青年藝術家典藏獎',
-    image: '/image/epc/publications/publication_第三屆青藝獎.jpg',
-    iframeSrc: 'https://online.fliphtml5.com/tbmmm/fkpn/'
-  },
-  {
-    title: '第四屆 青年藝術家典藏獎',
-    image: '/image/epc/publications/publication_第四屆青藝獎.jpg',
-    iframeSrc: 'https://online.fliphtml5.com/tbmmm/iohi/'
-  },
-  {
-    title: '第五屆 青年藝術家典藏獎',
-    image: '/image/epc/publications/publication_第五屆青藝獎.jpg',
-    iframeSrc: 'https://online.fliphtml5.com/tbmmm/hmuj/'
+const loading = ref(true)
+const publications = ref([])
+
+const publicationList = computed(() => {
+  const list = [...publications.value]
+  list.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+  return list
+})
+
+onMounted(async () => {
+  try {
+    const res = await getPublicPublications('EXHIBITION_CENTER')
+    const list = Array.isArray(res) ? res : (res?.data ?? [])
+    publications.value = (list ?? []).map((item) => ({
+      id: item.id,
+      title: item.title ?? '',
+      image: item.mainImageUrl ?? item.main_image_url ?? '',
+      iframeSrc: item.iframeLink ?? item.iframe_link ?? ''
+    }))
+  } catch {
+    publications.value = []
+  } finally {
+    loading.value = false
   }
-])
+})
 
-// 電子書狀態
 const showEbook = ref(false)
 const currentPublicationIndex = ref(0)
 
-// 當前出版品
 const currentPublication = computed(() => {
-  return publications.value[currentPublicationIndex.value]
+  return publicationList.value[currentPublicationIndex.value] || { title: '', iframeSrc: '' }
 })
 
 // 鍵盤事件處理
@@ -228,6 +226,14 @@ onUnmounted(() => {
   margin-bottom: 1.5rem;
 }
 
+.publications-loading,
+.publications-empty {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  margin: 0;
+}
+
 /* 出版品網格 */
 .publications-grid {
   display: grid;
@@ -336,6 +342,13 @@ onUnmounted(() => {
   max-height: 90vh;
   overflow: hidden;
   position: relative;
+}
+
+.ebook-no-link {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  margin: 0;
 }
 
 .ebook-header {

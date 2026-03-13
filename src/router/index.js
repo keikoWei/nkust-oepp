@@ -146,6 +146,11 @@ const router = createRouter({
       component: () => import('../page/eec/HotCoursesPage.vue')
     },
     {
+      path: '/educationCenter/course-detail/:id',
+      name: 'eec-course-detail',
+      component: () => import('../page/eec/EecCourseDetailPage.vue')
+    },
+    {
       path: '/educationCenter/seniorCitizensUniversity',
       name: 'eec-senior-citizens-university',
       component: () => import('../page/eec/SeniorCitizensUniversityPage.vue')
@@ -244,6 +249,21 @@ const router = createRouter({
       path: '/announcement-detail/:id',
       name: 'announcement-detail',
       component: () => import('../page/eec/CourseAnnouncementDetailPage.vue')
+    },
+    {
+      path: '/news-detail/oepp/:id',
+      name: 'oepp-news-detail',
+      component: () => import('../page/oepp/OeppNewsDetailPage.vue')
+    },
+    {
+      path: '/productCenter/news-detail/:id',
+      name: 'ppc-news-detail',
+      component: () => import('../page/ppc/PpcNewsDetailPage.vue')
+    },
+    {
+      path: '/publication/news-detail/:id',
+      name: 'epc-news-detail',
+      component: () => import('../page/epc/EpcNewsDetailPage.vue')
     },
     {
       path: '/login',

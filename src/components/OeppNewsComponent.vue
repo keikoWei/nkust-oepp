@@ -7,58 +7,75 @@
     
     <!-- 新聞內容區域 -->
     <div class="news-content">
-      <!-- 新聞項目 -->
-      <div class="news-item" v-for="(news, index) in newsList" :key="index">
-        <div class="news-date">{{ news.date }}</div>
-        <div class="news-text" :class="{ 'two-line': news.title.length > 35 }">{{ news.title }}</div>
-      </div>
+      <template v-if="loading">載入中...</template>
+      <template v-else-if="!newsList.length">
+        <p class="news-empty">尚未有資料</p>
+      </template>
+      <template v-else>
+        <!-- 新聞項目 -->
+        <div
+          class="news-item"
+          v-for="(news, index) in displayList"
+          :key="news.id"
+          @click="goToDetail(news)"
+        >
+          <div class="news-date">{{ news.date }}</div>
+          <div class="news-text" :class="{ 'two-line': news.title.length > 35 }">{{ news.title }}</div>
+        </div>
       
-      <!-- 展開更多按鈕 -->
-      <div class="expand-more">
-        <button class="expand-btn" @click="toggleExpand">
-          <svg width="40" height="25" viewBox="0 0 40 25" fill="none">
-            <path d="M2 2L20 20L38 2" stroke="#86a8ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
+        <!-- 展開更多按鈕 -->
+        <div class="expand-more">
+          <button class="expand-btn" @click="toggleExpand">
+            <svg width="40" height="25" viewBox="0 0 40 25" fill="none">
+              <path d="M2 2L20 20L38 2" stroke="#86a8ab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { getPublicNews } from '@/api/news'
 
-const expanded = ref(false)
+const router = useRouter()
+const loading = ref(true)
+const newsList = ref([])
 
-const newsList = ref([
-  {
-    date: '2025.02.27',
-    title: '114年上半年度【高科大×產業新生代】15-20歲的你，免費學習！+8000元獎學金'
-  },
-  {
-    date: '2025.02.03',
-    title: '【114上半年 產證課程】專案經理PMP實務班第01期'
-  },
-  {
-    date: '2025.01.29',
-    title: '【113-2】全工手作精緻園藝 & 打包溫暖精神的體驗，轉念便成!'
-  },
-  {
-    date: '2025.01.24',
-    title: '【公告】113-2 臺數大學徵時代工程/環保衛浴業 及 正能量運動課程'
-  },
-  {
-    date: '2025.01.16',
-    title: '【114上半年 產證課程】水師法水研究技師證培訓課程'
-  },
-  {
-    date: '2025.01.14',
-    title: '【緊急通知】臺數大學學第01月14日15歲班服務，因應疫情暫時調整至16歲01分並請配發票務'
+function formatNewsDate(isoStr) {
+  if (!isoStr) return ''
+  const d = new Date(isoStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+onMounted(async () => {
+  try {
+    const list = await getPublicNews('HEADQUARTERS')
+    newsList.value = (list || []).map(item => ({
+      ...item,
+      date: formatNewsDate(item.publishTime)
+    })).sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime))
+  } catch {
+    newsList.value = []
+  } finally {
+    loading.value = false
   }
-])
+})
+
+const displayList = computed(() => newsList.value.slice(0, 6))
+
+const goToDetail = (news) => {
+  router.push({ path: `/news-detail/oepp/${news.id}`, state: { news } })
+}
 
 const toggleExpand = () => {
-  expanded.value = !expanded.value
+  router.push({ path: '/', query: { section: 'news' } })
 }
 </script>
 
@@ -192,6 +209,16 @@ const toggleExpand = () => {
 /* 字數超過30時的兩行文字樣式 */
 .news-text.two-line {
   transform: translateY(-5pt);
+}
+
+.news-empty {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  position: relative;
+  z-index: 2;
 }
 
 /* 超過兩行時的底線樣式 */

@@ -7,10 +7,15 @@
     
     <!-- 公告內容區域 -->
     <div class="announcement-content">
+      <template v-if="loading">載入中...</template>
+      <template v-else-if="!announcementList.length">
+        <p class="announcement-empty">尚未有資料</p>
+      </template>
+      <template v-else>
       <!-- 公告項目 -->
-      <div class="announcement-item" v-for="(announcement, index) in sortedAnnouncementList" :key="index">
+      <div class="announcement-item" v-for="(announcement, index) in sortedAnnouncementList" :key="announcement.id">
         <div class="announcement-date">{{ announcement.date }}</div>
-        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement.id)">{{ announcement.title }}</div>
+        <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement)">{{ announcement.title }}</div>
       </div>
       
       <!-- 展開更多按鈕 -->
@@ -21,61 +26,55 @@
           </svg>
         </button>
       </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { getPublicNews } from '@/api/news'
 
 const router = useRouter()
+const loading = ref(true)
+const announcementList = ref([])
 
-const announcementList = ref([
-  {
-    id: 49,
-    date: '2026.01.30',
-    title: '🎉【公告】11４-2 樂齡新時代 正取/備取名單 及 正取報到',
-  },
-  {
-    id: 48,
-    date: '2026.01.12',
-    title: '114-2學期教育推廣中心隨班附讀學分班簡章'
-  },
-  {
-    id: 47,
-    date: '2025.12.12',
-    title: '🎉 114學年度第2學期 樂齡新時代 招生簡章'
-  },
-  {
-    id: 46,
-    date: '2025.11.21',
-    title: '114學年度第2學期推廣教育碩士學分班招生簡章'
-  },
-  {
-    id: 45,
-    date: '2025.10.29',
-    title: '1 1 4 年 度 職 業 訓 練 課 程-Python 人工智慧應用系統 第01期 公 告 錄 訓 名 單'
-  },
-  {
-    id: 44,
-    date: '2025.10.01',
-    title: '🔥【職前訓練】Python人工智慧應用系統 第01期 開放報名中！'
+function formatNewsDate(isoStr) {
+  if (!isoStr) return ''
+  const d = new Date(isoStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+onMounted(async () => {
+  try {
+    const list = await getPublicNews('EDUCATION_CENTER')
+    announcementList.value = (list || []).map(item => ({
+      ...item,
+      date: formatNewsDate(item.publishTime)
+    })).sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
+  } catch {
+    announcementList.value = []
+  } finally {
+    loading.value = false
   }
-])
+})
 
 // 按照 id 降序排列（id 大的在前）
 const sortedAnnouncementList = computed(() => {
-  return [...announcementList.value].sort((a, b) => b.id - a.id)
+  return [...announcementList.value].sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
 })
 
 const toggleExpand = () => {
   router.push('/educationCenter/courseAnnouncement')
 }
 
-const goToDetail = (id) => {
-  if (id) {
-    router.push(`/announcement-detail/${id}`)
+const goToDetail = (announcement) => {
+  if (announcement?.id != null) {
+    router.push({ path: `/announcement-detail/${announcement.id}`, state: { news: announcement } })
   }
 }
 </script>
@@ -99,6 +98,16 @@ const goToDetail = (id) => {
   color: #534741;
   margin: 0;
   letter-spacing: 1px;
+}
+
+.announcement-empty {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  position: relative;
+  z-index: 2;
 }
 
 /* 公告內容區域 - 整體大框 */

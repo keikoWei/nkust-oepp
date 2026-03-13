@@ -514,9 +514,11 @@ const handleSubmit = async () => {
     formData.append('sortOrder', form.value.sortOrder.toString())
     formData.append('isEnabled', form.value.isEnabled.toString())
     
-    if (form.value.publishTime) {
-      formData.append('publishTime', new Date(form.value.publishTime).toISOString())
-    }
+    // 留空表示立即公開，預設為當下時間
+    const publishTime = form.value.publishTime
+      ? new Date(form.value.publishTime).toISOString()
+      : new Date().toISOString()
+    formData.append('publishTime', publishTime)
 
     if (editingNews.value) {
       // 更新

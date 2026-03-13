@@ -7,8 +7,18 @@
     
     <!-- 新聞內容區域 -->
     <div class="news-content">
+      <template v-if="loading">載入中...</template>
+      <template v-else-if="!newsList.length">
+        <p class="news-empty">尚未有資料</p>
+      </template>
+      <template v-else>
       <!-- 新聞項目 -->
-      <div class="news-item" v-for="(news, index) in newsList" :key="index">
+      <div
+        class="news-item"
+        v-for="(news, index) in displayList"
+        :key="news.id"
+        @click="goToDetail(news)"
+      >
         <div class="news-date">{{ news.date }}</div>
         <div class="news-text" :class="{ 'two-line': news.title.length > 35 }">{{ news.title }}</div>
       </div>
@@ -21,44 +31,51 @@
           </svg>
         </button>
       </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { getPublicNews } from '@/api/news'
 
-const expanded = ref(false)
+const router = useRouter()
+const loading = ref(true)
+const newsList = ref([])
 
-const newsList = ref([
-  {
-    date: '2025.02.27',
-    title: '會展中心【2025年春季會展活動】招展開始，歡迎各界踴躍參與'
-  },
-  {
-    date: '2025.02.15',
-    title: '【出版服務】學術期刊與專業書籍出版申請開放中'
-  },
-  {
-    date: '2025.02.10',
-    title: '【研討會協助】協助辦理學術研討會暨國際交流活動'
-  },
-  {
-    date: '2025.01.28',
-    title: '【委辦活動】企業研習活動場地租借優惠方案實施中'
-  },
-  {
-    date: '2025.01.20',
-    title: '【成果發表】2024年度會展中心活動成果報告書發布'
-  },
-  {
-    date: '2025.01.15',
-    title: '【法規更新】會展及出版中心業務相關法規修正公告'
+function formatNewsDate(isoStr) {
+  if (!isoStr) return ''
+  const d = new Date(isoStr)
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+onMounted(async () => {
+  try {
+    const list = await getPublicNews('EXHIBITION_CENTER')
+    newsList.value = (list || []).map(item => ({
+      ...item,
+      date: formatNewsDate(item.publishTime)
+    })).sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime))
+  } catch {
+    newsList.value = []
+  } finally {
+    loading.value = false
   }
-])
+})
+
+const displayList = computed(() => newsList.value.slice(0, 6))
+
+const goToDetail = (news) => {
+  router.push({ path: `/publication/news-detail/${news.id}`, state: { news } })
+}
 
 const toggleExpand = () => {
-  expanded.value = !expanded.value
+  router.push('/exhibitionCenter/introduction')
 }
 </script>
 
@@ -81,6 +98,16 @@ const toggleExpand = () => {
   color: #3e3b3a;
   margin: 0;
   letter-spacing: 1px;
+}
+
+.news-empty {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  position: relative;
+  z-index: 2;
 }
 
 /* 新聞內容區域 - 整體大框 */

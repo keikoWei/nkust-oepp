@@ -5,7 +5,8 @@
     <!-- 教育推廣中心內容 -->
     <div class="eec-home">
       <section class="banner no-gap">
-        <EecCarousel :images="carouselImages" :interval="10000" :showWatermark="false" :imageObjectFit="'contain'" />
+        <EecCarousel v-if="carouselImages.length" :images="carouselImages" :interval="10000" :showWatermark="false" :imageObjectFit="'contain'" />
+        <div v-else class="carousel-empty">暫無圖片</div>
       </section>
 
       <!-- 最新消息區域 -->
@@ -29,32 +30,29 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import EecCarousel from '@/components/EecCarousel.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
 import EecHeader from '@/components/EecHeader.vue'
 import CourseAnnouncementComponent from '@/components/CourseAnnouncementComponent.vue'
 import EecHotCoursesComponent from '@/components/EecHotCoursesComponent.vue'
 import CourseHighlightsComponent from '@/components/CourseHighlightsComponent.vue'
+import { getPublicCarousels } from '@/api/carousel'
 
-// EEC專用的輪播圖片
-const carouselImages = [
-  {
-    url: '/image/carousels/eec_4_carousel.png',
-    alt: '教育推廣中心 4'
-  },
-  {
-    url: '/image/carousels/eec_1_carousel.png',
-    alt: '教育推廣中心 1'
-  },
-  {
-    url: '/image/carousels/eec_2_carousel.png',
-    alt: '教育推廣中心 2'
-  },
-  {
-    url: '/image/carousels/eec_3_carousel.png',
-    alt: '教育推廣中心 3'
+const carouselImages = ref([])
+
+onMounted(async () => {
+  try {
+    const res = await getPublicCarousels('EDUCATION_CENTER')
+    const list = Array.isArray(res) ? res : (res?.data ?? [])
+    carouselImages.value = (list || [])
+      .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+      .map(item => ({ url: item.imageUrl ?? item.image_url ?? '', alt: item.title ?? '', clickUrl: item.clickUrl ?? item.click_url ?? '' }))
+      .filter(item => item.url)
+  } catch {
+    carouselImages.value = []
   }
-]
+})
 </script>
 
 <style scoped>
@@ -115,6 +113,16 @@ const carouselImages = [
   margin-top: 0 !important;
   padding-top: 0 !important;
   border-top: none !important;
+}
+
+.carousel-empty {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 1rem;
 }
 
 .course-announcement-section,

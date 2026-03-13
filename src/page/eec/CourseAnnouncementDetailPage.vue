@@ -15,44 +15,65 @@
     
     <!-- 內文內容 -->
     <div class="content-container">
-      <!-- 標題和日期 -->
-      <div class="announcement-header">
-        <h2 class="announcement-title">{{ announcement?.title }}</h2>
-        <p class="announcement-date">{{ announcement?.date }}</p>
+      <p v-if="loading" class="detail-loading">載入中...</p>
+      <div v-else-if="loadFailed" class="detail-failed">
+        <p>無法取得消息內容</p>
+        <router-link to="/" class="back-link">返回首頁</router-link>
       </div>
-      
-      <!-- 內文 -->
-      <div class="content-section">
-        <div class="content-text" v-html="processedContent"></div>
-      </div>
-      
-      <!-- 圖片區域（僅在有圖片時顯示） -->
-      <div class="images-section" v-if="announcement?.images && announcement.images.length > 0">
-        <div class="images-row">
-          <div 
-            class="image-item" 
-            v-for="(image, index) in announcement.images" 
-            :key="index"
-            @click="openImageModal(image)"
-          >
-            <img :src="image" :alt="`圖片 ${index + 1}`" />
+      <template v-else-if="announcement">
+        <!-- 標題和日期 -->
+        <div class="announcement-header">
+          <h2 class="announcement-title">{{ announcement.title }}</h2>
+          <p class="announcement-date">{{ announcement.date }}</p>
+        </div>
+        
+        <!-- 內文 -->
+        <div class="content-section">
+          <div class="content-text" v-html="processedContent"></div>
+        </div>
+        
+        <!-- 圖片區域（僅在有圖片時顯示） -->
+        <div class="images-section" v-if="announcement.images && announcement.images.length > 0">
+          <div class="images-row">
+            <div 
+              class="image-item" 
+              v-for="(image, index) in announcement.images" 
+              :key="index"
+              @click="openImageModal(image)"
+            >
+              <img :src="image" :alt="`圖片 ${index + 1}`" />
+            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- 下載文件區域（僅在有下載文件時顯示） -->
-      <div class="download-section" v-if="announcement?.downloadFile">
-        <div class="download-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="download-icon">
-            <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <a :href="announcement.downloadFile" :download="announcement.downloadFile.split('/').pop()" class="download-link" target="_blank">
-            {{ announcement.downloadFile.split('/').pop() }}
-          </a>
+        
+        <!-- 下載文件區域（僅在有下載文件時顯示） -->
+        <div class="download-section" v-if="announcement.downloadFilePath || announcement.downloadFile">
+          <div class="download-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="download-icon">
+              <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <a
+              v-if="announcement.downloadFilePath"
+              href="#"
+              class="download-link"
+              @click.prevent="handleDownloadFile(announcement)"
+            >
+              {{ announcement.downloadFileName }}
+            </a>
+            <a
+              v-else
+              :href="announcement.downloadFile"
+              :download="getDisplayFileName(announcement.downloadFile)"
+              class="download-link"
+              target="_blank"
+            >
+              {{ getDisplayFileName(announcement.downloadFile) }}
+            </a>
+          </div>
         </div>
-      </div>
+      </template>
     </div>
     
     <!-- 圖片模態框 -->
@@ -77,11 +98,14 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import EecHeader from '@/components/EecHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+import { getNewsById, getPublicNewsById, downloadNewsFile, getNewsFileDownloadUrl } from '@/api/news'
 
 const route = useRoute()
 const router = useRouter()
 const announcement = ref(null)
 const modalImage = ref(null)
+const loading = ref(true)
+const loadFailed = ref(false)
 
 // 將純文字的 URL 轉換為超連結
 const convertUrlsToLinks = (html) => {
@@ -118,10 +142,12 @@ const convertUrlsToLinks = (html) => {
   return processed
 }
 
-// 處理後的公告內容
+// 處理後的公告內容（支援 API 的 contentHtml 與本地 content）
 const processedContent = computed(() => {
-  if (!announcement.value || !announcement.value.content) return ''
-  return convertUrlsToLinks(announcement.value.content)
+  if (!announcement.value) return ''
+  const raw = announcement.value.content ?? announcement.value.contentHtml
+  if (!raw) return ''
+  return convertUrlsToLinks(raw)
 })
 
 // 模擬從 API 或 store 獲取公告資料
@@ -1892,12 +1918,73 @@ const announcementData = [
   }
 ]
 
-onMounted(() => {
-  const id = parseInt(route.params.id)
-  announcement.value = announcementData.find(item => item.id === id)
-  
+// 從 filePath 取顯示／下載用檔名：路徑最後一段中「_ 後面」為原始檔案名稱
+function getFileNameFromPath(filePath) {
+  if (!filePath) return ''
+  try {
+    const segment = filePath.split('/').pop() || filePath
+    const decoded = decodeURIComponent(segment)
+    const afterUnderscore = decoded.indexOf('_') >= 0 ? decoded.slice(decoded.indexOf('_') + 1) : decoded
+    return afterUnderscore || decoded
+  } catch {
+    const segment = filePath.split('/').pop() || filePath
+    const afterUnderscore = segment.indexOf('_') >= 0 ? segment.slice(segment.indexOf('_') + 1) : segment
+    return afterUnderscore || segment
+  }
+}
+
+// 將 API 消息格式轉為詳情頁使用的格式
+function mapApiNewsToAnnouncement(apiNews) {
+  if (!apiNews) return null
+  const d = apiNews.publishTime ? new Date(apiNews.publishTime) : null
+  const dateStr = d ? `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}` : ''
+  const filePaths = apiNews.filePaths || []
+  const firstFile = filePaths[0]
+  return {
+    id: apiNews.id,
+    title: apiNews.title,
+    date: dateStr,
+    content: apiNews.contentHtml,
+    contentHtml: apiNews.contentHtml,
+    images: apiNews.imageUrls || [],
+    downloadFilePath: firstFile || undefined,
+    downloadFileName: firstFile ? getFileNameFromPath(firstFile) : undefined
+  }
+}
+
+onMounted(async () => {
+  const id = parseInt(route.params.id, 10)
+  if (Number.isNaN(id)) {
+    loadFailed.value = true
+    loading.value = false
+    return
+  }
+
+  const state = window.history.state
+  if (state?.news && (state.news.id === id || state.news.id === String(id))) {
+    announcement.value = mapApiNewsToAnnouncement(state.news)
+    loading.value = false
+    return
+  }
+
+  // 先以公開請求取得（不觸發登入跳轉），失敗再試 getNewsById
+  let apiNews = await getPublicNewsById(id)
+  if (!apiNews) {
+    try {
+      apiNews = await getNewsById(id)
+    } catch {
+      apiNews = null
+    }
+  }
+  if (apiNews) {
+    announcement.value = mapApiNewsToAnnouncement(apiNews)
+  } else {
+    announcement.value = announcementData.find(item => item.id === id)
+  }
+  loading.value = false
+
   if (!announcement.value) {
-    router.push('/')
+    loadFailed.value = true
   }
 })
 
@@ -1907,6 +1994,37 @@ const openImageModal = (image) => {
 
 const closeImageModal = () => {
   modalImage.value = null
+}
+
+// 從舊格式 downloadFile URL 取顯示檔名（相容本地資料）
+function getDisplayFileName(downloadFileUrl) {
+  if (!downloadFileUrl) return ''
+  try {
+    return decodeURIComponent(downloadFileUrl.split('/').pop())
+  } catch {
+    return downloadFileUrl.split('/').pop() || ''
+  }
+}
+
+// 從 API 路徑下載檔案，使用與上傳時相同的檔名
+async function handleDownloadFile(announcement) {
+  if (!announcement?.downloadFilePath) return
+  const filePath = announcement.downloadFilePath
+  const fileName = announcement.downloadFileName || getFileNameFromPath(filePath)
+  try {
+    const blob = await downloadNewsFile(filePath)
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = fileName
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  } catch (err) {
+    console.error('下載失敗:', err)
+    window.open(getNewsFileDownloadUrl(filePath), '_blank')
+  }
 }
 </script>
 
@@ -1989,6 +2107,33 @@ const closeImageModal = () => {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 2rem;
+}
+
+.detail-loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 16px;
+  color: #999;
+}
+
+.detail-failed {
+  text-align: center;
+  padding: 3rem;
+}
+
+.detail-failed p {
+  margin: 0 0 1rem;
+  font-size: 16px;
+  color: #666;
+}
+
+.detail-failed .back-link {
+  color: #534741;
+  text-decoration: underline;
+}
+
+.detail-failed .back-link:hover {
+  color: #333;
 }
 
 /* 內文區域 */

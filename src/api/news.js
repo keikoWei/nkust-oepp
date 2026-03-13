@@ -74,13 +74,29 @@ export async function deleteNews(id) {
 }
 
 /**
- * 根據 ID 獲取消息
+ * 根據 ID 獲取消息（不需認證，後端 2.1 已改為公開）
  * @param {number} id - 消息 ID
  * @returns {Promise<Object>} 消息資料
  */
 export async function getNewsById(id) {
   const response = await get(`/news/${id}`)
   return response
+}
+
+/**
+ * 依 ID 取得單筆消息（同 2.1，以 fetch 直接呼叫）
+ * 供 announcement-detail 內頁使用，失敗回傳 null 不觸發登入跳轉
+ * @param {number} id - 消息 ID
+ * @returns {Promise<Object|null>} 消息資料，失敗時回傳 null
+ */
+export async function getPublicNewsById(id) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/news/${id}`, { method: 'GET' })
+    if (!response.ok) return null
+    return await response.json()
+  } catch {
+    return null
+  }
 }
 
 /**
@@ -114,14 +130,25 @@ export async function getPublicNews(centerRole, onlyEnabled = true) {
 }
 
 /**
+ * 取得消息檔案下載 URL（依 API 文件 2.4：建議用 query 參數，避免 404）
+ * GET ${baseUrl}/api/news/file?path=${encodeURIComponent(filePath)}
+ * @param {string} filePath - 從單筆消息 filePaths 取，例如 "news/abc.pdf"
+ * @returns {string} 完整下載 URL
+ */
+export function getNewsFileDownloadUrl(filePath) {
+  if (!filePath) return ''
+  const base = API_BASE_URL.replace(/\/$/, '')
+  return `${base}/news/file?path=${encodeURIComponent(filePath)}`
+}
+
+/**
  * 下載檔案
- * @param {string} filePath - 檔案相對路徑（例如：news/file1.pdf）
+ * @param {string} filePath - 檔案相對路徑（例如：news/檔案名.pdf）
  * @returns {Promise<Blob>} 檔案內容
  */
 export async function downloadNewsFile(filePath) {
-  const response = await fetch(`${API_BASE_URL}/news/file/${filePath}`, {
-    method: 'GET',
-  })
+  const url = getNewsFileDownloadUrl(filePath)
+  const response = await fetch(url, { method: 'GET' })
 
   if (!response.ok) {
     throw new Error('下載失敗')
