@@ -26,6 +26,36 @@ const router = createRouter({
       component: () => import('../layout/EpcLayout.vue')
     },
     {
+      path: '/managementCenter',
+      name: 'management-center',
+      component: () => import('../layout/ComLayout.vue')
+    },
+    {
+      path: '/managementCenter/news',
+      name: 'com-news',
+      component: () => import('../page/com/ComNewsPage.vue')
+    },
+    {
+      path: '/managementCenter/news-detail/:id',
+      name: 'com-news-detail',
+      component: () => import('../page/com/ComNewsDetailPage.vue')
+    },
+    {
+      path: '/managementCenter/introduction',
+      name: 'com-introduction',
+      component: () => import('../page/com/ComCenterIntroductionPage.vue')
+    },
+    {
+      path: '/managementCenter/links',
+      name: 'com-links',
+      component: () => import('../page/com/ComLinksPage.vue')
+    },
+    {
+      path: '/managementCenter/contact',
+      name: 'com-contact',
+      component: () => import('../page/com/ComContactPage.vue')
+    },
+    {
       path: '/productCenter/activity',
       name: 'ppc-activity',
       component: () => import('../page/ppc/PpcActivityPage.vue')

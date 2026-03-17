@@ -56,7 +56,7 @@
             會展及出版中心
           </RouterLink>
           
-          <a href="https://oom.nkust.edu.tw/" target="_blank" class="mobile-nav-btn">
+          <a href="https://oom.nkust.edu.tw/" target="_blank" rel="noopener noreferrer" class="mobile-nav-btn">
             經營管理中心
           </a>
           
@@ -107,7 +107,7 @@
               會展及出版中心
             </RouterLink>
             
-            <a href="https://oom.nkust.edu.tw/" target="_blank" class="nav-btn">
+            <a href="https://oom.nkust.edu.tw/" target="_blank" rel="noopener noreferrer" class="nav-btn">
               經營管理中心
             </a>
             
