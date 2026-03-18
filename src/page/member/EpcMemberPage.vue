@@ -81,23 +81,6 @@ const membersInfo = [
       '中心網頁管理與維護',
       '研討會生成系統管理與維護'
     ]
-  },
-  {
-    title: '專任助理',
-    name: '陳怡璇',
-    photo: '/image/members/default_man_01.png',
-    contacts: [
-      { label: '分機', value: '12854' },
-      { label: '信箱', value: 'eihc4020@nkust.edu.tw' }
-    ],
-    responsibilities: [
-      '承攬校外公、私部門及企業委辦之活動業務',
-      '高等教育深耕計畫執行',
-      '校內特殊專案規劃與執行',
-      '研討會生成系統管理與維護',
-      '中心法規修訂',
-      '其他臨時交辦事項'
-    ]
   }
 ]
 </script>

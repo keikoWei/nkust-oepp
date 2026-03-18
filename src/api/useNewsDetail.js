@@ -21,6 +21,12 @@ function mapApiNewsToAnnouncement(apiNews) {
   const dateStr = d ? `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}` : ''
   const filePaths = apiNews.filePaths || []
   const firstFile = filePaths[0]
+  const downloadFiles = filePaths
+    .filter(Boolean)
+    .map(fp => ({
+      downloadFilePath: fp,
+      downloadFileName: getFileNameFromPath(fp)
+    }))
   return {
     id: apiNews.id,
     title: apiNews.title,
@@ -28,6 +34,7 @@ function mapApiNewsToAnnouncement(apiNews) {
     content: apiNews.contentHtml,
     contentHtml: apiNews.contentHtml,
     images: apiNews.imageUrls || [],
+    downloadFiles,
     downloadFilePath: firstFile || undefined,
     downloadFileName: firstFile ? getFileNameFromPath(firstFile) : undefined
   }

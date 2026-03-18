@@ -514,10 +514,11 @@ const handleSubmit = async () => {
     formData.append('sortOrder', form.value.sortOrder.toString())
     formData.append('isEnabled', form.value.isEnabled.toString())
     
-    // 留空表示立即公開，預設為當下時間
+    // 使用者輸入多少就送多少（不做時區轉換）
+    // datetime-local: "YYYY-MM-DDTHH:mm" → 送 "YYYY-MM-DDTHH:mm:00"
     const publishTime = form.value.publishTime
-      ? new Date(form.value.publishTime).toISOString()
-      : new Date().toISOString()
+      ? normalizeDateTimeLocalToSeconds(form.value.publishTime)
+      : nowLocalDateTimeSeconds()
     formData.append('publishTime', publishTime)
 
     if (editingNews.value) {
@@ -559,6 +560,37 @@ const handleSubmit = async () => {
   } finally {
     loading.value = false
   }
+}
+
+function parseNewsDateTime(dateTime) {
+  if (!dateTime) return null
+  if (typeof dateTime !== 'string') return new Date(dateTime)
+  const s = dateTime.trim()
+  if (!s) return null
+  // 不含時區的 ISO 字串，視為本地時間（與「使用者輸入多少就送多少」一致）
+  return new Date(s)
+}
+
+function normalizeDateTimeLocalToSeconds(value) {
+  if (!value) return ''
+  const s = String(value).trim()
+  if (!s) return ''
+  // "YYYY-MM-DDTHH:mm" → "YYYY-MM-DDTHH:mm:00"
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return `${s}:00`
+  // 已含秒數就直接用
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s
+  return s
+}
+
+function nowLocalDateTimeSeconds() {
+  const d = new Date()
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  const hh = String(d.getHours()).padStart(2, '0')
+  const mm = String(d.getMinutes()).padStart(2, '0')
+  const ss = String(d.getSeconds()).padStart(2, '0')
+  return `${y}-${m}-${day}T${hh}:${mm}:${ss}`
 }
 
 // 刪除消息
@@ -604,7 +636,8 @@ const goToPage = (page) => {
 // 格式化日期時間
 const formatDateTime = (dateTime) => {
   if (!dateTime) return '立即公開'
-  const date = new Date(dateTime)
+  const date = parseNewsDateTime(dateTime)
+  if (!date || isNaN(date.getTime())) return '立即公開'
   return date.toLocaleString('zh-TW', {
     year: 'numeric',
     month: '2-digit',
@@ -617,7 +650,8 @@ const formatDateTime = (dateTime) => {
 // 格式化為 datetime-local 格式
 const formatDateTimeLocal = (dateTime) => {
   if (!dateTime) return ''
-  const date = new Date(dateTime)
+  const date = parseNewsDateTime(dateTime)
+  if (!date || isNaN(date.getTime())) return ''
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')

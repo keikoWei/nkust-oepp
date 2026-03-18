@@ -26,30 +26,52 @@
             </div>
           </div>
         </div>
-        <div class="download-section" v-if="announcement.downloadFilePath || announcement.downloadFile">
-          <div class="download-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="download-icon">
-              <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <a
-              v-if="announcement.downloadFilePath"
-              href="#"
-              class="download-link"
-              @click.prevent="handleDownloadFile(announcement)"
+        <div
+          class="download-section"
+          v-if="
+            (announcement.downloadFiles && announcement.downloadFiles.length > 0) ||
+            announcement.downloadFilePath ||
+            announcement.downloadFile
+          "
+        >
+          <div class="download-list">
+            <div
+              class="download-item"
+              v-for="(file, idx) in (announcement.downloadFiles && announcement.downloadFiles.length > 0
+                ? announcement.downloadFiles
+                : (announcement.downloadFilePath ? [{ downloadFilePath: announcement.downloadFilePath, downloadFileName: announcement.downloadFileName }] : []))"
+              :key="file.downloadFilePath || idx"
             >
-              {{ announcement.downloadFileName }}
-            </a>
-            <a
-              v-else
-              :href="announcement.downloadFile"
-              :download="getDisplayFileName(announcement.downloadFile)"
-              class="download-link"
-              target="_blank"
-            >
-              {{ getDisplayFileName(announcement.downloadFile) }}
-            </a>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="download-icon">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <a
+                v-if="file.downloadFilePath"
+                href="#"
+                class="download-link"
+                @click.prevent="handleDownloadFile(file)"
+              >
+                {{ file.downloadFileName || getDisplayFileName(file.downloadFilePath) }}
+              </a>
+            </div>
+
+            <div class="download-item" v-if="announcement.downloadFile && !(announcement.downloadFiles && announcement.downloadFiles.length > 0)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="download-icon">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <a
+                :href="announcement.downloadFile"
+                :download="getDisplayFileName(announcement.downloadFile)"
+                class="download-link"
+                target="_blank"
+              >
+                {{ getDisplayFileName(announcement.downloadFile) }}
+              </a>
+            </div>
           </div>
         </div>
       </template>
@@ -278,6 +300,15 @@ const {
   text-align: center;
 }
 
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 .download-item {
   display: flex;
   align-items: center;
@@ -285,7 +316,7 @@ const {
   gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 3rem;
+  padding: 1.25rem 2rem;
   background: #f8f9fa;
   border-radius: 8px;
   border: 2px solid #e3d9cd;

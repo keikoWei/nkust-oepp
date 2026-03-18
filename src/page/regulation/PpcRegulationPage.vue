@@ -16,10 +16,10 @@
       
       <!-- 法規分類列表 -->
       <div class="regulation-categories">
-        <!-- 推廣教育相關法規 -->
+        <!-- 產品推廣中心相關法規 -->
         <div class="category-section">
           <div class="category-header">
-            <span class="category-title">推廣教育相關法規</span>
+            <span class="category-title">產品推廣中心相關法規</span>
           </div>
           <div class="file-list">
             <div class="file-item" v-for="file in educationRegulations" :key="file.name">
@@ -31,10 +31,10 @@
           </div>
         </div>
 
-        <!-- 推廣教育訓練品質管理 -->
+        <!-- 產品推廣中心相關要點 -->
         <div class="category-section">
           <div class="category-header">
-            <span class="category-title">推廣教育訓練品質管理</span>
+            <span class="category-title">產品推廣中心相關要點</span>
           </div>
           <div class="file-list">
             <div class="file-item" v-for="file in qualityManagement" :key="file.name">

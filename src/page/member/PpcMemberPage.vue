@@ -79,6 +79,19 @@ const membersInfo = [
     ]
   },
   {
+    title: '專任助理',
+    name: '陳怡璇',
+    photo: '/image/members/default_man_01.png',
+    contacts: [
+      { label: '分機', value: '' },
+      { label: '信箱', value: 'eihc4020@nkust.edu.tw' }
+    ],
+    responsibilities: [
+      '產推中心相關事務',
+      '其他臨時交辦事項'
+    ]
+  },
+  {
     title: '待聘',
     name: '',
     photo: '/image/members/default_man_01.png',

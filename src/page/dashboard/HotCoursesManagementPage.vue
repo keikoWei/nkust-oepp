@@ -395,11 +395,56 @@ const goToPage = (page) => {
   }
 }
 
+function parseCourseDateTime(dateTime) {
+  if (!dateTime) return null
+  if (typeof dateTime !== 'string') return new Date(dateTime)
+  const s = dateTime.trim()
+  if (!s) return null
+  // 不含時區的 ISO 字串，視為本地時間（與「使用者輸入多少就送多少」一致）
+  return new Date(s)
+}
+
+function normalizeDateTimeLocalToSeconds(value) {
+  if (!value) return ''
+  const s = String(value).trim()
+  if (!s) return ''
+  // "YYYY-MM-DDTHH:mm" → "YYYY-MM-DDTHH:mm:00"
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(s)) return `${s}:00`
+  // 已含秒數就直接用
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(s)) return s
+  return s
+}
+
+function nowLocalDateTimeSeconds() {
+  const d = new Date()
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  const hh = String(d.getHours()).padStart(2, '0')
+  const mm = String(d.getMinutes()).padStart(2, '0')
+  const ss = String(d.getSeconds()).padStart(2, '0')
+  return `${y}-${m}-${day}T${hh}:${mm}:${ss}`
+}
+
 // 格式化日期時間
 const formatDateTime = (dateTime) => {
   if (!dateTime) return '立即公開'
-  const date = new Date(dateTime)
+  const date = parseCourseDateTime(dateTime)
+  if (!date || isNaN(date.getTime())) return '立即公開'
   return date.toLocaleString('zh-TW')
+}
+
+// 格式化為 datetime-local 格式（供表單編輯使用）
+const formatDateTimeLocal = (dateTime) => {
+  if (!dateTime) return ''
+  const date = parseCourseDateTime(dateTime)
+  if (!date || isNaN(date.getTime())) return ''
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
+  return `${year}-${month}-${day}T${hours}:${minutes}`
 }
 
 // 從檔案路徑取得檔案名稱
@@ -562,7 +607,7 @@ const handleEdit = (course) => {
     contentHtml: course.contentHtml,
     sortOrder: course.sortOrder,
     isEnabled: course.isEnabled,
-    publishTime: course.publishTime ? new Date(course.publishTime).toISOString().slice(0, 16) : ''
+    publishTime: course.publishTime ? formatDateTimeLocal(course.publishTime) : ''
   }
   mainImagePreview.value = null
   selectedMainImageFile.value = null
@@ -636,8 +681,8 @@ const handleSubmit = async () => {
     formData.append('isEnabled', form.value.isEnabled.toString())
     
     const publishTime = form.value.publishTime
-      ? new Date(form.value.publishTime).toISOString()
-      : new Date().toISOString()
+      ? normalizeDateTimeLocalToSeconds(form.value.publishTime)
+      : nowLocalDateTimeSeconds()
     formData.append('publishTime', publishTime)
     
     if (editingCourse.value) {
