@@ -14,7 +14,7 @@
     <!-- 最新消息內容區域 -->
     <div class="news-content">
       <div class="content-wrapper">
-        <PpcNewsComponents />
+        <AllPpcNewsComponent />
       </div>
     </div>
     
@@ -26,7 +26,7 @@
 <script setup>
 import PpcHeader from '@/components/PpcHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
-import PpcNewsComponents from '@/components/PpcNewsComponents.vue'
+import AllPpcNewsComponent from '@/components/AllPpcNewsComponent.vue'
 </script>
 
 <style scoped>

@@ -11,6 +11,11 @@ const router = createRouter({
       component: () => import('../layout/OeppMainLayout.vue')
     },
     {
+      path: '/news/oepp',
+      name: 'oepp-news',
+      component: () => import('../page/oepp/OeppNewsPage.vue')
+    },
+    {
       path: '/productCenter',
       name: 'product-center',
       component: () => import('../layout/PpcLayout.vue')
@@ -24,6 +29,11 @@ const router = createRouter({
       path: '/publication',
       name: 'publication-center',
       component: () => import('../layout/EpcLayout.vue')
+    },
+    {
+      path: '/exhibitionCenter/news',
+      name: 'epc-news',
+      component: () => import('../page/epc/EpcNewsPage.vue')
     },
     {
       path: '/managementCenter',

@@ -19,8 +19,21 @@ function getFileNameFromPath(filePath) {
 
 function mapApiCourseToDetail(apiCourse) {
   if (!apiCourse) return null
-  const d = apiCourse.publishTime ? new Date(apiCourse.publishTime) : null
-  const dateStr = d ? `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}` : ''
+  let dateStr = ''
+  if (apiCourse.publishTime) {
+    if (typeof apiCourse.publishTime === 'string') {
+      const m = apiCourse.publishTime.trim().match(/^(\d{4})-(\d{2})-(\d{2})/)
+      if (m) {
+        dateStr = `${m[1]}.${m[2]}.${m[3]}`
+      }
+    }
+    if (!dateStr) {
+      const d = new Date(apiCourse.publishTime)
+      if (!Number.isNaN(d.getTime())) {
+        dateStr = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
+      }
+    }
+  }
   const filePaths = apiCourse.filePaths || []
   const firstFile = filePaths[0]
   return {

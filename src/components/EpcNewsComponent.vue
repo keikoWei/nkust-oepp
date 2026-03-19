@@ -47,11 +47,15 @@ const newsList = ref([])
 
 function formatNewsDate(isoStr) {
   if (!isoStr) return ''
+  if (typeof isoStr === 'string') {
+    const m = isoStr.trim().match(/^(\d{4})-(\d{2})-(\d{2})/)
+    if (m) return `${m[1]}.${m[2]}.${m[3]}`
+  }
   const d = new Date(isoStr)
   const y = d.getFullYear()
   const m = String(d.getMonth() + 1).padStart(2, '0')
   const day = String(d.getDate()).padStart(2, '0')
-  return `${y}.${m}.${day}`
+  return Number.isNaN(d.getTime()) ? '' : `${y}.${m}.${day}`
 }
 
 onMounted(async () => {
@@ -75,7 +79,7 @@ const goToDetail = (news) => {
 }
 
 const toggleExpand = () => {
-  router.push('/exhibitionCenter/introduction')
+  router.push('/exhibitionCenter/news')
 }
 </script>
 

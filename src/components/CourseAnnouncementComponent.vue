@@ -13,7 +13,7 @@
       </template>
       <template v-else>
       <!-- 公告項目 -->
-      <div class="announcement-item" v-for="(announcement, index) in sortedAnnouncementList" :key="announcement.id">
+      <div class="announcement-item" v-for="(announcement, index) in displayList" :key="announcement.id">
         <div class="announcement-date">{{ announcement.date }}</div>
         <div class="announcement-text" :class="{ 'two-line': announcement.title.length > 35 }" @click.stop="goToDetail(announcement)">{{ announcement.title }}</div>
       </div>
@@ -42,11 +42,15 @@ const announcementList = ref([])
 
 function formatNewsDate(isoStr) {
   if (!isoStr) return ''
+  if (typeof isoStr === 'string') {
+    const m = isoStr.trim().match(/^(\d{4})-(\d{2})-(\d{2})/)
+    if (m) return `${m[1]}.${m[2]}.${m[3]}`
+  }
   const d = new Date(isoStr)
   const y = d.getFullYear()
   const m = String(d.getMonth() + 1).padStart(2, '0')
   const day = String(d.getDate()).padStart(2, '0')
-  return `${y}.${m}.${day}`
+  return Number.isNaN(d.getTime()) ? '' : `${y}.${m}.${day}`
 }
 
 onMounted(async () => {
@@ -67,6 +71,9 @@ onMounted(async () => {
 const sortedAnnouncementList = computed(() => {
   return [...announcementList.value].sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
 })
+
+// 首頁僅顯示最新 6 筆
+const displayList = computed(() => sortedAnnouncementList.value.slice(0, 6))
 
 const toggleExpand = () => {
   router.push('/educationCenter/courseAnnouncement')
