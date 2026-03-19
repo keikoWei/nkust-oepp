@@ -10,11 +10,27 @@
   
   <div class="download-page">
     <DownloadHeader activeTab="com" />
-    
-    <!-- 下載內容區域 -->
+
     <div class="download-content">
-      <h2>暫無下載內容</h2>
-      <p>暫無經營管理中心相關下載內容...</p>
+      <div class="download-files">
+        <div class="file-item" v-for="file in downloadFiles" :key="file.name">
+          <div class="category-box">
+            <div class="category-text">
+              <div>經營管理</div>
+              <div>相關表單</div>
+            </div>
+          </div>
+          <div class="file-info">
+            <h3 class="file-title">{{ file.name }}</h3>
+            <div class="title-download-container">
+              <span></span>
+              <a :href="file.url" target="_blank" rel="noopener noreferrer" class="download-text">
+                前往連結
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -26,6 +42,13 @@
 import AppHeader from '@/components/AppHeader.vue'
 import DownloadHeader from '@/components/download/DownloadHeader.vue'
 import MainFooterComponent from '@/components/MainFooterComponent.vue'
+
+const downloadFiles = [
+  {
+    name: '民間參與公共建設案件民間投資金額試算表',
+    url: 'https://ppp.mof.gov.tw/WWW/ref4.aspx?mid=8CDC76A1657676D2&oid=3EF82971BC6158C0'
+  }
+]
 </script>
 
 <style scoped>
@@ -67,51 +90,217 @@ import MainFooterComponent from '@/components/MainFooterComponent.vue'
   padding: 1.3rem 0;  /* 原本 2rem * 0.67 */
 }
 
-.download-content h2 {
-  font-size: 24pt;  /* 原本 36pt * 0.67 */
-  color: #333;
-  text-align: center;
-  margin-bottom: 1.3rem;  /* 原本 2rem * 0.67 */
+.download-files {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.file-item {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  padding: 15px 20px;
+  min-height: 95px;
+}
+
+.category-box {
+  width: 180px;
+  height: 65px;
+  background-color: #6B574F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.category-text {
+  font-size: 12pt;
+  color: #fff;
   font-weight: normal;
-}
-
-.download-content p {
-  font-size: 12pt;  /* 原本 18pt * 0.67 */
-  color: #666;
-  line-height: 1.6;
   text-align: center;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* 手機版樣式 */
+.file-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.title-download-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #6B574F;
+  padding-bottom: 5px;
+  margin-left: -200px;
+  padding-left: 200px;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+}
+
+.file-title {
+  font-size: 18pt;
+  color: #333;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.download-text {
+  font-size: 12pt;
+  color: #666;
+  text-decoration: none;
+  align-self: flex-end;
+  transition: color 0.3s ease;
+}
+
+.download-text:hover {
+  color: #6B574F;
+}
+
+@media (max-width: 768px) {
+  .file-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 12px 15px;
+    min-height: 85px;
+  }
+
+  .category-box {
+    width: 160px;
+    height: 55px;
+  }
+
+  .category-text {
+    font-size: 11pt;
+  }
+
+  .file-title {
+    font-size: 13pt;
+  }
+
+  .download-text {
+    font-size: 11pt;
+  }
+
+  .title-download-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-left: -180px;
+    padding-left: 180px;
+    position: absolute;
+    top: 40px;
+  }
+
+  .file-info {
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .file-title {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+}
+
 @media (max-width: 480px) {
+  .category-box {
+    width: 140px;
+    height: 50px;
+  }
+
+  .category-text {
+    font-size: 9pt;
+  }
+
+  .file-title {
+    font-size: 12pt;
+  }
+
+  .download-text {
+    font-size: 9pt;
+  }
+
+  .file-item {
+    padding: 10px 12px;
+    min-height: 80px;
+  }
+
   .download-banner {
     width: 100%;
     margin: 0;
   }
-  
+
   .banner-image {
-    height: 200px;  /* 手機版縮小高度 */
+    height: 200px;
   }
-  
+
   .download-page {
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
     background-color: #d9d9d9;
   }
-  
+
   .download-content {
     width: 100%;
     margin-top: 1rem;
     padding: 1rem 0;
   }
-  
-  .download-content h2 {
-    font-size: 20pt;
+
+  .download-files {
+    max-width: 100%;
+    width: 100%;
   }
-  
-  .download-content p {
-    font-size: 12pt;
+
+  .file-item {
+    max-width: 100%;
+    margin: 0 auto 1rem auto;
+  }
+
+  .title-download-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-left: 0;
+    padding-left: 0;
+    position: static;
+    border-bottom: 2px solid #6B574F;
+    padding-bottom: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .file-info {
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .file-title {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    text-align: left;
   }
 }
 </style>
