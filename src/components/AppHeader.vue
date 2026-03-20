@@ -52,13 +52,13 @@
             產品推廣中心
           </RouterLink>
           
-          <RouterLink to="/publication" class="mobile-nav-btn" @click="closeMobileMenu">
-            會展及出版中心
-          </RouterLink>
-          
-          <a href="https://oom.nkust.edu.tw/" target="_blank" rel="noopener noreferrer" class="mobile-nav-btn">
+          <RouterLink
+            to="/managementCenter"
+            class="mobile-nav-btn"
+            @click="closeMobileMenu"
+          >
             經營管理中心
-          </a>
+          </RouterLink>
           
           <RouterLink to="/regulations/oepp" class="mobile-nav-btn" @click="closeMobileMenu">
             法規彙編
@@ -107,9 +107,9 @@
               會展及出版中心
             </RouterLink>
             
-            <a href="https://oom.nkust.edu.tw/" target="_blank" rel="noopener noreferrer" class="nav-btn">
+            <RouterLink to="/managementCenter" class="nav-btn">
               經營管理中心
-            </a>
+            </RouterLink>
             
             <RouterLink to="/regulations/oepp" class="nav-btn">
               法規彙編

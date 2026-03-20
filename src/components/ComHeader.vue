@@ -34,7 +34,7 @@
             </button>
             <div class="mobile-dropdown-menu" v-show="openMobileDropdown === 'center'">
               <RouterLink to="/managementCenter/introduction" @click="closeMobileMenu" class="mobile-dropdown-item">中心簡介</RouterLink>
-              <RouterLink to="/about/members/com" @click="closeMobileMenu" class="mobile-dropdown-item">人事介紹</RouterLink>
+              <RouterLink to="/about/members/com" @click="closeMobileMenu" class="mobile-dropdown-item">人員介紹</RouterLink>
             </div>
           </div>
           <RouterLink to="/managementCenter/news" class="mobile-nav-btn" @click="closeMobileMenu">最新消息</RouterLink>
@@ -54,7 +54,7 @@
               <span class="mobile-dropdown-arrow" :class="{ open: openMobileDropdown === 'download' }">▼</span>
             </button>
             <div class="mobile-dropdown-menu" v-show="openMobileDropdown === 'download'">
-              <RouterLink to="/download/com" @click="closeMobileMenu" class="mobile-dropdown-item">表格下載</RouterLink>
+              <RouterLink to="/download/com" @click="closeMobileMenu" class="mobile-dropdown-item">表單下載</RouterLink>
             </div>
           </div>
           <RouterLink to="/managementCenter/links" class="mobile-nav-btn" @click="closeMobileMenu">相關連結</RouterLink>
@@ -79,7 +79,7 @@
                   <div class="dropdown-item">中心簡介</div>
                 </RouterLink>
                 <RouterLink to="/about/members/com" @click="closeDropdown">
-                  <div class="dropdown-item">人事介紹</div>
+                  <div class="dropdown-item">人員介紹</div>
                 </RouterLink>
               </div>
             </div>
@@ -99,7 +99,7 @@
               <button class="nav-btn dropdown-btn">下載專區 <span class="dropdown-arrow">▼</span></button>
               <div class="dropdown-menu" v-show="showDropdown === 'download'">
                 <RouterLink to="/download/com" @click="closeDropdown">
-                  <div class="dropdown-item">表格下載</div>
+                  <div class="dropdown-item">表單下載</div>
                 </RouterLink>
               </div>
             </div>

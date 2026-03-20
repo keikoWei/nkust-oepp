@@ -15,7 +15,7 @@
       <div class="regulation-categories">
         <div class="category-section">
           <div class="category-header">
-            <span class="category-title">經營管理中心財政部法規</span>
+            <span class="category-title">財政部法規</span>
           </div>
           <div class="file-list">
             <div class="file-item" v-for="item in mofRegulations" :key="item.name">
@@ -29,7 +29,7 @@
 
         <div class="category-section">
           <div class="category-header">
-            <span class="category-title">經營管理中心本校法規</span>
+            <span class="category-title">本校法規</span>
           </div>
           <div class="file-list">
             <div class="file-item" v-for="item in nkustRegulations" :key="item.name">
